@@ -31,14 +31,45 @@ public:
     charge{particle_charge},
     velocity{particle_velocity},
     beta{particle_velocity/light_speed}
-  {
+  { 
+    if (particle_type != "electron" && particle_type != "positron" && particle_type != "muon" && particle_type != "antimuon")
+    {
+      std::cerr<<"Error: Invalid lepton type given. Lepton set to be electron"<<std::endl;
+      type = "electron";
+    }
     if (particle_velocity<0 || particle_velocity > light_speed)
     {
       std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
-      std::cerr<<"Error: Setting velocity and beta to be 0."<<std::endl;
+      std::cerr<<"Setting velocity and beta to be 0."<<std::endl;
       velocity = 0.0;
       beta = 0.0;
     }
+    if (particle_charge != -1 && particle_charge != 1)
+    {
+      std::cerr<<"Error: Charge must be either -1 or 1."<<std::endl;
+      if (type == "electron" || type == "muon") 
+      {
+      std::cerr<<"Charge of "<<type<<" set to -1."<<std::endl;
+      charge = -1;
+      }
+      else if (type == "positron" || type == "antimuon") 
+      {
+      std::cerr<<"Charge of "<<type<<" set to +1."<<std::endl;
+      charge = 1;
+      }    
+    }
+    else if ((type == "electron" || type == "muon") && particle_charge != -1) 
+    {
+      std::cerr<<"Error: Invalid charge for "<<type<<". Charge must be -1."<<std::endl;
+      std::cerr<<"Setting charge = -1."<<std::endl;
+      charge = -1;
+    }
+    else if ((type == "positron" || type == "antimuon") && particle_charge != 1)
+    { 
+      std::cerr<<"Error: Invalid charge for positron/antimuon. Charge must be 1."<<std::endl;
+      std::cerr<<"Setting charge = +1."<<std::endl;
+      charge = 1;
+    } 
   }
   
   // Destructor 
@@ -48,13 +79,45 @@ public:
     std::cout<<"Destroying "<<type<<std::endl;
   }
   
-  // Getter functions (accessors) to 
-  // This should include function returning beta value 
+  // Getter functions read only (accessors) to 
+  // This should include function returning beta value
+  std::string get_type() const 
+  {
+    return type;
+  }
+
+  double get_rest_mass() const 
+  {
+    return rest_mass;
+  }
+
+  int get_charge() const 
+  {
+    return charge;
+  }
+
+  double get_velocity() const 
+  {
+    return velocity;
+  }
+
+  double get_beta() const 
+  {
+    return beta;
+  }
 
   // Setter functions, to change value of data members
-  // Make sure you check input validity before changing something
-  // Hint: you can use the input checking functions you used in assignment 1
 
+  void set_type(std::string particle_type);
+
+  void set_rest_mass(double particle_mass)
+  {
+    rest_mass = particle_mass;
+  }
+
+  void set_charge(int particle_charge);
+
+  void set_velocity(int particle_velocity);
   // Function to print info about a particle
   void print_data();
 };
@@ -68,6 +131,48 @@ void particle::print_data()
   std::cout<<"Velocity: "<<velocity<<" m/s"<<std::endl;
   std::cout<<"Beta: "<<beta<<std::endl;
 }
+
+void particle::set_charge(int particle_charge)
+  {
+    if (particle_charge != -1 && particle_charge != 1)
+    {
+      std::cerr<<"Error: Charge must be either -1 or 1."<<std::endl;
+      std::cerr<<"Error: Charge not updated."<<std::endl;
+    } 
+    else if ((type == "electron" || type == "muon") && particle_charge != -1) 
+    {
+    std::cerr<<"Error: Invalid charge for electron/muon. Charge must be -1."<<std::endl;
+    std::cerr<<"Error: Charge not updated. Reset type of particle if it is incorrect"<<std::endl;
+    } 
+    else if ((type == "positron" || type == "antimuon") && particle_charge != 1)
+    { 
+      std::cerr<<"Error: Invalid charge for positron/antimuon. Charge must be 1."<<std::endl;
+      std::cerr<<"Error: Charge not updated. Reset type of particle if it is incorrect."<<std::endl;
+    }
+    else
+      charge = particle_charge;
+  }
+
+  void particle::set_type(std::string particle_type)
+  {
+    if (particle_type != "electron" || particle_type != "positron" || particle_type != "muon" || particle_type != "antimuon")
+    {
+      std::cerr<<"Error: Invalid lepton type given."<<std::endl;
+      std::cerr<<"Error: Lepton type not updated."<<std::endl;
+    }
+    else if ((particle_type == "electron" || particle_type == "muon") && charge != -1)
+    {
+    std::cerr<<"Error: Invalid charge for electron/muon. Charge must be -1."<<std::endl;
+    std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect"<<std::endl;
+    }
+    else if ((type == "positron" || type == "antimuon") && charge != 1)
+    { 
+      std::cerr<<"Error: Invalid charge for positron/antimuon. Charge must be 1."<<std::endl;
+      std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect."<<std::endl;
+    }  
+    else
+      type = particle_type;
+  }
 // End of particle class and associated member functions
 
 // Beginning of detector class
@@ -85,7 +190,10 @@ void particle::print_data()
 // Main program
 int main()
 {
-  particle electron("electron", 0.511, -1, 4.5e8);
+  particle electron("electron", 0.511, 1, 2.5e8);
+  std::cout<<"Attempting to set charge of electron = 1"<<std::endl;
+  electron.set_charge(1);
+  std::cout<<"Outputing data members of particle class of electron"<<std::endl;
   electron.print_data();  
   // Create the following particles: 
   // two electrons, four muons, one antielectron, one antimuon
