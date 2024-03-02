@@ -7,21 +7,47 @@
 #include<vector>
 #include<cmath>
 
-using std::string;
+#define light_speed 2.99792458e8
 
 // Beginning of particle class
 class particle
 {
 private:
-  string particle_name;
-  //...other data members (see slides on BB)
+  // data members
+  std::string type;
+  double rest_mass; // in MeV
+  int charge; // +1 particle, -1 antiparticle
+  double velocity; // in m/s
+  double beta; // = v/c
 
 public:
   // Constructors
-  // Here you need a default constructor, and a parameterised constructor
-
-  // Destructor
-
+  // default constructor
+  particle() = default;
+  //Parameterised constructor
+  particle(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) :
+    type{particle_type}, 
+    rest_mass{particle_mass},
+    charge{particle_charge},
+    velocity{particle_velocity},
+    beta{particle_velocity/light_speed}
+  {
+    if (particle_velocity<0 || particle_velocity > light_speed)
+    {
+      std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
+      std::cerr<<"Error: Setting velocity and beta to be 0."<<std::endl;
+      velocity = 0.0;
+      beta = 0.0;
+    }
+  }
+  
+  // Destructor 
+  /***********************/
+  ~particle()
+  {
+    std::cout<<"Destroying "<<type<<std::endl;
+  }
+  
   // Getter functions (accessors) to 
   // This should include function returning beta value 
 
@@ -31,11 +57,17 @@ public:
 
   // Function to print info about a particle
   void print_data();
-
 };
 
 // Implementation of print_data function goes here
-
+void particle::print_data()
+{
+  std::cout<<"Particle Type: "<<type<<std::endl;
+  std::cout<<"Rest Mass: "<<rest_mass<<" MeV"<<std::endl;
+  std::cout<<"Charge: "<<charge<<std::endl;
+  std::cout<<"Velocity: "<<velocity<<" m/s"<<std::endl;
+  std::cout<<"Beta: "<<beta<<std::endl;
+}
 // End of particle class and associated member functions
 
 // Beginning of detector class
@@ -53,7 +85,8 @@ public:
 // Main program
 int main()
 {
-  std::cout<<"The calculated mean"<<std::endl;
+  particle electron("electron", 0.511, -1, 4.5e8);
+  electron.print_data();  
   // Create the following particles: 
   // two electrons, four muons, one antielectron, one antimuon
   // Use the parameterised constructor
