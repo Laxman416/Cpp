@@ -53,7 +53,7 @@ public:
 // Main program
 int main()
 {
-
+  std::cout<<"The calculated mean"<<std::endl;
   // Create the following particles: 
   // two electrons, four muons, one antielectron, one antimuon
   // Use the parameterised constructor
