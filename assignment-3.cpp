@@ -21,6 +21,7 @@ private:
   double beta; // = v/c
   bool is_antiparticle;
 
+
 public:
   // Constructors
   // default constructor
@@ -33,55 +34,7 @@ public:
     velocity{particle_velocity},
     beta{particle_velocity/light_speed}
   { 
-    if (particle_type == "electron" || particle_type == "muon")
-    {
-      is_antiparticle = false;
-      type = particle_type;
-    }
-    else if (particle_type == "positron" || particle_type == "antimuon")
-    {
-      is_antiparticle = true;
-      type = particle_type;
-    }
-    else
-    {
-      std::cerr<<"Error: Invalid lepton type given. Lepton set to be electron"<<std::endl;
-      type = "electron";
-      is_antiparticle = false;
-    }
-    if (particle_velocity<0 || particle_velocity > light_speed)
-    {
-      std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
-      std::cerr<<"Setting velocity and beta to be 0."<<std::endl;
-      velocity = 0.0;
-      beta = 0.0;
-    }
-    if (particle_charge != -1 && particle_charge != 1)
-    {
-      std::cerr<<"Error: Charge must be either -1 or 1."<<std::endl;
-      if (is_antiparticle == false) 
-      {
-        std::cerr<<"Charge of "<<type<<" set to -1."<<std::endl;
-        charge = -1;
-      }
-      else if (is_antiparticle == true) 
-      {
-        std::cerr<<"Charge of "<<type<<" set to +1."<<std::endl;
-        charge = 1;
-      }    
-    }
-    else if (is_antiparticle == false && particle_charge != -1) 
-    {
-      std::cerr<<"Error: Invalid charge for "<<type<<". Charge must be -1."<<std::endl;
-      std::cerr<<"Setting charge = -1."<<std::endl;
-      charge = -1;
-    }
-    else if (is_antiparticle == true && particle_charge != 1)
-    { 
-      std::cerr<<"Error: Invalid charge for "<<type<<". Charge must be 1."<<std::endl;
-      std::cerr<<"Setting charge = +1."<<std::endl;
-      charge = 1;
-    } 
+    verifyInput(particle_type, particle_mass, particle_charge, particle_velocity);
   }
   
   // Destructor 
@@ -90,7 +43,9 @@ public:
   {
     std::cout<<"Destroying "<<type<<std::endl;
   }
-  
+  // Function to validate input
+  void verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity);
+
   // Getter functions read only (accessors) to 
   // This should include function returning beta value
   std::string get_type() const 
@@ -122,10 +77,7 @@ public:
 
   void set_type(std::string particle_type);
 
-  void set_rest_mass(double particle_mass)
-  {
-    rest_mass = particle_mass;
-  }
+  void set_rest_mass(double particle_mass);
 
   void set_charge(int particle_charge);
 
@@ -138,6 +90,67 @@ public:
 };
 
 // Implementation of print_data function goes here
+
+void particle::verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
+{
+  if (particle_mass < 0)
+  {
+    std::cerr << "Error: Invalid mass given, mass must be positive." << std::endl;
+    std::cerr << "Setting mass to 0." << std::endl;
+    rest_mass = 0;
+  }
+  if (particle_type == "electron" || particle_type == "muon") 
+  {
+    is_antiparticle = false;
+    type = particle_type;
+  } 
+  else if (particle_type == "positron" || particle_type == "antimuon") 
+  {
+    is_antiparticle = true;
+    type = particle_type;
+  } else 
+  {
+    std::cerr << "Error: Invalid lepton type given. Lepton set to be electron" << std::endl;
+    type = "electron";
+    is_antiparticle = false;
+  }
+
+  if (particle_velocity < 0 || particle_velocity > light_speed) 
+  {
+    std::cerr << "Error: Velocity must be between 0 and the speed of light." << std::endl;
+    std::cerr << "Setting velocity and beta to be 0." << std::endl;
+    velocity = 0.0;
+    beta = 0.0;
+  }
+
+  if (particle_charge != -1 && particle_charge != 1) 
+  {
+    std::cerr << "Error: Charge must be either -1 or 1." << std::endl;
+    if (!is_antiparticle) 
+    {
+      std::cerr << "Charge of " << type << " set to -1." << std::endl;
+      charge = -1;
+    } 
+    else 
+    {
+      std::cerr << "Charge of " << type << " set to +1." << std::endl;
+      charge = 1;
+    }
+  } 
+  else if (!is_antiparticle && particle_charge != -1) 
+  {
+    std::cerr << "Error: Invalid charge for " << type << ". Charge must be -1." << std::endl;
+    std::cerr << "Setting charge = -1." << std::endl;
+    charge = -1;
+  } 
+  else if (is_antiparticle && particle_charge != 1) 
+  {
+    std::cerr << "Error: Invalid charge for " << type << ". Charge must be 1." << std::endl;
+    std::cerr << "Setting charge = +1." << std::endl;
+    charge = 1;
+  }
+}
+
 void particle::print_data()
 {
   std::cout<<"Particle Type: "<<type<<std::endl;
@@ -232,6 +245,19 @@ void particle::set_beta(double particle_beta)
     beta = particle_beta;
     velocity = beta * light_speed;
     std::cout<<type<<"'s velocity and beta updated"<<std::endl;
+  }
+}
+
+void particle::set_rest_mass(double particle_mass)
+{
+  if (particle_mass < 0)
+  {
+    std::cerr<<"Error: Invalid value for rest mass. Mass must be positive."<<std::endl;
+    std::cerr<<"Error: Rest mass of particle not updated."<<std::endl;    
+  }
+  else
+  {
+    rest_mass = particle_mass;
   }
 }
 
