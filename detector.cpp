@@ -73,14 +73,17 @@ int detector::check_particle_detected(const particle& particle_in_detector) cons
     std::string type_of_particle = particle_in_detector.get_type();
     if (detector_type == "tracker" && (type_of_particle == "muon" || type_of_particle == "antimuon" || type_of_particle == "electron" || type_of_particle == "positron")) 
     {
+      std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
     }
     else if (detector_type == "calorimeter" && (type_of_particle == "electron" || type_of_particle == "positron"))
     {
+      std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
     }
     else if (detector_type == "muon chamber" && (type_of_particle == "muon" || type_of_particle == "antimuon"))
     {
+      std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
     }
     else
