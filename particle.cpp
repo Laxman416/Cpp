@@ -6,99 +6,22 @@
 #include<string>
 #include<vector>
 #include<cmath>
+#include "particle.h"
 
-#define light_speed 2.99792458e8
-
-// Beginning of particle class
-class particle
-{
-private:
-  // data members
-  std::string type;
-  double rest_mass; // in MeV
-  int charge; // +1 particle, -1 antiparticle
-  double velocity; // in m/s
-  double beta; // = v/c
-  bool is_antiparticle;
-
-
-public:
-  // Constructors
-  // default constructor
-  particle() = default;
-  //Parameterised constructor
-  particle(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) :
-    type{particle_type}, 
-    rest_mass{particle_mass},
-    charge{particle_charge},
-    velocity{particle_velocity},
-    beta{particle_velocity/light_speed}
-  { 
-    verifyInput(particle_type, particle_mass, particle_charge, particle_velocity);
-  }
-  
-  // Destructor 
-  /***********************/
-  ~particle()
-  {
-    std::cout<<"Destroying "<<type<<std::endl;
-  }
-  // Function to validate input
-  void verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity);
-
-  // Getter functions read only (accessors) to 
-  // This should include function returning beta value
-  std::string get_type() const 
-  {
-    return type;
-  }
-
-  double get_rest_mass() const 
-  {
-    return rest_mass;
-  }
-
-  int get_charge() const 
-  {
-    return charge;
-  }
-
-  double get_velocity() const 
-  {
-    return velocity;
-  }
-
-  double get_beta() const 
-  {
-    return beta;
-  }
-
-  // Setter functions, to change value of data members
-
-  void set_type(std::string particle_type);
-
-  void set_rest_mass(double particle_mass);
-
-  void set_charge(int particle_charge);
-
-  void set_velocity(double particle_velocity);
-
-  void set_beta(double particle_beta);
-
-  // Function to print info about a particle
-  void print_data();
-};
 
 // Implementation of print_data function goes here
 
 void particle::verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
 {
+  // Loop to validate particle mass
   if (particle_mass < 0)
   {
     std::cerr << "Error: Invalid mass given, mass must be positive." << std::endl;
     std::cerr << "Setting mass to 0." << std::endl;
     rest_mass = 0;
   }
+
+  // Loop to validate particle type
   if (particle_type == "electron" || particle_type == "muon") 
   {
     is_antiparticle = false;
@@ -108,13 +31,15 @@ void particle::verifyInput(std::string particle_type, double particle_mass, int 
   {
     is_antiparticle = true;
     type = particle_type;
-  } else 
+  } 
+  else 
   {
     std::cerr << "Error: Invalid lepton type given. Lepton set to be electron" << std::endl;
     type = "electron";
     is_antiparticle = false;
   }
 
+  // Loop to validate particle velocity
   if (particle_velocity < 0 || particle_velocity > light_speed) 
   {
     std::cerr << "Error: Velocity must be between 0 and the speed of light." << std::endl;
@@ -123,6 +48,7 @@ void particle::verifyInput(std::string particle_type, double particle_mass, int 
     beta = 0.0;
   }
 
+  // Loop to validate particle charge
   if (particle_charge != -1 && particle_charge != 1) 
   {
     std::cerr << "Error: Charge must be either -1 or 1." << std::endl;
@@ -204,8 +130,8 @@ void particle::set_type(std::string particle_type)
   }
   if (is_antiparticle_check == false && charge != -1)
   {
-  std::cerr<<"Error: Invalid charge for electron/muon. Charge must be -1."<<std::endl;
-  std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect"<<std::endl;
+    std::cerr<<"Error: Invalid charge for electron/muon. Charge must be -1."<<std::endl;
+    std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect"<<std::endl;
   }
   else if (is_antiparticle_check == true && charge != 1)
   { 
@@ -275,25 +201,4 @@ void particle::set_rest_mass(double particle_mass)
 
 // End of detector class
 
-// Main program
-int main()
-{
-  particle electron("electron", 0.511, -1, 2.5e8);
-  // std::cout<<"Attempting to set chbetaarge of electron = 0.5"<<std::endl;
-  // electron.set_type("antimuon");
-  std::cout<<"Outputing data members of particle class of electron"<<std::endl;
-  electron.print_data();  
-  // Create the following particles: 
-  // two electrons, four muons, one antielectron, one antimuon
-  // Use the parameterised constructor
 
-  // Print out the data from all the particles (put them in a vector)
-
-  // Create the following detectors: a tracker, a calorimeter, a muon chamber
-
-  // Pass the list of particles into each detector
-
-  // Print a summary of how many particles were detected
-
-  return 0;
-}
