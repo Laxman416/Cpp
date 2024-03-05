@@ -36,7 +36,7 @@ void create_detectors(std::vector<detector>& detectors_vector)
 
 void process_detectors(std::vector<particle>& particles_class_vector, std::vector<detector>& detectors_vector)
 {
-  for (auto& detector : detectors_vector) 
+  for(auto& detector : detectors_vector) 
   {
     // Print detector data
     std::cout<<"Turning "<<detector.get_detector_type()<<" detector on."<<std::endl;
@@ -45,7 +45,7 @@ void process_detectors(std::vector<particle>& particles_class_vector, std::vecto
 
     // Count particles detected by the current detector
     int detector_count = 0;
-    for (const auto& particle_in_detector : particles_class_vector) 
+    for(const auto& particle_in_detector : particles_class_vector) 
     {
       if (detector.check_particle_detected(particle_in_detector)) 
       {
@@ -72,7 +72,7 @@ int main()
   // To change set particles data members, need to use particles_class_vector[i].set_ ....
 
   // Print out data members for all particles
-  for (const auto& particle_iterator : particles_class_vector) 
+  for(const auto& particle_iterator : particles_class_vector) 
   {
     particle_iterator.print_data();
     std::cout<<""<<std::endl;

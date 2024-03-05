@@ -12,7 +12,7 @@
 void detector::verify_input_constructor(std::string new_detector_type, bool new_status)
 {
   // Validate and set detector type
-  if (new_detector_type == "tracker" || new_detector_type == "calorimeter" || new_detector_type == "muon chamber") 
+  if(new_detector_type == "tracker" || new_detector_type == "calorimeter" || new_detector_type == "muon chamber") 
   {
     detector_type = new_detector_type;
   } 
@@ -25,7 +25,7 @@ void detector::verify_input_constructor(std::string new_detector_type, bool new_
   }
 
   // Validate and set status
-  if (new_status == true || new_status == false) 
+  if(new_status == true || new_status == false) 
   {
     status = new_status;
   } 
@@ -42,7 +42,7 @@ void detector::verify_input_constructor(std::string new_detector_type, bool new_
 void detector::set_detector_type(std::string new_detector_type)
 {
  // Validate and set detector type
-  if (new_detector_type == "tracker" || new_detector_type == "calorimeter" || new_detector_type == "muon chamber") 
+  if(new_detector_type == "tracker" || new_detector_type == "calorimeter" || new_detector_type == "muon chamber") 
   {
     detector_type = new_detector_type;
   } 
@@ -63,7 +63,7 @@ void detector::print_data() const
     
 int detector::check_particle_detected(const particle& particle_in_detector) const
 {
-  if (status == false)
+  if(status == false)
   {
     std::cout<<"Detector is off. "<<particle_in_detector.get_type()<<" is not detected"<<std::endl;
     return 0;
@@ -71,17 +71,17 @@ int detector::check_particle_detected(const particle& particle_in_detector) cons
   else
   {
     std::string type_of_particle = particle_in_detector.get_type();
-    if (detector_type == "tracker" && (type_of_particle == "muon" || type_of_particle == "antimuon" || type_of_particle == "electron" || type_of_particle == "positron")) 
+    if(detector_type == "tracker" && (type_of_particle == "muon" || type_of_particle == "antimuon" || type_of_particle == "electron" || type_of_particle == "positron")) 
     {
       std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
     }
-    else if (detector_type == "calorimeter" && (type_of_particle == "electron" || type_of_particle == "positron"))
+    else if(detector_type == "calorimeter" && (type_of_particle == "electron" || type_of_particle == "positron"))
     {
       std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
     }
-    else if (detector_type == "muon chamber" && (type_of_particle == "muon" || type_of_particle == "antimuon"))
+    else if(detector_type == "muon chamber" && (type_of_particle == "muon" || type_of_particle == "antimuon"))
     {
       std::cout<<particle_in_detector.get_type()<<" was detected."<<std::endl;
       return 1;
