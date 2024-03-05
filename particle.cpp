@@ -9,9 +9,9 @@
 #include "particle.h"
 
 
-// Implementation of print_data function goes here
+// Implementation of print_data function
 
-void particle::verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
+void particle::verify_input(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
 {
   // Loop to validate particle mass
   if (particle_mass < 0)
@@ -77,7 +77,7 @@ void particle::verifyInput(std::string particle_type, double particle_mass, int 
   }
 }
 
-void particle::print_data()
+void particle::print_data() const
 {
   std::cout<<"Particle Type: "<<type<<std::endl;
   std::cout<<"Rest Mass: "<<rest_mass<<" MeV"<<std::endl;
@@ -127,6 +127,7 @@ void particle::set_type(std::string particle_type)
   {
     std::cerr<<"Error: Invalid lepton type given."<<std::endl;
     std::cerr<<"Error: Lepton type not updated."<<std::endl;
+    return; // returns from function if invalid lepton type given
   }
   if (is_antiparticle_check == false && charge != -1)
   {
@@ -139,8 +140,10 @@ void particle::set_type(std::string particle_type)
     std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect."<<std::endl;
   }  
   else
+  {
     type = particle_type;
     is_antiparticle = is_antiparticle_check;
+  }
 }
 
 // Function to set velocity with logical checks, also updates beta.

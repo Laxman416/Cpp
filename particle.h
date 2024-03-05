@@ -1,5 +1,5 @@
 // PHYS 30762 Programming in C++
-// Assignment 3
+// Assignment 3 - particle class
 
 #ifndef PARTICLE_H
 #define PARTICLE_H
@@ -35,14 +35,14 @@ public:
     velocity{particle_velocity},
     beta{particle_velocity/light_speed}
   { 
-    verifyInput(particle_type, particle_mass, particle_charge, particle_velocity);
+    verify_input(particle_type, particle_mass, particle_charge, particle_velocity);
   }
   
   // Destructor 
   ~particle(){std::cout<<"Destroying "<<type<<std::endl;}
 
   // Function to validate input of parameterised constructor
-  void verifyInput(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity);
+  void verify_input(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity);
 
   // Getter functions read only (accessors) to the data members 
   std::string get_type() const {return type;}
@@ -59,7 +59,7 @@ public:
   void set_beta(double particle_beta);
 
   // Function to print info about a particle
-  void print_data();
+  void print_data() const;
 };
 
 #endif
