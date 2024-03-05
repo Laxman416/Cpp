@@ -8,9 +8,7 @@
 #include<cmath>
 #include "particle.h"
 
-
-// Implementation of print_data function
-
+// Loop to veriy input of parameterised constructor
 void particle::verify_input(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
 {
   // Loop to validate particle mass
@@ -79,6 +77,7 @@ void particle::verify_input(std::string particle_type, double particle_mass, int
 
 void particle::print_data() const
 {
+  // Prints the data
   std::cout<<"Particle Type: "<<type<<std::endl;
   std::cout<<"Rest Mass: "<<rest_mass<<" MeV"<<std::endl;
   std::cout<<"Charge: "<<charge<<std::endl;
@@ -89,6 +88,10 @@ void particle::print_data() const
 // Function to set charge with logical checks
 void particle::set_charge(int particle_charge)
 {
+  // Checks if charge is -1 or +1
+  // Checks if particle charge must be - 1
+  // Checks if antiparticle charge must be + 1
+  // If any errors charge is not updated
   if (particle_charge != -1 && particle_charge != 1)
   {
     std::cerr<<"Error: Charge must be either -1 or 1."<<std::endl;
@@ -114,14 +117,17 @@ void particle::set_charge(int particle_charge)
 void particle::set_type(std::string particle_type)
 {
   // Don't want to rewrite original data member without checking charge of the atom.
-  bool is_antiparticle_check; 
+  // Checks if type is valid, if not returns from function
+  // Checks if particle charge must be - 1
+  // Checks if antiparticle charge must be + 1
+  // If any errors, charge is updated as well
   if (particle_type == "electron" || particle_type == "muon")
   {
-    is_antiparticle_check = false;
+    is_antiparticle = false;
   }
   else if (particle_type == "positron" || particle_type == "antimuon")
   {
-    is_antiparticle_check = true;
+    is_antiparticle = true;
   }
   else
   {
@@ -129,27 +135,30 @@ void particle::set_type(std::string particle_type)
     std::cerr<<"Error: Lepton type not updated."<<std::endl;
     return; // returns from function if invalid lepton type given
   }
-  if (is_antiparticle_check == false && charge != -1)
+  if (is_antiparticle == false && charge != -1)
   {
     std::cerr<<"Error: Invalid charge for electron/muon. Charge must be -1."<<std::endl;
-    std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect"<<std::endl;
+    std::cerr<<"Error: Type of particle is updated to "<<particle_type<<" and the charge is updated to -1"<<std::endl;
+    type = particle_type;
+    charge = -1;
   }
-  else if (is_antiparticle_check == true && charge != 1)
+  else if (is_antiparticle == true && charge != 1)
   { 
     std::cerr<<"Error: Invalid charge for positron/antimuon. Charge must be 1."<<std::endl;
-    std::cerr<<"Error: Type of particle not updated. Reset charge of particle if it is incorrect."<<std::endl;
+    std::cerr<<"Error: Type of particle is updated to "<<particle_type<<" and the charge is updated to 1"<<std::endl;
+    type = particle_type;
+    charge = 1;
   }  
   else
   {
     type = particle_type;
-    is_antiparticle = is_antiparticle_check;
   }
 }
 
 // Function to set velocity with logical checks, also updates beta.
 void particle::set_velocity(double particle_velocity)
 {
-  if (particle_velocity<0 || particle_velocity > light_speed)
+  if (particle_velocity < 0 || particle_velocity > light_speed)
   {
     std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
     std::cout<<"Error: Velocity of paritcle not updated"<<std::endl;
@@ -190,18 +199,5 @@ void particle::set_rest_mass(double particle_mass)
   }
 }
 
-// End of particle class and associated member functions
-
-// Beginning of detector class
-
-// Functionalities needed, in addition to constructor/destructor/setters/getters (see slides on BB):
-// - write a function that takes a particle 
-//   and returns a bool and a print-out on whether this type of detector detected the particle
-//   depending on the detector/particle combination (see slides on BB)
-// - have data members that keep track of how many particles were detected by this particular detector, 
-//   and of which type
-// - write a function (accessor) that prints how many particles passed through this detector
-
-// End of detector class
 
 

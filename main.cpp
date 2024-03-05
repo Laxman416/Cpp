@@ -14,7 +14,7 @@ void create_particles(std::vector<particle>& particles)
 
   // Create particle objects
   particles.emplace_back("electron", 0.511, -1, 1.5e8);
-  particles.emplace_back("electron", 0.511, -1, 3.0e8);
+  particles.emplace_back("electron", 0.511, -1, 2.9e8);
   particles.emplace_back("muon", 105.66, -1, 2.5e8);
   particles.emplace_back("muon", 105.66, -1, 2.3e8);
   particles.emplace_back("muon", 105.66, -1, 2.6e8);
@@ -63,11 +63,13 @@ void process_detectors(std::vector<particle>& particles_class_vector, std::vecto
 int main()
 {
   std::vector<particle> particles_class_vector; // particle class vector
-  std::vector<detector> detectors_vector; //detector class vector 
-  
+  std::vector<detector> detectors_vector; //detector class vector
+
   // Call function to create particles and detectors
   create_particles(particles_class_vector); 
   create_detectors(detectors_vector);
+
+  // To change set particles data members, need to use particles_class_vector[i].set_ ....
 
   // Print out data members for all particles
   for (const auto& particle_iterator : particles_class_vector) 

@@ -20,7 +20,7 @@ private:
   int charge; // +1 particle, -1 antiparticle
   double velocity; // in m/s
   double beta; // = v/c
-  bool is_antiparticle;
+  bool is_antiparticle; // boolean: true if antiparticle
 
 
 public:
@@ -50,6 +50,7 @@ public:
   int get_charge() const {return charge;}
   double get_velocity() const {return velocity;}
   double get_beta() const {return beta;}
+  bool get_is_antiparticle() const {return is_antiparticle;}
 
   // Setter functions, to change value of data members and validate the input
   void set_type(std::string particle_type);
