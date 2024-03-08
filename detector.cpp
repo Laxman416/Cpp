@@ -1,5 +1,6 @@
 // PHYS 30762 Programming in C++
 // Assignment 3 - Implementation of detector class
+// Laxman Seelan
 // Practice with C++ classes and their interactions
 
 #include<iostream>
@@ -18,7 +19,7 @@ void detector::verify_input_constructor(std::string new_detector_type, bool new_
   } 
   else 
   {
-    // Invalid detector type, Settign detector type to be tracker
+    // Invalid detector type, Setting detector type to be tracker
     std::cout<<"Invalid detector type."<<std::endl;
     std::cout<<"Setting detector type to be tracker."<<std::endl;
     detector_type = "tracker";
@@ -57,12 +58,18 @@ void detector::set_detector_type(std::string new_detector_type)
 // Function to print data 
 void detector::print_data() const
 {
+  // Prints data
   std::cout<<"Detector Type: "<<detector_type<<std::endl;
   std::cout<<"Status: "<<(status ? "On" : "Off")<<std::endl; // ternary conditional operator
 }
     
 int detector::check_particle_detected(const particle& particle_in_detector) const
 {
+  // Checks if particle is detected
+  // if detector is off, no particle is detected.
+  // Depending on particle and tracker type, particle is detected
+  // if detected 1 is returned
+  // if not detected 0 is returned
   if(status == false)
   {
     std::cout<<"Detector is off. "<<particle_in_detector.get_type()<<" is not detected"<<std::endl;

@@ -78,7 +78,7 @@ int main()
     std::cout<<""<<std::endl;
   }
 
-  // Call function to pass particles through each detector and output result
+  // Call function to turn on detector and pass particles through each detector and output result
   process_detectors(particles_class_vector, detectors_vector);
   return 0;
 }

@@ -158,6 +158,7 @@ void particle::set_type(std::string particle_type)
 // Function to set velocity with logical checks, also updates beta.
 void particle::set_velocity(double particle_velocity)
 {
+  // particle velcocity must be > 0 and < light_speed
   if(particle_velocity < 0 || particle_velocity > light_speed)
   {
     std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
@@ -173,6 +174,7 @@ void particle::set_velocity(double particle_velocity)
 
 void particle::set_beta(double particle_beta)
 {
+  // Beta must be between 0 and 1
   if(particle_beta < 0 || particle_beta > 1)
   {
     std::cerr<<"Error: Beta must be between 0 and 1."<<std::endl;
@@ -188,6 +190,7 @@ void particle::set_beta(double particle_beta)
 
 void particle::set_rest_mass(double particle_mass)
 {
+  // particle mass must be positive
   if(particle_mass < 0)
   {
     std::cerr<<"Error: Invalid value for rest mass. Mass must be positive."<<std::endl;
