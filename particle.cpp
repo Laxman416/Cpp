@@ -9,13 +9,25 @@
 #include "particle.h"
 
 // Loop to veriy input of parameterised constructor
-void particle::verify_input(std::string particle_type, double particle_mass, int particle_charge, double particle_velocity) 
+void particle::verify_input(std::string particle_type, double particle_mass, int particle_charge, std::vector<double>* particle_four_momentum) 
 {
+  // Loop to validate the four momentum energy
+  if((*particle_four_momentum)[0] >= 0 && (*particle_four_momentum)[0] <= 1) 
+  {
+    four_momentum = particle_four_momentum;
+  } 
+  else 
+  {
+    std::cerr<<"Error: Invalid four momentum given. E must be positive and less than the speed of light. "<<std::endl;
+    std::cerr<<"Setting the energy to 0."<<std::endl;
+    (*particle_four_momentum)[0] = 0;
+    four_momentum = particle_four_momentum;
+  }
   // Loop to validate particle mass
   if(particle_mass < 0)
   {
-    std::cerr << "Error: Invalid mass given, mass must be positive." << std::endl;
-    std::cerr << "Setting mass to 0." << std::endl;
+    std::cerr<<"Error: Invalid mass given, mass must be positive."<<std::endl;
+    std::cerr<<"Setting mass to 0."<<std::endl;
     rest_mass = 0;
   }
 
@@ -37,40 +49,31 @@ void particle::verify_input(std::string particle_type, double particle_mass, int
     is_antiparticle = false;
   }
 
-  // Loop to validate particle velocity
-  if(particle_velocity < 0 || particle_velocity > light_speed) 
-  {
-    std::cerr << "Error: Velocity must be between 0 and the speed of light." << std::endl;
-    std::cerr << "Setting velocity and beta to be 0." << std::endl;
-    velocity = 0.0;
-    beta = 0.0;
-  }
-
   // Loop to validate particle charge
   if(particle_charge != -1 && particle_charge != 1) 
   {
-    std::cerr << "Error: Charge must be either -1 or 1." << std::endl;
+    std::cerr<<"Error: Charge must be either -1 or 1."<<std::endl;
     if(!is_antiparticle) 
     {
-      std::cerr << "Charge of " << type << " set to -1." << std::endl;
+      std::cerr<<"Charge of " << type << " set to -1."<<std::endl;
       charge = -1;
     } 
     else 
     {
-      std::cerr << "Charge of " << type << " set to +1." << std::endl;
+      std::cerr<<"Charge of " << type << " set to +1."<<std::endl;
       charge = 1;
     }
   } 
   else if(!is_antiparticle && particle_charge != -1) 
   {
-    std::cerr << "Error: Invalid charge for " << type << ". Charge must be -1." << std::endl;
-    std::cerr << "Setting charge = -1." << std::endl;
+    std::cerr<<"Error: Invalid charge for "<<type<<". Charge must be -1."<<std::endl;
+    std::cerr<<"Setting charge = -1." << std::endl;
     charge = -1;
   } 
   else if(is_antiparticle && particle_charge != 1) 
   {
-    std::cerr << "Error: Invalid charge for " << type << ". Charge must be 1." << std::endl;
-    std::cerr << "Setting charge = +1." << std::endl;
+    std::cerr<< "Error: Invalid charge for "<<type<<". Charge must be 1."<<std::endl;
+    std::cerr<< "Setting charge = +1."<<std::endl;
     charge = 1;
   }
 }
@@ -81,8 +84,13 @@ void particle::print_data() const
   std::cout<<"Particle Type: "<<type<<std::endl;
   std::cout<<"Rest Mass: "<<rest_mass<<" MeV"<<std::endl;
   std::cout<<"Charge: "<<charge<<std::endl;
-  std::cout<<"Velocity: "<<velocity<<" m/s"<<std::endl;
-  std::cout<<"Beta: "<<beta<<std::endl;
+  std::cout<<"Four Momentum: [P = (E/c, px, py, pz)]"<<std::endl;
+  // for loop to iterate. size_t makes sure counter is non negative
+  for(size_t i = 0; i < (*four_momentum).size(); ++i) 
+  {
+    std::cout<<P_index_names[i]<<": "<<(*four_momentum)[i]<<" MeV/c"<<std::endl;
+  }
+  std::cout<<""<<std::endl;
 }
 
 // Function to set charge with logical checks
@@ -155,39 +163,6 @@ void particle::set_type(std::string particle_type)
   }
 }
 
-// Function to set velocity with logical checks, also updates beta.
-void particle::set_velocity(double particle_velocity)
-{
-  // particle velcocity must be > 0 and < light_speed
-  if(particle_velocity < 0 || particle_velocity > light_speed)
-  {
-    std::cerr<<"Error: Velocity must be between 0 and the speed of light."<<std::endl;
-    std::cout<<"Error: Velocity of paritcle not updated"<<std::endl;
-  }
-  else
-  {
-    velocity = particle_velocity;
-    beta = particle_velocity/light_speed;
-    std::cout<<type<<"'s velocity and beta updated"<<std::endl;
-  }
-}
-
-void particle::set_beta(double particle_beta)
-{
-  // Beta must be between 0 and 1
-  if(particle_beta < 0 || particle_beta > 1)
-  {
-    std::cerr<<"Error: Beta must be between 0 and 1."<<std::endl;
-    std::cerr<<"Error: Beta of paritcle not updated"<<std::endl;
-  }
-  else
-  {
-    beta = particle_beta;
-    velocity = beta * light_speed;
-    std::cout<<type<<"'s velocity and beta updated"<<std::endl;
-  }
-}
-
 void particle::set_rest_mass(double particle_mass)
 {
   // particle mass must be positive
@@ -202,5 +177,74 @@ void particle::set_rest_mass(double particle_mass)
   }
 }
 
+void particle::set_four_momentum(std::vector<double>* particle_four_momentum)
+{
+ // Verifying P before setting
+if((*particle_four_momentum)[0] >= 0 && (*particle_four_momentum)[0] <= 1) 
+ {
+  (*four_momentum) = (*particle_four_momentum);
+ }
+ else
+ {
+  std::cerr<<"Error: Invalid four momentum given. E must be positive and less than the speed of light"<<std::endl;
+  std::cerr<<"Four momentum of particle not updated."<<std::endl;
+ }
+}
+
+std::vector<double> particle::operator+(const particle& particle_called) const 
+{
+  std::vector<double> total_momentum(4); // initialise total_momentum vector
+
+  // Sum the components of the four-momenta
+  total_momentum[0] = get_E() + particle_called.get_E();
+  total_momentum[1] = get_px() + particle_called.get_px();
+  total_momentum[2] = get_py() + particle_called.get_py();
+  total_momentum[3] = get_pz() + particle_called.get_pz();
+
+  return total_momentum;
+}
+
+double particle::dotProduct(const particle& particle_called) const 
+{
+
+  // Sum the components of the four-momenta
+  double dotted_momentum_0 = get_E() * particle_called.get_E();
+  double dotted_momentum_1 = (get_px() * particle_called.get_px());
+  double dotted_momentum_2 = (get_py() * particle_called.get_py());
+  double dotted_momentum_3 = (get_pz() * particle_called.get_pz());
+  
+  double dotted_momentum = dotted_momentum_0 - dotted_momentum_1 - dotted_momentum_2 - dotted_momentum_3;
+  return dotted_momentum;
+}
+
+particle& particle::operator=(const particle &particle_called)
+{
+  std::cout<<"Calling Assignment Constructor"<<std::endl;
+  // Assignment Constructor replaces existing object with another existing object.
+  // Deep Copying Assignment implemented
+  // RHS assigned to LHS
+  // Need to delete dynamically allocated memory otherwise will cause memory leak
+
+  // no self-assignment
+  if(&particle_called == this)
+  {
+    return *this;
+  } 
+  else
+  {
+    // assigns all data members from particle_called to current particle
+    this->type = particle_called.type;
+    this->rest_mass = particle_called.rest_mass;
+    this->charge = particle_called.charge;
+    this->is_antiparticle = particle_called.is_antiparticle;
+    this->P_index_names = particle_called.P_index_names;
+
+    delete four_momentum; // Deallocate existing memory
+    four_momentum = new std::vector<double>(*particle_called.four_momentum);
+  }
+
+  return *this;
+
+}
 
 
