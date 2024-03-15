@@ -81,16 +81,25 @@ void particle::verify_input(std::string particle_type, double particle_mass, int
 void particle::print_data() const
 {
   // Prints the data
-  std::cout<<"Particle Type: "<<type<<std::endl;
-  std::cout<<"Rest Mass: "<<rest_mass<<" MeV"<<std::endl;
-  std::cout<<"Charge: "<<charge<<std::endl;
-  std::cout<<"Four Momentum: [P = (E/c, px, py, pz)]"<<std::endl;
-  // for loop to iterate. size_t makes sure counter is non negative
-  for(size_t i = 0; i < (*four_momentum).size(); ++i) 
+  // Check if the object has valid data
+  if(four_momentum == nullptr) 
   {
-    std::cout<<P_index_names[i]<<": "<<(*four_momentum)[i]<<" MeV/c"<<std::endl;
+    std::cout << "No data available for this particle." << std::endl;
+    return;
   }
-  std::cout<<""<<std::endl;
+  else
+  {
+    std::cout<<"\tParticle Type: "<<type<<std::endl;
+    std::cout<<"\tRest Mass: "<<rest_mass<<" MeV"<<std::endl;
+    std::cout<<"\tCharge: "<<charge<<std::endl;
+    std::cout<<"\tFour Momentum: [P = (E/c, px, py, pz)]"<<std::endl;
+    // for loop to iterate. size_t makes sure counter is non negative
+    for(size_t i = 0; i < (*four_momentum).size(); ++i) 
+    {
+      std::cout<<"\t"<<P_index_names[i]<<": "<<(*four_momentum)[i]<<" MeV/c"<<std::endl;
+    }
+    std::cout<<""<<std::endl;
+  }
 }
 
 // Function to set charge with logical checks
@@ -177,18 +186,33 @@ void particle::set_rest_mass(double particle_mass)
   }
 }
 
-void particle::set_four_momentum(std::vector<double>* particle_four_momentum)
+
+void particle::set_E(double energy)
 {
- // Verifying P before setting
-if((*particle_four_momentum)[0] >= 0 && (*particle_four_momentum)[0] <= 1) 
- {
-  (*four_momentum) = (*particle_four_momentum);
- }
- else
- {
-  std::cerr<<"Error: Invalid four momentum given. E must be positive and less than the speed of light"<<std::endl;
-  std::cerr<<"Four momentum of particle not updated."<<std::endl;
- }
+  if(energy >= 0 && energy <= 1) 
+  {
+    (*four_momentum)[0] = (energy);
+  }
+  else
+  {
+    std::cerr<<"Error: Invalid E given. E must be positive and less than the speed of light"<<std::endl;
+    std::cerr<<"Four momentum of particle not updated."<<std::endl;
+  }
+}
+
+void particle::set_px(double px)
+{
+    (*four_momentum)[1] = (px);
+}
+
+void particle::set_py(double py)
+{
+    (*four_momentum)[2] = (py);
+}
+
+void particle::set_pz(double pz)
+{
+    (*four_momentum)[3] = (pz);
 }
 
 std::vector<double> particle::operator+(const particle& particle_called) const 
@@ -230,21 +254,93 @@ particle& particle::operator=(const particle &particle_called)
   {
     return *this;
   } 
+  // Assigns all data members from particle_called to current particle
+  // Deep Copying implemented
+
+  this->type = particle_called.type;
+  this->rest_mass = particle_called.rest_mass;
+  this->charge = particle_called.charge;
+  this->is_antiparticle = particle_called.is_antiparticle;
+  this->P_index_names = particle_called.P_index_names;
+  delete four_momentum; // Deallocate existing memory
+  four_momentum = nullptr; // Reset the pointer to nullptr to avoid dangling pointer
+
+  four_momentum = new std::vector<double>(*particle_called.four_momentum);
+
+  return *this;
+
+
+
+}
+
+particle::particle(const particle &particle_called) 
+{
+  std::cout<<"Calling Copy Constructor"<<std::endl;
+
+  // Check for self-copying
+  if(this == &particle_called)
+  {
+    std::cout<<"Self-copy detected in Copy Constructor. Skipping copy."<<std::endl;
+    return;
+  }
   else
   {
-    // assigns all data members from particle_called to current particle
+    // Copies all data members from particle_called to current particle
     this->type = particle_called.type;
     this->rest_mass = particle_called.rest_mass;
     this->charge = particle_called.charge;
     this->is_antiparticle = particle_called.is_antiparticle;
     this->P_index_names = particle_called.P_index_names;
 
-    delete four_momentum; // Deallocate existing memory
-    four_momentum = new std::vector<double>(*particle_called.four_momentum);
+    this->four_momentum = new std::vector<double>(*particle_called.four_momentum);
   }
-
-  return *this;
-
 }
 
+particle& particle::operator=(particle &&particle_called_to_move)
+{
+  std::cout<<"Calling move assignment operator"<<std::endl;
 
+  // Check for self-moving
+  if(this == &particle_called_to_move)
+  {
+    std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
+    return *this;
+  }
+  else
+  
+  // Move the data members
+  type = std::move(particle_called_to_move.type);
+  rest_mass = std::move(particle_called_to_move.rest_mass); // Move rest_mass
+  charge = std::move(particle_called_to_move.charge);
+  four_momentum = std::move(particle_called_to_move.four_momentum);
+  is_antiparticle = std::move(particle_called_to_move.is_antiparticle);
+  P_index_names = std::move(particle_called_to_move.P_index_names);  
+
+  // Clear the moved particle
+  particle_called_to_move.four_momentum = nullptr;
+
+  return *this;
+}
+
+particle::particle(particle &&particle_called_to_move)
+{
+  std::cout<<"Calling Move Constructor"<<std::endl;
+
+  // Check for self-moving
+  if(this == &particle_called_to_move)
+  {
+    std::cout<<"Self-move detected in Move Constructor. Skipping move."<<std::endl;
+    return;
+  }
+  else
+  {
+    type = std::move(particle_called_to_move.type);
+    rest_mass = std::move(particle_called_to_move.rest_mass); // Move rest_mass
+    charge = std::move(particle_called_to_move.charge);
+    four_momentum = std::move(particle_called_to_move.four_momentum);
+    is_antiparticle = std::move(particle_called_to_move.is_antiparticle);
+    P_index_names = std::move(particle_called_to_move.P_index_names); 
+    this->four_momentum = particle_called_to_move.four_momentum;
+    particle_called_to_move.four_momentum = nullptr;
+  }
+}

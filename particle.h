@@ -18,15 +18,16 @@ private:
   // data members
   std::string type;
   double rest_mass; // in MeV
-  int charge; // +1 particle, -1 antiparticle
-  std::vector<double>*  four_momentum; // Four-momentum P = (E/c, px, py, pz) [units: MeV]
+  int charge = 1; // +1 particle, -1 antiparticle
+  std::vector<double>*  four_momentum = new std::vector<double>(4, 0.0);; // Four-momentum P = (E/c, px, py, pz) [units: MeV]
   bool is_antiparticle; // boolean: true if antiparticle
   std::vector<std::string> P_index_names = {"E/c", "p_x", "p_y", "p_z"};   // Defines vector of P_index_names and P_index_units so that the can be iterated
-
+  
 public:
   // Constructors
-  // default constructor
-  particle() = default;
+  particle() = default;  // default constructor
+  particle(const particle &particle_called); // Copy Constructor
+  particle(particle &&particle_called); // Move Constructor
   //Parameterised constructor
   particle(std::string particle_type, double particle_mass, int particle_charge, std::vector<double>* particle_four_momentum ) :
     type{particle_type}, 
@@ -55,7 +56,6 @@ public:
   std::string get_type() const {return type;}
   double get_rest_mass() const {return rest_mass;}
   int get_charge() const {return charge;}
-  // std::vector<double> get_P() const {return (*four_momentum);}
   bool get_is_antiparticle() const {return is_antiparticle;}
   double get_E() const {return (*four_momentum)[0];}
   double get_px() const {return (*four_momentum)[1];}
@@ -67,7 +67,10 @@ public:
   void set_type(std::string particle_type);
   void set_rest_mass(double particle_mass);
   void set_charge(int particle_charge);
-  void set_four_momentum(std::vector<double>* particle_four_momentum);
+  void set_E(double energy);
+  void set_px(double px);
+  void set_py(double py);
+  void set_pz(double pz);
 
   // Function to print info about a particle
   void print_data() const;
@@ -76,8 +79,11 @@ public:
   std::vector<double> operator+(const particle& particle_called) const;
   double dotProduct(const particle& particle_called) const;
 
-  // Assignment Constructor made to do deep copy assigning.
+  // Assignment operator made to do deep copy assigning.
   particle& operator=(const particle &particle_called);
+
+  // Move assignment operator using function overloading
+  particle& operator=(particle&& particle_called_to_move);
 };
 
 #endif
