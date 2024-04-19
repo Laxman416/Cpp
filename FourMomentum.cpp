@@ -7,9 +7,9 @@
 #include<string>
 #include<vector>
 #include<cmath>
-#include "four_momentum.h"
+#include "FourMomentum.h"
 
-void four_momentum::verify_input(double& particle_energy) 
+void FourMomentum::verify_input(double& particle_energy) 
 {
   if(particle_energy >= 0) 
   {
@@ -23,7 +23,7 @@ void four_momentum::verify_input(double& particle_energy)
   }
 }
 
-void four_momentum::print_data() const
+void FourMomentum::print_data() const
 {
   // Prints the data
   std::cout<<"Printing Four momentum Elements:"<<std::endl;
@@ -33,7 +33,7 @@ void four_momentum::print_data() const
   std::cout<<"\tpz: "<<pz<<std::endl;
 }
 
-void four_momentum::set_E(double energy)
+void FourMomentum::set_E(double energy)
 {
   if(energy >= 0) 
   {
@@ -46,22 +46,22 @@ void four_momentum::set_E(double energy)
   }
 }
 
-void four_momentum::set_px(double paritlce_px)
+void FourMomentum::set_px(double paritlce_px)
 {
     px = paritlce_px;
 }
 
-void four_momentum::set_py(double paritlce_py)
+void FourMomentum::set_py(double paritlce_py)
 {
     py= paritlce_py;
 }
 
-void four_momentum::set_pz(double paritlce_pz)
+void FourMomentum::set_pz(double paritlce_pz)
 {
     pz = paritlce_pz;
 }
 
-std::vector<double> four_momentum::operator+(const four_momentum& four_momentum_called) const 
+std::vector<double> FourMomentum::operator+(const FourMomentum& four_momentum_called) const 
 {
   std::vector<double> total_momentum(4); // initialise total_momentum vector
   // Sum the components of the four-momenta
@@ -73,7 +73,7 @@ std::vector<double> four_momentum::operator+(const four_momentum& four_momentum_
   return total_momentum;
 }
 
-double four_momentum::dotProduct(const four_momentum& four_momentum_called) const 
+double FourMomentum::dotProduct(const FourMomentum& four_momentum_called) const 
 {
   // Sum the components of the four-momenta
   double dotted_momentum_0 = (get_E() * four_momentum_called.get_E());
@@ -85,7 +85,7 @@ double four_momentum::dotProduct(const four_momentum& four_momentum_called) cons
   return dotted_momentum;
 }
 
-four_momentum& four_momentum::operator=(const four_momentum &four_momentum_called)
+FourMomentum& FourMomentum::operator=(const FourMomentum &four_momentum_called)
 {
   std::cout<<"Calling Assignment Constructor"<<std::endl;
   // Assignment Constructor replaces existing object with another existing object.
@@ -109,7 +109,7 @@ four_momentum& four_momentum::operator=(const four_momentum &four_momentum_calle
   return *this;
 }
 
-four_momentum::four_momentum(const four_momentum &four_momentum_called) 
+FourMomentum::FourMomentum(const FourMomentum &four_momentum_called) 
 {
   std::cout<<"Calling Copy Constructor"<<std::endl;
 
@@ -129,7 +129,7 @@ four_momentum::four_momentum(const four_momentum &four_momentum_called)
   }
 }
 
-four_momentum& four_momentum::operator=(four_momentum &&four_momentum_to_move)
+FourMomentum& FourMomentum::operator=(FourMomentum &&four_momentum_to_move)
 {
   std::cout<<"Calling move assignment operator"<<std::endl;
 
@@ -150,7 +150,7 @@ four_momentum& four_momentum::operator=(four_momentum &&four_momentum_to_move)
   return *this;
 }
 
-four_momentum::four_momentum(four_momentum &&four_momentum_to_move)
+FourMomentum::FourMomentum(FourMomentum &&four_momentum_to_move)
 {
   std::cout<<"Calling Move Constructor"<<std::endl;
 

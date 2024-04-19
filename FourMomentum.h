@@ -1,19 +1,18 @@
 // PHYS 30762 Programming in C++
 // Assignment 5- four momentum class
 
-#ifndef FOUR_MOMENTUM_H
-#define FOUR_MOMENTUM_H
+#ifndef FOURMOMENTUM_H
+#define FOURMOMENTUM_H
 
 #include<iostream>
 #include<string>
 #include<cmath>
 #include<vector>
-#include "four_momentum.h"
 
 #define light_speed 2.99792458e8
 
 // Beginning of four_momentum class
-class four_momentum
+class FourMomentum
 {
 private:
   double E;
@@ -23,11 +22,11 @@ private:
 
 public:
   // Constructors
-  four_momentum() = default;  // default constructor
-  four_momentum(const four_momentum &four_momentum_called); // Copy Constructor
-  four_momentum(four_momentum &&four_momentum_called); // Move Constructor
+  FourMomentum() = default;  // default constructor
+  FourMomentum(const FourMomentum &four_momentum_called); // Copy Constructor
+  FourMomentum(FourMomentum &&four_momentum_called); // Move Constructor
   //Parameterised constructor
-  four_momentum(double particle_energy, double particle_px, double particle_py, double particle_pz) :
+  FourMomentum(double particle_energy, double particle_px, double particle_py, double particle_pz) :
     E{particle_energy}, 
     px{particle_pz},
     py{particle_pz},
@@ -37,7 +36,7 @@ public:
   }
   
   // Destructor 
-  ~four_momentum()
+  ~FourMomentum()
   {
     std::cout<<"Destroying Object"<<std::endl;
   }
@@ -61,14 +60,14 @@ public:
   void print_data() const;
 
   // overload +operator to sum four momentums
-  std::vector<double> operator+(const four_momentum& four_momentum_called) const;
-  double dotProduct(const four_momentum& four_momentum_called) const;
+  std::vector<double> operator+(const FourMomentum& four_momentum_called) const;
+  double dotProduct(const FourMomentum& four_momentum_called) const;
 
   // Assignment operator made to do deep copy assigning.
-  four_momentum& operator=(const four_momentum &four_momentum_called);
+  FourMomentum& operator=(const FourMomentum &four_momentum_called);
 
   // Move assignment operator using function overloading
-  four_momentum& operator=(four_momentum&& four_momentum_to_move);
+  FourMomentum& operator=(FourMomentum&& four_momentum_to_move);
 };
 
 #endif
