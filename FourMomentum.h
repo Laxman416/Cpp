@@ -32,13 +32,14 @@ public:
     py{particle_pz},
     pz{particle_pz}
   { 
+    std::cout<<"Calling Parameterised Constructor for FourMomentum"<<std::endl;
     verify_input(particle_energy);
   }
   
   // Destructor 
   ~FourMomentum()
   {
-    std::cout<<"Destroying Object"<<std::endl;
+    std::cout<<"Destroying FourMomentum Object"<<std::endl;
   }
 
   // Function to validate input of parameterised constructor

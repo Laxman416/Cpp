@@ -13,20 +13,23 @@ void Electron::verify_input(bool isAntiparticle)
   if(isAntiparticle != true && isAntiparticle != false)
   {
     std::cout<<"Invalid input for if it is an antiparticle is given. Setting the object to be a particle"<<std::endl;
-    is_antiparticle = false;
+    isAntiparticle = false;
   }
-  else
-  {
-    is_antiparticle = isAntiparticle;
-  }
-  charge = (is_antiparticle ? -1:1);
-  particle_name = (is_antiparticle ? "Positron":"Electron");
-  rest_mass = 0.511;
 }
 
 void Electron::print_data() const
 {
-  std::cout<<"Print Data for "<<particle_name<<": "<<std::endl;
-  std::cout<<"\t Charge is: "<<charge<<std::endl;
-  std::cout<<"\t Rest Mass is: "<<rest_mass<<" MeV"<<std::endl;
+  // // need to use getters from Lepton and Charged Lepton
+  std::cout<<"Print Data for "<<this->get_name()<<": "<<std::endl;
+  std::cout<<"\tCharge is: "<<this->get_charge()<<std::endl;
+  std::cout<<"\tRest Mass is: "<<this->get_rest_mass()<<" MeV"<<std::endl;
+  // Call print_data() function on the four_momentum_ptr object
+  if(four_momentum_ptr != nullptr) 
+  {
+    four_momentum_ptr->print_data();
+  } 
+  else 
+  {
+    std::cout<<"Four Momentum Data not available"<<std::endl;
+  }
 }

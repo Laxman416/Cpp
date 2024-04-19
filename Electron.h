@@ -8,7 +8,6 @@
 #include<iostream>
 #include<string>
 #include "ChargedLepton.h"
-#include "FourMomentum.h"
 
 // Beginning of Electron class - derived class
 class Electron: public ChargedLepton
@@ -18,20 +17,17 @@ public:
   // Constructors
   Electron() = default;  // Default constructor
   // Parameterised Constructor
-  Electron(bool isAntiparticle)
+  Electron(bool isAntiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz) :
+    ChargedLepton{is_antiparticle ? -1:1, isAntiparticle, 0.511 ,is_antiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
   {
+    std::cout<<"Calling Parameterised Constructor for Electron"<<std::endl;
     verify_input(isAntiparticle);
-  } // Set variable values based on isAntiparticle
+  }
 
   // Destructor 
-  ~Electron(){std::cout<<particle_name<<" is destroyed."<<std::endl;}
+  ~Electron(){std::cout<<this->get_name()<<" is destroyed."<<std::endl;}
   void verify_input(bool isAntiparticle);
   void print_data() const;
-
-  // // Getter Function
-  int get_charge() const {return charge;}
-  double get_rest_mass() const {return rest_mass;}
-  std::string get_particle_name() const {return particle_name;}
 
   // Electron(const Electron &electron_called); // Copy Constructor
   // Electron(Electron &&electron_called); // Move Constructor

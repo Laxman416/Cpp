@@ -26,11 +26,11 @@ void FourMomentum::verify_input(double& particle_energy)
 void FourMomentum::print_data() const
 {
   // Prints the data
-  std::cout<<"Printing Four momentum Elements:"<<std::endl;
-  std::cout<<"\tEnergy: "<<E<<std::endl;
-  std::cout<<"\tpx: "<<pz<<" MeV"<<std::endl;
-  std::cout<<"\tpy: "<<py<<std::endl;
-  std::cout<<"\tpz: "<<pz<<std::endl;
+  std::cout<<"\tPrinting Four momentum Elements:"<<std::endl;
+  std::cout<<"\t\tEnergy: "<<E<<std::endl;
+  std::cout<<"\t\tpx: "<<pz<<" MeV"<<std::endl;
+  std::cout<<"\t\tpy: "<<py<<std::endl;
+  std::cout<<"\t\tpz: "<<pz<<std::endl;
 }
 
 void FourMomentum::set_E(double energy)
