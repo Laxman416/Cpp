@@ -24,17 +24,25 @@ public:
   {    
     std::cout<<"Calling Parameterised Constructor for Charged Lepton"<<std::endl;
   }
+
   // Destructor 
   virtual ~ChargedLepton(){std::cout<<"Charged Lepton is destroyed."<<std::endl;};
 
-  virtual void print_data() const = 0; // virtual print_data fn that prints that relevent data of the object
-  virtual void verify_input(bool isAntiparticle) = 0; // virutal verify_input fn that verifys is_antiparticle and assigns that correct values to the relevent data
+  //print_data fn that prints that relevent data of the object
+  virtual void print_data();
 
   // Getter Function
   double get_charge() const {return charge;}
 
-  // ChargedLepton(const ChargedLepton &charged_lepton_called); // Copy Constructor
-  // ChargedLepton(ChargedLepton &&charged_lepton_called); // Move Constructor
+  // Setter Function
+  // Function to set charge with logical checks
+  virtual void set_charge(int particle_charge);
+
+  // Copy Constructor
+  // ChargedLepton(const ChargedLepton &charged_lepton_called); 
+
+  // Move Constructor
+  // ChargedLepton(ChargedLepton &&charged_lepton_called); 
 
   // // Assignment operator made to do deep copy assigning.
   // ChargedLepton& operator=(const ChargedLepton &charged_lepton_called);

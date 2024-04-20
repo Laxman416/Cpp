@@ -27,10 +27,10 @@ void FourMomentum::print_data() const
 {
   // Prints the data
   std::cout<<"\tPrinting Four momentum Elements:"<<std::endl;
-  std::cout<<"\t\tEnergy: "<<E<<std::endl;
+  std::cout<<"\t\tEnergy: "<<E<<" MeV"<<std::endl;
   std::cout<<"\t\tpx: "<<pz<<" MeV"<<std::endl;
-  std::cout<<"\t\tpy: "<<py<<std::endl;
-  std::cout<<"\t\tpz: "<<pz<<std::endl;
+  std::cout<<"\t\tpy: "<<py<<" MeV"<<std::endl;
+  std::cout<<"\t\tpz: "<<pz<<" MeV"<<std::endl;
 }
 
 void FourMomentum::set_E(double energy)

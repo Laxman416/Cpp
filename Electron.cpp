@@ -8,15 +8,6 @@
 #include<cmath>
 #include "Electron.h"
 
-void Electron::verify_input(bool isAntiparticle) 
-{
-  if(isAntiparticle != true && isAntiparticle != false)
-  {
-    std::cout<<"Invalid input for if it is an antiparticle is given. Setting the object to be a particle"<<std::endl;
-    isAntiparticle = false;
-  }
-}
-
 void Electron::print_data() const
 {
   // // need to use getters from Lepton and Charged Lepton
@@ -31,5 +22,13 @@ void Electron::print_data() const
   else 
   {
     std::cout<<"Four Momentum Data not available"<<std::endl;
+  }
+  if(calorimeter_energies_ptr != nullptr) 
+  {
+    calorimeter_energies_ptr->print_calorimeter_info();
+  } 
+  else 
+  {
+    std::cout<<"Calorimeter Data not available"<<std::endl;
   }
 }

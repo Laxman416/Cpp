@@ -7,27 +7,36 @@
 
 #include<iostream>
 #include<string>
+#include<memory>
 #include "ChargedLepton.h"
+#include "CalorimeterLayers.h"
+#include "CalorimeterEnergies.h"
 
 // Beginning of Electron class - derived class
 class Electron: public ChargedLepton
 {
 private:
+  std::unique_ptr<CalorimeterEnergies> calorimeter_energies_ptr; // special unique pointer for the CalorimeterEnergies object
+
 public:
   // Constructors
   Electron() = default;  // Default constructor
   // Parameterised Constructor
   Electron(bool isAntiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz) :
-    ChargedLepton{is_antiparticle ? -1:1, isAntiparticle, 0.511 ,is_antiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
+    calorimeter_energies_ptr(std::make_unique<CalorimeterEnergies>(particle_energy/2, particle_energy/2, 0.0, 0.0, four_momentum_ptr)),
+    // Call Parameterised Constructor for ChargedLepton
+    ChargedLepton{is_antiparticle ? -1:1, isAntiparticle, 0.511 ,is_antiparticle ? "Electron":"Positron", particle_energy, particle_px, particle_py, particle_pz}
   {
     std::cout<<"Calling Parameterised Constructor for Electron"<<std::endl;
-    verify_input(isAntiparticle);
   }
 
   // Destructor 
   ~Electron(){std::cout<<this->get_name()<<" is destroyed."<<std::endl;}
-  void verify_input(bool isAntiparticle);
+
   void print_data() const;
+
+  // Getter Fn
+  const std::unique_ptr<CalorimeterEnergies>& get_calorimeter_energies_ptr() const {return calorimeter_energies_ptr;}  
 
   // Electron(const Electron &electron_called); // Copy Constructor
   // Electron(Electron &&electron_called); // Move Constructor
