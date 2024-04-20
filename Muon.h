@@ -24,7 +24,6 @@ public:
     // Call Parameterised Constructor for ChargedLepton
     ChargedLepton{is_antiparticle ? -1:1, isAntiparticle, 105.7 ,is_antiparticle ? "Antimuon":"Muon", particle_energy, particle_px, particle_py, particle_pz}
   {
-    std::cout<<"Calling Parameterised Constructor for Muon"<<std::endl;
   }
 
   // Destructor 

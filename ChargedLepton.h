@@ -18,11 +18,11 @@ public:
   ChargedLepton() = default;  // default constructor
 
   // Parameterised Constructor
-  ChargedLepton(int q, bool isAntiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
-  charge{q},
+  ChargedLepton(int particle_charge, bool isAntiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
+  charge{particle_charge},
   Lepton{isAntiparticle, particle_mass, particle_name, particle_energy, particle_px, particle_py, particle_pz}
   {    
-    std::cout<<"Calling Parameterised Constructor for Charged Lepton"<<std::endl;
+    verify_input(isAntiparticle);
   }
 
   // Destructor 
@@ -39,15 +39,15 @@ public:
   virtual void set_charge(int particle_charge);
 
   // Copy Constructor
-  // ChargedLepton(const ChargedLepton &charged_lepton_called); 
+  ChargedLepton(const ChargedLepton &charged_lepton_called); 
 
   // Move Constructor
-  // ChargedLepton(ChargedLepton &&charged_lepton_called); 
+  ChargedLepton(ChargedLepton &&charged_lepton_called); 
 
-  // // Assignment operator made to do deep copy assigning.
-  // ChargedLepton& operator=(const ChargedLepton &charged_lepton_called);
+  // Assignment operator made to do deep copy assigning.
+  ChargedLepton& operator=(const ChargedLepton &charged_lepton_called);
 
-  // // Move assignment operator using function overloading
-  // ChargedLepton& operator=(ChargedLepton&& charged_lepton_called_to_move);
+  // Move assignment operator using function overloading
+  ChargedLepton& operator=(ChargedLepton&& charged_lepton_called_to_move);
 };
 #endif

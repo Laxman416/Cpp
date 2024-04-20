@@ -4,6 +4,10 @@
 
 #include<iostream>
 #include "Tau.h"
+#include<random>
+#include<ctime>
+#include "Electron.h"
+#include "Muon.h"
 
 void Tau::print_data() const
 {
@@ -21,28 +25,84 @@ void Tau::print_data() const
   {
     std::cout<<"Four Momentum Data not available"<<std::endl;
   }
+  if(m_decayed_electron_ptr != nullptr)
+  {
+    std::cout<<"Decayed "<<(is_antiparticle ? "Positron":"Electron")<<" of "<<this->get_name()<<" :"<<std::endl;
+    m_decayed_electron_ptr->print_data();
+  }
+  else if(m_decayed_muon_ptr != nullptr)
+  {
+    std::cout<<"Decayed "<<(is_antiparticle ? "Antimuon":"Muon")<<" of "<<this->get_name()<<" :"<<std::endl;
+    m_decayed_muon_ptr->print_data();
+  }
+  else 
+  {
+    std::cout<<"Decay Particle Data not available"<<std::endl;
+  }
 }
 
 void Tau::decay_tau() 
 {
+  // Branching Fraction of tau to electron or muon approx equal to 0.506
+  // Random # Generator will allow to favour the electron more in the random decay
+  srand(time(0)); // creates a seed for rand()
   if(m_is_decay_leptonic)
   {
     // Creates a ChargedLepton
-    std::cout<<"Creating Charged Lepton the tau decays to."<<std::endl;
-    m_decayed_particle_ptr = std::make_unique<ChargedLepton>(this->get_is_antiparticle() ? -1:1, this->get_is_antiparticle(), 0.511, "Decayed Lepton", 2 ,0.0, 0.0, 0.0);
+    std::cout<<"\033[1;32mCreating "<<(this->get_is_antiparticle() ? "positron/antimuon":"electron/muon")<<" the "<<this->get_name()<<" decays to using the branching fractions.\033[0m"<<std::endl;
+    // Random number generator 
+    // set seed to time(0): time since 1970
+    int random_number = rand() % 1001; // creates a number between 0 and 100
+    if(random_number < 506)
+    {
+      // Decays to electron
+      m_is_decay_to_electrons = true;
+      std::cout<<"\033[1;32m"<<this->get_name()<<" decays to "<<(this->get_is_antiparticle() ? "AntiMuon":"Muon")<<"\033[0m"<<std::endl;
+      m_decayed_electron_ptr = std::make_unique<Electron>((this->get_is_antiparticle() ? 1:0), 2 ,1.0, 1.0, 0.0);
+    }
+    else
+    {
+      // Decays to muons
+      m_is_decay_to_electrons = false;
+      std::cout<<"\033[1;32m"<<this->get_name()<<" decays to "<<(this->get_is_antiparticle() ? "Positron":"Electron")<<"\033[0m"<<std::endl;      
+      m_decayed_muon_ptr = std::make_unique<Muon>((this->get_is_antiparticle() ? 1:0), 2 ,1.0, 1.0, 0.0, false);
+    }
   }
 }
 
-const std::unique_ptr<ChargedLepton>& Tau::get_decayed_particle_ptr() const
+const std::unique_ptr<Electron>& Tau::get_decayed_electron_ptr() const
 {
-  if (m_decayed_particle_ptr != nullptr) 
+  if (m_decayed_electron_ptr != nullptr) 
   {
-    return m_decayed_particle_ptr;
+    return m_decayed_electron_ptr;
   } 
   else 
   {
-
     throw std::runtime_error("Decayed particle pointer is null");
+  }
+}
+
+const std::unique_ptr<Muon>& Tau::get_decayed_muon_ptr() const
+{
+  if (m_decayed_muon_ptr != nullptr) 
+  {
+    return m_decayed_muon_ptr;
+  } 
+  else 
+  {
+    throw std::runtime_error("Decayed particle pointer is null");
+  }
+}
+
+const void Tau::get_decayed_particle_ptr() const
+{
+  if(m_is_decay_to_electrons)
+  {
+    get_decayed_electron_ptr();
+  }
+  else
+  {
+    get_decayed_muon_ptr();
   }
 }
 

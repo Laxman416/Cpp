@@ -9,10 +9,13 @@
 #include<string>
 #include<memory>
 #include "FourMomentum.h"
+#include "Particle.h"
+
 #include<stdexcept>
 
+
 // Beginning of lepton class - abstract class
-class Lepton
+class Lepton : public Particle
 {
 protected:
   bool is_antiparticle; // boolean: true if antiparticle
@@ -32,7 +35,6 @@ public:
     four_momentum_ptr(std::make_shared<FourMomentum>(particle_energy, particle_px, particle_py, particle_pz))
     {
       verify_input(isAntiparticle);
-      std::cout<<"Calling Parameterised Constructor for Lepton"<<std::endl;
     } 
 
   // Destructor 

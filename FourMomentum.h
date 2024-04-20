@@ -28,11 +28,10 @@ public:
   //Parameterised constructor
   FourMomentum(double particle_energy, double particle_px, double particle_py, double particle_pz) :
     E{particle_energy}, 
-    px{particle_pz},
-    py{particle_pz},
+    px{particle_px},
+    py{particle_py},
     pz{particle_pz}
   { 
-    std::cout<<"Calling Parameterised Constructor for FourMomentum"<<std::endl;
     verify_input(particle_energy);
   }
   

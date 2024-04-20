@@ -21,7 +21,6 @@ public:
     m_has_interacted{has_interacted}
     // Call Parameterised Constructor for ChargedLepton
   {
-    std::cout<<"Calling Parameterised Constructor for ElectronNeutrino"<<std::endl;
   }
 
   // Destructor 

@@ -23,7 +23,6 @@ public:
     // Set HAD_1 and HAD_2 to zero as electron does not deposit E here
     calorimeter_energies[HAD_1] = energy_HAD_1;
     calorimeter_energies[HAD_2] = energy_HAD_2; 
-    std::cout<<"Calling Parameterised Constructor for CalorimeterEnergies"<<std::endl;
   }
 
   void print_calorimeter_info() const 

@@ -21,7 +21,7 @@ public:
     NeutralLepton(isAntiparticle, 5e-7 ,is_antiparticle ? "Tau Neitrino":"Tau Antineutrino", particle_energy, particle_px, particle_py, particle_pz),
     m_has_interacted{has_interacted}
   {
-    std::cout<<"Calling Parameterised Constructor for TauNeutrino"<<std::endl;
+    std::cout<<"Calling Parameterised Constructor for "<<this->get_name()<<std::endl;
   }
 
   // Destructor 

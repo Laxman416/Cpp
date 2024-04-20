@@ -25,9 +25,9 @@ public:
   Electron(bool isAntiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz) :
     calorimeter_energies_ptr(std::make_unique<CalorimeterEnergies>(particle_energy/2, particle_energy/2, 0.0, 0.0, four_momentum_ptr)),
     // Call Parameterised Constructor for ChargedLepton
-    ChargedLepton{is_antiparticle ? -1:1, isAntiparticle, 0.511 ,is_antiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
+    ChargedLepton{isAntiparticle ? -1:1, isAntiparticle, 0.511 ,isAntiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
   {
-    std::cout<<"Calling Parameterised Constructor for Electron"<<std::endl;
+    verify_input(isAntiparticle);
   }
 
   // Destructor 
@@ -46,13 +46,13 @@ public:
   void set_name(std::string particle_name);
   void set_charge(int particle_charge);
   
-  // Electron(const Electron &electron_called); // Copy Constructor
-  // Electron(Electron &&electron_called); // Move Constructor
+  Electron(const Electron &electron_called); // Copy Constructor
+  Electron(Electron &&electron_called); // Move Constructor
 
-  // // Assignment operator made to do deep copy assigning.
-  // ChargedLepton& operator=(const ChargedLepton &charged_lepton_called);
+  // Assignment operator made to do deep copy assigning.
+  Electron& operator=(const Electron &electron_called);
 
-  // // Move assignment operator using function overloading
-  // ChargedLepton& operator=(ChargedLepton&& charged_lepton_called_to_move);
+  // Move assignment operator using function overloading
+  Electron& operator=(Electron&& electron_called_to_move);
 };
 #endif

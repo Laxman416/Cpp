@@ -7,6 +7,8 @@
 #include<vector>
 #include<cmath>
 #include "Electron.h"
+#include "ChargedLepton.h"
+
 
 void Electron::print_data() const
 {
@@ -72,3 +74,83 @@ void Electron::set_is_antiparticle(bool isAntiparticle)
     std::cerr<<"Particle updated. The name, charge and boolean data members are modified."<<std::endl;    
   }
 }
+
+// Assignment Constructor to do Deep Copying
+Electron& Electron::operator=(const Electron &electron_called)
+{
+  std::cout<<"Calling Assignment Constructor"<<std::endl;
+  // Assignment Constructor replaces existing object with another existing object.
+  // Deep Copying Assignment implemented
+  // RHS assigned to LHS
+  // Need to delete dynamically allocated memory otherwise will cause memory leak
+
+  // no self-assignment
+  if(&electron_called == this)
+  {
+    return *this;
+  } 
+  // Assigns all data members from lepton_called to current particle
+  // Deep Copying implemented
+  ChargedLepton::operator=(electron_called);
+  calorimeter_energies_ptr = std::make_unique<CalorimeterEnergies>(*electron_called.calorimeter_energies_ptr);
+
+  return *this;
+}
+
+Electron::Electron(const Electron &electron_called) : ChargedLepton(electron_called)
+{
+  std::cout<<"Calling Copy Constructor"<<std::endl;
+
+  // Check for self-copying
+  if(this == &electron_called)
+  {
+    std::cout<<"Self-copy detected in Copy Constructor. Skipping copy."<<std::endl;
+    return;
+  }
+  else
+  {
+    // Copies all data members from lepton_called to current particle
+
+    this->calorimeter_energies_ptr = std::make_unique<CalorimeterEnergies>(*electron_called.calorimeter_energies_ptr);
+  }
+}
+
+Electron& Electron::operator=(Electron &&electron_called_to_move)
+{
+  std::cout<<"Calling Move Assignment operator"<<std::endl;
+
+  // Check for self-moving
+  if(this == &electron_called_to_move)
+  {
+    std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
+    return *this;
+  }
+  else
+  {
+    // Move the data members
+    ChargedLepton::operator=(std::move(electron_called_to_move));
+    this->calorimeter_energies_ptr = std::move(electron_called_to_move.calorimeter_energies_ptr);
+  }
+    
+  return *this;
+}
+
+Electron::Electron(Electron &&electron_called_to_move) : ChargedLepton(std::move(electron_called_to_move))
+{
+  std::cout<<"Calling Move Constructor"<<std::endl;
+
+  // Check for self-moving
+  if(this == &electron_called_to_move)
+  {
+    std::cout<<"Self-move detected in Move Constructor. Skipping move."<<std::endl;
+    return;
+  }
+  else
+  {
+    // Move the data members
+    calorimeter_energies_ptr = std::move(electron_called_to_move.calorimeter_energies_ptr);
+
+  }
+}
+
+
