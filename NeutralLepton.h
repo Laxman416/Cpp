@@ -19,8 +19,8 @@ public:
   NeutralLepton() = default;  // default constructor
   
   // Parameterised Constructor
-  NeutralLepton(bool isAntiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
-  Lepton{isAntiparticle, particle_mass, particle_name, particle_energy, particle_px, particle_py, particle_pz}
+  NeutralLepton(bool is_antiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
+  Lepton{is_antiparticle, particle_mass, particle_name, particle_energy, particle_px, particle_py, particle_pz}
   {    
     std::cout<<"Calling Parameterised Constructor for Neutral Lepton"<<std::endl;
   }

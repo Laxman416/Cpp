@@ -38,17 +38,17 @@ void ElectronNeutrino::set_name(std::string particle_name)
   std::cerr<<"Error: Name of particle not updated."<<std::endl;    
 }
 
-void ElectronNeutrino::set_is_antiparticle(bool isAntiparticle)
+void ElectronNeutrino::set_is_antiparticle(bool is_antiparticle)
 {
-  if(this->is_antiparticle == isAntiparticle)
+  if(this->m_is_antiparticle == is_antiparticle)
   {
     std::cerr<<"Error: Electron neutrino is already in desired state."<<std::endl;
     std::cerr<<"Error: Particle not updated."<<std::endl;    
   }
   else
   {
-    this->is_antiparticle = isAntiparticle;
-    this->name = (is_antiparticle ? "Electron Antineutrino":"Electron neutrino");
+    this->m_is_antiparticle = is_antiparticle;
+    this->name = (m_is_antiparticle ? "Electron Antineutrino":"Electron neutrino");
     std::cerr<<"Particle updated. The name, and boolean data members are modified."<<std::endl;    
   }
 }

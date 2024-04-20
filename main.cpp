@@ -17,7 +17,7 @@
 void create_particles(std::vector<std::unique_ptr<Lepton>>& leptons) 
 {
   // Reserve space for 8 elements to prevent reallocation
-  leptons.reserve(10); 
+  leptons.reserve(12); 
 
   // Create particle objects
   leptons.emplace_back(std::make_unique<Electron>(false, 1.0, 0.1, 0.1, 0.1));  
@@ -28,6 +28,8 @@ void create_particles(std::vector<std::unique_ptr<Lepton>>& leptons)
   leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.1, 0.1, 0.3, false));
   leptons.emplace_back(std::make_unique<Electron>(true, 1.0, 0.5, 0.1, 0.3));
   leptons.emplace_back(std::make_unique<Muon>(true, 1.0, 0.1, 0.7, 0.3, true));
+  leptons.emplace_back(std::make_unique<MuonNeutrino>(true, 1.0, 0.1, 0.7, 0.3, false));
+  leptons.emplace_back(std::make_unique<ElectronNeutrino>(true, 1.0, 0.1, 0.7, 0.3, false));
   leptons.emplace_back(std::make_unique<Tau>(false, 1.0, 0.1, 0.7, 0.3, true));
   leptons.emplace_back(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3, true));
 }
@@ -49,7 +51,7 @@ void sum_four_momentum(std::vector<std::unique_ptr<Lepton>>& leptons)
 
 void dot_four_momentum(std::vector<std::unique_ptr<Lepton>>& leptons)
 {
-  double dotted_momentum = dotProduct(*leptons[2], *leptons[3]);
+  double dotted_momentum = dotProduct(*leptons[7], *leptons[8]);
   std::cout<<"------------------------------------------"<<std::endl;
   std::cout<<"Dot Product of four momentum's of "<<leptons[2]->get_name()<<" and "<<leptons[3]->get_name()<<" is "<<dotted_momentum<<std::endl;
   std::cout<<"------------------------------------------"<<std::endl;

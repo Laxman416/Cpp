@@ -30,15 +30,15 @@ private:
 public:
   Tau() = default;
   // Parameterised Constructor
-  Tau(bool isAntiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool is_decay_leptonic):
+  Tau(bool is_antiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool is_decay_leptonic):
     m_is_decay_leptonic{is_decay_leptonic},
     m_decayed_electron_ptr(nullptr),
     m_decayed_muon_ptr(nullptr),
 
     // Call Parameterised Constructor for ChargedLepton
-    ChargedLepton{isAntiparticle ? -1:1, isAntiparticle, 105.7 ,(isAntiparticle ? "Antitau":"Tau"), particle_energy, particle_px, particle_py, particle_pz}
+    ChargedLepton{is_antiparticle ? -1:1, is_antiparticle, 105.7 ,(is_antiparticle ? "Antitau":"Tau"), particle_energy, particle_px, particle_py, particle_pz}
   {
-    verify_input(isAntiparticle);
+    verify_input(is_antiparticle);
     decay_tau();
   }
 
@@ -59,7 +59,7 @@ public:
   void set_is_decay_to_electrons(bool is_decay_to_electrons){m_is_decay_to_electrons = is_decay_to_electrons;}
   void set_decayed_particle_ptr(std::unique_ptr<Electron> decayed_electron_ptr){m_decayed_electron_ptr = std::move(decayed_electron_ptr);}
   void set_decayed_particle_ptr(std::unique_ptr<Muon> decayed_muon_ptr){m_decayed_muon_ptr = std::move(decayed_muon_ptr);}
-  void set_is_antiparticle(bool isAntiparticle);
+  void set_is_antiparticle(bool is_antiparticle);
   // Code these setters to override from base class. Don't want to change these values directly in the tau, electron or muon classses.
   void set_rest_mass(double particle_mass); 
   void set_name(std::string particle_name);

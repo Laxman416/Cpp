@@ -39,17 +39,17 @@ void TauNeutrino::set_name(std::string particle_name)
   std::cerr<<"Error: Name of particle not updated."<<std::endl;    
 }
 
-void TauNeutrino::set_is_antiparticle(bool isAntiparticle)
+void TauNeutrino::set_is_antiparticle(bool is_antiparticle)
 {
-  if(this->is_antiparticle == isAntiparticle)
+  if(this->m_is_antiparticle == is_antiparticle)
   {
     std::cerr<<"Error: Tau neutrino is already in desired state."<<std::endl;
     std::cerr<<"Error: Particle not updated."<<std::endl;    
   }
   else
   {
-    this->is_antiparticle = isAntiparticle;
-    this->name = (is_antiparticle ? "Tau Antineutrino":"Tau neutrino");
+    this->m_is_antiparticle = is_antiparticle;
+    this->name = (m_is_antiparticle ? "Tau Antineutrino":"Tau neutrino");
     std::cerr<<"Particle updated. The name and boolean data members are modified."<<std::endl;    
   }
 }

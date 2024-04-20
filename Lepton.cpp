@@ -16,12 +16,12 @@ void Lepton::set_rest_mass(double particle_mass)
   }
 }
 
-void Lepton::verify_input(bool isAntiparticle)
+void Lepton::verify_input(bool is_antiparticle)
 {
-  if(isAntiparticle != true && isAntiparticle != false)
+  if(is_antiparticle != true && is_antiparticle != false)
   {
-    std::cout<<"Warning: Invalid value for 'isAntiparticle' parameter. Defaulting to false."<<std::endl;
-    isAntiparticle = false;
+    std::cout<<"Warning: Invalid value for 'is_antiparticle' parameter. Defaulting to false."<<std::endl;
+    is_antiparticle = false;
   }
 }
 
@@ -60,7 +60,7 @@ Lepton& Lepton::operator=(const Lepton &lepton_called)
 
   this->name = lepton_called.name;
   this->rest_mass = lepton_called.rest_mass;
-  this->is_antiparticle = lepton_called.is_antiparticle;
+  this->m_is_antiparticle = lepton_called.m_is_antiparticle;
   this->four_momentum_ptr = std::make_shared<FourMomentum>(*lepton_called.four_momentum_ptr);
 
   return *this;
@@ -81,7 +81,7 @@ Lepton::Lepton(const Lepton &lepton_called)
     // Copies all data members from lepton_called to current particle
     this->name = lepton_called.name;
     this->rest_mass = lepton_called.rest_mass;
-    this->is_antiparticle = lepton_called.is_antiparticle;
+    this->m_is_antiparticle = lepton_called.m_is_antiparticle;
     this->four_momentum_ptr = std::make_shared<FourMomentum>(*lepton_called.four_momentum_ptr);
   }
 }
@@ -100,7 +100,7 @@ Lepton& Lepton::operator=(Lepton &&lepton_called_to_move)
   // Move the data members
   name = std::move(lepton_called_to_move.name);
   rest_mass = std::move(lepton_called_to_move.rest_mass);
-  is_antiparticle = std::move(lepton_called_to_move.is_antiparticle);
+  m_is_antiparticle = std::move(lepton_called_to_move.m_is_antiparticle);
   four_momentum_ptr = std::move(lepton_called_to_move.four_momentum_ptr);
   
   return *this;
@@ -121,7 +121,7 @@ Lepton::Lepton(Lepton &&lepton_called_to_move)
     // Move the data members
     name = std::move(lepton_called_to_move.name);
     rest_mass = std::move(lepton_called_to_move.rest_mass);
-    is_antiparticle = std::move(lepton_called_to_move.is_antiparticle);
+    m_is_antiparticle = std::move(lepton_called_to_move.m_is_antiparticle);
     four_momentum_ptr = std::move(lepton_called_to_move.four_momentum_ptr);
   }
 }

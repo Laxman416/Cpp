@@ -27,12 +27,12 @@ void Tau::print_data() const
   }
   if(m_decayed_electron_ptr != nullptr)
   {
-    std::cout<<"Decayed "<<(is_antiparticle ? "Positron":"Electron")<<" of "<<this->get_name()<<" :"<<std::endl;
+    std::cout<<"Decayed "<<(m_is_antiparticle ? "Positron":"Electron")<<" of "<<this->get_name()<<" :"<<std::endl;
     m_decayed_electron_ptr->print_data();
   }
   else if(m_decayed_muon_ptr != nullptr)
   {
-    std::cout<<"Decayed "<<(is_antiparticle ? "Antimuon":"Muon")<<" of "<<this->get_name()<<" :"<<std::endl;
+    std::cout<<"Decayed "<<(m_is_antiparticle ? "Antimuon":"Muon")<<" of "<<this->get_name()<<" :"<<std::endl;
     m_decayed_muon_ptr->print_data();
   }
   else 
@@ -72,7 +72,7 @@ void Tau::decay_tau()
 
 const std::unique_ptr<Electron>& Tau::get_decayed_electron_ptr() const
 {
-  if (m_decayed_electron_ptr != nullptr) 
+  if(m_decayed_electron_ptr != nullptr) 
   {
     return m_decayed_electron_ptr;
   } 
@@ -84,7 +84,7 @@ const std::unique_ptr<Electron>& Tau::get_decayed_electron_ptr() const
 
 const std::unique_ptr<Muon>& Tau::get_decayed_muon_ptr() const
 {
-  if (m_decayed_muon_ptr != nullptr) 
+  if(m_decayed_muon_ptr != nullptr) 
   {
     return m_decayed_muon_ptr;
   } 
@@ -110,7 +110,7 @@ void Tau::set_charge(int particle_charge)
 {
   // Particle mass can't be changed in tau
   std::cerr<<"Error: Tau has a charge and cannot be changed."<<std::endl;
-  std::cerr<<"Modify the is_antiparticle data member if u want to change to tau to its antipariticle or vice versa."<<std::endl;
+  std::cerr<<"Modify the m_is_antiparticle data member if u want to change to tau to its antipariticle or vice versa."<<std::endl;
   std::cerr<<"Error: Charge of particle not updated."<<std::endl;    
 }
 
@@ -130,18 +130,18 @@ void Tau::set_name(std::string particle_name)
   std::cerr<<"Error: Name of particle not updated."<<std::endl;    
 }
 
-void Tau::set_is_antiparticle(bool isAntiparticle)
+void Tau::set_is_antiparticle(bool is_antiparticle)
 {
-  if(this->is_antiparticle == isAntiparticle)
+  if(this->m_is_antiparticle == is_antiparticle)
   {
     std::cerr<<"Error: Tau is already in desired state."<<std::endl;
     std::cerr<<"Error: Particle not updated."<<std::endl;    
   }
   else
   {
-    this->is_antiparticle = isAntiparticle;
-    this->charge = is_antiparticle ? -1:1;
-    this->name = is_antiparticle ? "Antitau":"Tau";
+    this->m_is_antiparticle = is_antiparticle;
+    this->charge = m_is_antiparticle ? -1:1;
+    this->name = m_is_antiparticle ? "Antitau":"Tau";
     std::cerr<<"Particle updated. The name, charge and boolean data members are modified."<<std::endl;    
   }
 }

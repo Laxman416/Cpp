@@ -16,12 +16,11 @@ public:
   // Constructors
   TauNeutrino() = default;  // Default constructor
   // Parameterised Constructor
-  TauNeutrino(bool isAntiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool has_interacted) :
+  TauNeutrino(bool is_antiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool has_interacted) :
     // Call Parameterised Constructor for ChargedLepton
-    NeutralLepton(isAntiparticle, 5e-7 ,is_antiparticle ? "Tau Neitrino":"Tau Antineutrino", particle_energy, particle_px, particle_py, particle_pz),
+    NeutralLepton(is_antiparticle, 5e-7 ,is_antiparticle ? "Tau Neitrino":"Tau Antineutrino", particle_energy, particle_px, particle_py, particle_pz),
     m_has_interacted{has_interacted}
   {
-    std::cout<<"Calling Parameterised Constructor for "<<this->get_name()<<std::endl;
   }
 
   // Destructor 
@@ -35,7 +34,7 @@ public:
   // Setter Fn
   void set_has_interacted(bool has_interacted){m_has_interacted = has_interacted;}
   // Overwrite virtual fn from base class
-  void set_is_antiparticle(bool isAntiparticle);
+  void set_is_antiparticle(bool is_antiparticle);
   // Code these setters to override from base class. Don't want to change these values directly in the tau, electron or muon classses.
   void set_rest_mass(double particle_mass); 
   void set_name(std::string particle_name);

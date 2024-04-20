@@ -18,11 +18,11 @@ public:
   ChargedLepton() = default;  // default constructor
 
   // Parameterised Constructor
-  ChargedLepton(int particle_charge, bool isAntiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
+  ChargedLepton(int particle_charge, bool is_antiparticle, double particle_mass, std::string particle_name, double particle_energy, double particle_px, double particle_py, double particle_pz) : 
   charge{particle_charge},
-  Lepton{isAntiparticle, particle_mass, particle_name, particle_energy, particle_px, particle_py, particle_pz}
+  Lepton{is_antiparticle, particle_mass, particle_name, particle_energy, particle_px, particle_py, particle_pz}
   {    
-    verify_input(isAntiparticle);
+    verify_input(is_antiparticle);
   }
 
   // Destructor 
