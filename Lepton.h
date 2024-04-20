@@ -49,19 +49,19 @@ public:
   const std::shared_ptr<FourMomentum>& get_four_momentum_ptr() const {return four_momentum_ptr;}
 
   // Setter Fn  
-  void set_rest_mass(double particle_mass);
-  void set_name(std::string particle_name){name = particle_name;}
+  virtual void set_rest_mass(double particle_mass);
+  virtual void set_name(std::string particle_name){name = particle_name;}
   void set_four_momentum_ptr(std::shared_ptr<FourMomentum> momentum_ptr){four_momentum_ptr = momentum_ptr;}
   virtual void set_is_antiparticle(bool isAntiparticle){is_antiparticle = isAntiparticle;}
 
-  // Lepton(const Lepton &lepton_called); // Copy Constructor
-  // Lepton(Lepton &&lepton_called); // Move Constructor
+  Lepton(const Lepton &lepton_called); // Copy Constructor
+  Lepton(Lepton &&lepton_called); // Move Constructor
 
-  // // Assignment operator made to do deep copy assigning.
-  // Lepton& operator=(const Lepton &lepton_called);
+  // Assignment operator made to do deep copy assigning.
+  Lepton& operator=(const Lepton &lepton_called);
 
-  // // Move assignment operator using function overloading
-  // Lepton& operator=(Lepton&& lepton_called_to_move);
+  // Move assignment operator using function overloading
+  Lepton& operator=(Lepton&& lepton_called_to_move);
 };
 
 #endif
