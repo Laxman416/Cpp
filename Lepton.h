@@ -42,6 +42,10 @@ public:
   
   void verify_input(bool isAntiparticle);
 
+  friend std::vector<double> operator+(const Lepton& lepton_called_1, const Lepton& lepton_called_2);
+
+  friend double dotProduct(const Lepton& lepton_called_1, const Lepton& lepton_called_2);
+
   // Getter Function
   double get_rest_mass() const {return rest_mass;}
   bool get_is_antiparticle() const {return is_antiparticle;}

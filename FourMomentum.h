@@ -62,6 +62,7 @@ public:
 
   // overload +operator to sum four momentums
   std::vector<double> operator+(const FourMomentum& four_momentum_called) const;
+  
   double dotProduct(const FourMomentum& four_momentum_called) const;
 
   // Assignment operator made to do deep copy assigning.

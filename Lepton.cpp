@@ -126,4 +126,27 @@ Lepton::Lepton(Lepton &&lepton_called_to_move)
   }
 }
 
+std::vector<double> operator+(const Lepton& lepton_called_1, const Lepton& lepton_called_2)
+{
+  std::vector<double> total_momentum(4); // initialise total_momentum vector
+  // // Sum the components of the four-momenta
+  total_momentum[0] = lepton_called_1.get_four_momentum_ptr()->get_E() + lepton_called_2.get_four_momentum_ptr()->get_E();
+  total_momentum[1] = lepton_called_1.get_four_momentum_ptr()->get_px() + lepton_called_2.get_four_momentum_ptr()->get_px();
+  total_momentum[2] = lepton_called_1.get_four_momentum_ptr()->get_py() + lepton_called_2.get_four_momentum_ptr()->get_py();
+  total_momentum[3] = lepton_called_1.get_four_momentum_ptr()->get_pz() + lepton_called_2.get_four_momentum_ptr()->get_pz();
 
+  return total_momentum;
+}
+
+double dotProduct(const Lepton& lepton_called_1, const Lepton& lepton_called_2) 
+{
+
+  // Sum the components of the four-momenta
+  double dotted_momentum_0 = lepton_called_1.get_four_momentum_ptr()->get_E() * lepton_called_2.get_four_momentum_ptr()->get_E();
+  double dotted_momentum_1 = (lepton_called_1.get_four_momentum_ptr()->get_px() * lepton_called_2.get_four_momentum_ptr()->get_px());
+  double dotted_momentum_2 = (lepton_called_1.get_four_momentum_ptr()->get_py() * lepton_called_2.get_four_momentum_ptr()->get_py());
+  double dotted_momentum_3 = (lepton_called_1.get_four_momentum_ptr()->get_pz() * lepton_called_2.get_four_momentum_ptr()->get_pz());
+  
+  double dotted_momentum = dotted_momentum_0 - dotted_momentum_1 - dotted_momentum_2 - dotted_momentum_3;
+  return dotted_momentum;
+}
