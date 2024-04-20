@@ -1,5 +1,5 @@
 // PHYS 30762 Programming in C++
-// Assignment 5 - Charged Lepton class
+// Assignment 5 - Electron class
 // Derived Classes from Particle Class: charged leptons and neutral leptons: electorns, muons, tau, electron neutrino, muon neutrino, tau neutrino
 
 #ifndef ELECTRON
@@ -37,6 +37,9 @@ public:
 
   // Getter Fn
   const std::unique_ptr<CalorimeterEnergies>& get_calorimeter_energies_ptr() const {return calorimeter_energies_ptr;}  
+
+  // Setter Fn
+  void set_calorimeter_energies_ptr(std::unique_ptr<CalorimeterEnergies> calorimeter_ptr){calorimeter_energies_ptr = std::move(calorimeter_ptr);}
 
   // Electron(const Electron &electron_called); // Copy Constructor
   // Electron(Electron &&electron_called); // Move Constructor
