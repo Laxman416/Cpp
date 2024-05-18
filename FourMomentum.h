@@ -68,7 +68,8 @@ public:
   
   // overload +operator to sum four momentums
   std::vector<double> operator+(const FourMomentum& four_momentum_called) const;
-  
+  std::vector<double> operator+(const std::vector<double>& std_vector_called) const;
+
   double dotProduct(const FourMomentum& four_momentum_called) const;
 
   // overload +operator to subtract four momentums

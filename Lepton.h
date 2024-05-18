@@ -42,6 +42,7 @@ public:
 
   // Getter Function
   int get_lepton_number() const {return lepton_number;}
+  std::string get_type() const override { return "Lepton";}
 
   // Setter Fn  
   virtual void set_lepton_number(int particle_lepton_number){lepton_number = particle_lepton_number;}

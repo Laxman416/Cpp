@@ -100,6 +100,18 @@ std::vector<double> FourMomentum::operator+(const FourMomentum& four_momentum_ca
   return total_momentum;
 }
 
+std::vector<double> FourMomentum::operator+(const std::vector<double>& std_vector_called) const 
+{
+  std::vector<double> total_momentum(4); // initialise total_momentum vector
+  // Sum the components of the four-momenta
+  total_momentum[0] = std_vector_called[0] + this->get_E();
+  total_momentum[1] = std_vector_called[1]  + this->get_px();
+  total_momentum[2] = std_vector_called[2]  + this->get_py();
+  total_momentum[3] = std_vector_called[3]  + this->get_pz();
+
+  return total_momentum;
+}
+
 std::vector<double> FourMomentum::operator-(const FourMomentum& four_momentum_called) const 
 {
   std::vector<double> total_momentum(4); // initialise total_momentum vector

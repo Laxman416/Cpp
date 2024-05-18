@@ -5,21 +5,27 @@
 #include "Lepton.h" 
 #include "CalorimeterLayers.h"
 #include "Particle.h"
+#include "ParticleCatalogue.h"
+#include "SafeSharedPtr.h"
 #include<vector>
+
 // #include "Muon.h"
 // #include "Tau.h"
 // #include "ElectronNeutrino.h"
 // #include "MuonNeutrino.h"
 // #include "TauNeutrino.h"
 
-
-void create_particles(std::vector<std::unique_ptr<Particle>>& particles) 
+void create_particles(ParticleCatalogue& particle_catalogue) 
 {
-  // Reserve space for 8 elements to prevent reallocation
-  particles.reserve(12); 
+  // Preallocation isn't possible using std::multimap unlike vector which requires .reserve
+  // Create null particle to use if index of container out of range
+  particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
+  particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
+  particle_catalogue.add_particle(std::make_unique<Electron>(true, 1.0, 10, 10, 10));
+
 
   // Create particle objects
-  particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
+  // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
   // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 0.2, 0.2, 0.2));
   // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.15, 0.2, true));
   // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.3, 0.15, true));
@@ -33,43 +39,36 @@ void create_particles(std::vector<std::unique_ptr<Particle>>& particles)
   // leptons.emplace_back(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3, true));
 }
 
-void sum_four_momentum(std::vector<std::unique_ptr<Particle>>& particles)
-{
-  std::vector<double> momentum = *particles[0] + *particles[1];
-  std::cout<<"------------------------------------------"<<std::endl;
-  std::cout<<"Sum of four momentum's of "<<particles[0]->get_name()<<" and "<<particles[1]->get_name()<<": "<<std::endl;
-  std::cout<<"E: "<<momentum[0]<<" MeV/c"<<std::endl;
-  std::cout<<"px: "<<momentum[1]<<" MeV/c"<<std::endl;
-  std::cout<<"py: "<<momentum[2]<<" MeV/c"<<std::endl;
-  std::cout<<"pz: "<<momentum[3]<<" MeV/c"<<std::endl;
-  std::cout<<"------------------------------------------"<<std::endl;
-  std::cout<<""<<std::endl;
-
-}
-
-
-void dot_four_momentum(std::vector<std::unique_ptr<Particle>>& particles)
-{
-  double dotted_momentum = dotProduct(*particles[7], *particles[8]);
-  std::cout<<"------------------------------------------"<<std::endl;
-  std::cout<<"Dot Product of four momentum's of "<<particles[2]->get_name()<<" and "<<particles[3]->get_name()<<" is "<<dotted_momentum<<std::endl;
-  std::cout<<"------------------------------------------"<<std::endl;
-  std::cout<<""<<std::endl;
-}
-
 // Main program
 int main()
 {
-  std::vector<std::unique_ptr<Particle>> particle_class_vector; // particle class vector
+  // std::vector<std::unique_ptr<Particle>> particle_class_vector; // particle class vector
+  ParticleCatalogue catalogue;
 
   // Call function to create particles
-  create_particles(particle_class_vector); 
+  create_particles(catalogue); 
   // Print out data members for all particles
-  for(const auto& particle_iterator : particle_class_vector) 
-  {
-    particle_iterator->print_data();
-    std::cout<<""<<std::endl;
-  }
+  catalogue.print_particles_with_key();
+
+  std::cout<<"The total number of particles in the container: "<<catalogue.get_total_particles()<<std::endl;
+  catalogue.print_particles_count_by_type();
+  // catalogue.print_all_particles();
+
+  std::vector<double> sum_all_momentum = catalogue.sum_four_momentum();
+
+  ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
+  new_catalogue.print_all_particles();
+  // catalogue["Electron_21"]->print_data();
+
+  // SafeSharedPtr<Particle> pointer = nullptr;
+  // pointer->print_data();
+
+    // if (pointer) {
+  //   pointer->print_data();
+  // } else {
+  //     std::cerr << "Error: Safe pointer is null." << std::endl;
+  // }
+
   // sum_four_momentum(leptons_class_vector);
   
   // dot_four_momentum(leptons_class_vector);

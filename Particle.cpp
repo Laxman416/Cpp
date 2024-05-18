@@ -13,6 +13,18 @@ std::vector<double> operator+(const Particle& particle_called_1, const Particle&
   return total_momentum;
 }
 
+std::vector<double> operator+(const std::vector<double>& particle_called_1, const Particle& particle_called_2)
+{
+  std::vector<double> total_momentum(4); // initialise total_momentum vector
+  // // Sum the components of the four-momenta
+  total_momentum[0] = particle_called_1[0] + particle_called_2.get_four_momentum_ptr()->get_E();
+  total_momentum[1] = particle_called_1[1] + particle_called_2.get_four_momentum_ptr()->get_px();
+  total_momentum[2] = particle_called_1[2] + particle_called_2.get_four_momentum_ptr()->get_py();
+  total_momentum[3] = particle_called_1[3] + particle_called_2.get_four_momentum_ptr()->get_pz();
+
+  return total_momentum;
+}
+
 std::vector<double> operator-(const Particle& particle_called_1, const Particle& particle_called_2)
 {
   std::vector<double> total_momentum(4); // initialise total_momentum vector

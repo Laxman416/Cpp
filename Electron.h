@@ -19,7 +19,6 @@ class Electron: public Lepton
 {
 private:
   std::unique_ptr<CalorimeterEnergies> calorimeter_energies_ptr; // special unique pointer for the CalorimeterEnergies object
-
 public:
   // Constructors
   Electron() = default;  // Default constructor
@@ -40,6 +39,7 @@ public:
 
   // Getter Fn
   const std::unique_ptr<CalorimeterEnergies>& get_calorimeter_energies_ptr() const {return calorimeter_energies_ptr;}  
+  std::string get_type() const override { return "Charged Lepton";}
 
   // Setter Fn
   void set_calorimeter_energy(double energy_EM_1, double energy_EM_2);
