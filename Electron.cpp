@@ -7,16 +7,17 @@
 #include<vector>
 #include<cmath>
 #include "Electron.h"
-#include "ChargedLepton.h"
 
-void set_calorimeter_energy(double energy_EM_1, double energy_EM_2)
+
+void Electron::set_calorimeter_energy(double energy_EM_1, double energy_EM_2)
 {
-  // Check if the total energy deposited in calorimeter layers is equal to the energy of the electron
+  // Check if the total energy deposited in calorimeter layers is equal to the energy of the electron from the Four Momentum
   double total_energy = energy_EM_1 + energy_EM_2;
-  if(total_energy != get_E())
+
+  if(total_energy != this->get_four_momentum_ptr()->get_E())
   {
     // Adjust energies to ensure consistency
-    double energy_difference = get_E() - total_energy;
+    double energy_difference = this->get_four_momentum_ptr()->get_E() - total_energy;
     if(energy_difference > 0)
     {
       energy_EM_1 += energy_difference / 2;
@@ -25,7 +26,7 @@ void set_calorimeter_energy(double energy_EM_1, double energy_EM_2)
     else
     {
       // Distribute the excess energy proportionally
-      double factor = get_E() / total_energy;
+      double factor = four_momentum_ptr->get_E() / total_energy;
       energy_EM_1 = energy_EM_1 * factor;
       energy_EM_2 = energy_EM_1 * factor;
     }
@@ -34,12 +35,17 @@ void set_calorimeter_energy(double energy_EM_1, double energy_EM_2)
 }
 
 
+
 void Electron::print_data() const
 {
-  // // need to use getters from Lepton and Charged Lepton
+  // // need to use getters from Particle class
   std::cout<<"Print Data for "<<this->get_name()<<": "<<std::endl;
   std::cout<<"\tCharge is: "<<this->get_charge()<<std::endl;
   std::cout<<"\tRest Mass is: "<<this->get_rest_mass()<<" MeV"<<std::endl;
+  std::cout<<"\tSpin is: "<<this->get_spin()<<std::endl;
+  std::cout<<"\tIs it an anitparticle: "<<(this->get_is_antiparticle() ? "true" : "false")<<std::endl;
+  std::cout<<"\tLepton Number: "<<(this->get_lepton_number())<<std::endl;
+
   // Call print_data() function on the four_momentum_ptr object
   if(four_momentum_ptr != nullptr) 
   {
@@ -64,7 +70,7 @@ void Electron::set_rest_mass(double particle_mass)
 {
   // Particle mass can't be changed in Electron
   std::cerr<<"Error: Electron has a fixed mass and cannot be changed."<<std::endl;
-  std::cerr<<"Create a ChargedLepton object if u want an object with mass that can be modified"<<std::endl;
+  std::cerr<<"Create a Lepton object if u want an object with mass that can be modified"<<std::endl;
   std::cerr<<"Error: Rest mass of particle not updated."<<std::endl;    
 }
 
@@ -72,9 +78,10 @@ void Electron::set_name(std::string particle_name)
 {
   // Particle mass can't be changed in Electron
   std::cerr<<"Error: Electron particle can not be changed."<<std::endl;
-  std::cerr<<"Create a ChargedLepton object if u want an object with a name that can be modified"<<std::endl;
+  std::cerr<<"Create a Lepton object if u want an object with a name that can be modified"<<std::endl;
   std::cerr<<"Error: Name of particle not updated."<<std::endl;    
 }
+
 
 void Electron::set_is_antiparticle(bool is_antiparticle)
 {
@@ -108,13 +115,13 @@ Electron& Electron::operator=(const Electron &electron_called)
   } 
   // Assigns all data members from lepton_called to current particle
   // Deep Copying implemented
-  ChargedLepton::operator=(electron_called);
+  Lepton::operator=(electron_called);
   calorimeter_energies_ptr = std::make_unique<CalorimeterEnergies>(*electron_called.calorimeter_energies_ptr);
 
   return *this;
 }
 
-Electron::Electron(const Electron &electron_called) : ChargedLepton(electron_called)
+Electron::Electron(const Electron &electron_called) : Lepton(electron_called)
 {
   std::cout<<"Calling Copy Constructor"<<std::endl;
 
@@ -137,20 +144,20 @@ Electron& Electron::operator=(Electron &&electron_called_to_move)
   else
   {
     // Move the data members
-    ChargedLepton::operator=(std::move(electron_called_to_move));
+    Lepton::operator=(std::move(electron_called_to_move));
     this->calorimeter_energies_ptr = std::move(electron_called_to_move.calorimeter_energies_ptr);
   }
     
   return *this;
 }
 
-Electron::Electron(Electron &&electron_called_to_move) : ChargedLepton(std::move(electron_called_to_move))
+Electron::Electron(Electron &&electron_called_to_move) : Lepton(std::move(electron_called_to_move))
 {
   std::cout<<"Calling Move Constructor"<<std::endl;
 
-    calorimeter_energies_ptr = std::move(electron_called_to_move.calorimeter_energies_ptr);
+  calorimeter_energies_ptr = std::move(electron_called_to_move.calorimeter_energies_ptr);
 
-  }
 }
+
 
 

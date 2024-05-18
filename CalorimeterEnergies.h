@@ -33,6 +33,13 @@ public:
   // Getter Fn
   const std::vector<double>& getCalorimeterEnergies() const {return calorimeter_energies;}
 
+  void set_calorimeter_energy(double energy_EM_1, double energy_EM_2, double energy_HAD_1, double energy_HAD_2) 
+  {
+    calorimeter_energies[EM_1] = energy_EM_1;
+    calorimeter_energies[EM_2] = energy_EM_2;
+    calorimeter_energies[HAD_1] = energy_HAD_1;
+    calorimeter_energies[HAD_2] = energy_HAD_2;
+  }
 };
 
 #endif
