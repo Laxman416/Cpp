@@ -69,17 +69,17 @@ void Electron::print_data() const
 void Electron::set_rest_mass(double particle_mass)
 {
   // Particle mass can't be changed in Electron
-  std::cerr<<"Error: Electron has a fixed mass and cannot be changed."<<std::endl;
+  std::cerr<<"\033[1;31mError\033[0m: Electron has a fixed mass and cannot be changed."<<std::endl;
   std::cerr<<"Create a Lepton object if u want an object with mass that can be modified"<<std::endl;
-  std::cerr<<"Error: Rest mass of particle not updated."<<std::endl;    
+  std::cerr<<"\033[1;31mError\033[0m: Rest mass of particle not updated."<<std::endl;    
 }
 
 void Electron::set_name(std::string particle_name)
 {
   // Particle mass can't be changed in Electron
-  std::cerr<<"Error: Electron particle can not be changed."<<std::endl;
+  std::cerr<<"\033[1;31mError\033[0m: Electron particle can not be changed."<<std::endl;
   std::cerr<<"Create a Lepton object if u want an object with a name that can be modified"<<std::endl;
-  std::cerr<<"Error: Name of particle not updated."<<std::endl;    
+  std::cerr<<"\033[1;31mError\033[0m: Name of particle not updated."<<std::endl;    
 }
 
 
@@ -87,8 +87,8 @@ void Electron::set_is_antiparticle(bool is_antiparticle)
 {
   if(this->m_is_antiparticle == is_antiparticle)
   {
-    std::cerr<<"Error: Electron is already in desired state."<<std::endl;
-    std::cerr<<"Error: Particle not updated."<<std::endl;    
+    std::cerr<<"\033[1;31mError\033[0m: Electron is already in desired state."<<std::endl;
+    std::cerr<<"\033[1;31mError\033[0m: Particle not updated."<<std::endl;    
   }
   else
   {

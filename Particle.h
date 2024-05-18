@@ -24,7 +24,7 @@ public:
     name{particle_name},
     m_is_antiparticle{is_antiparticle},
     charge{particle_charge},
-    four_momentum_ptr(std::make_unique<FourMomentum>(particle_energy, particle_px, particle_py, particle_pz))
+    four_momentum_ptr(std::make_unique<FourMomentum>(particle_energy, particle_px, particle_py, particle_pz, rest_mass, true)) // in MeV
   {
     verify_input(is_antiparticle);
   }
@@ -32,12 +32,19 @@ public:
   void verify_input(bool is_antiparticle);
 
   virtual ~Particle(){};
-  virtual void print_data() const =0; // pure virtual function   
+  virtual void print_data() const = 0; // pure virtual function   
 
   void set_four_momentum_ptr(std::unique_ptr<FourMomentum> momentum_ptr){four_momentum_ptr = std::move(momentum_ptr);}
-  // Setter Fn that should be overidden in derived classes
+  // Wrapper Functions that Call the FourMomentum functions in the Particle Object
+  void set_energy(double particle_energy){four_momentum_ptr->set_E(particle_energy);}
+  void set_px(double particle_px){four_momentum_ptr->set_px(particle_px);}
+  void set_py(double particle_py){four_momentum_ptr->set_py(particle_py);}
+  void set_pz(double particle_pz){four_momentum_ptr->set_pz(particle_pz);}
+
+  // Setter Fn that should be overidden in derived classes - so that particle mass and name is dependent on derived class but when used for base class it is possible to change
   virtual void set_rest_mass(double particle_mass);
   virtual void set_name(std::string particle_name){name = particle_name;}
+
 
   // Getter Fn
   double get_spin() const {return spin;}
@@ -47,8 +54,9 @@ public:
   std::string get_name() const {return name;}
   const std::unique_ptr<FourMomentum>& get_four_momentum_ptr() const { return four_momentum_ptr; }
 
+  // Friend Functions 
   friend std::vector<double> operator+(const Particle& particle_called_1, const Particle& particle_called_2);
-
+  friend std::vector<double> operator-(const Particle& particle_called_1, const Particle& particle_called_2);
   friend double dotProduct(const Particle& particle_called_1, const Particle& particle_called_2);
 
   Particle(const Particle &particle_called); // Copy Constructor

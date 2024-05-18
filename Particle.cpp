@@ -13,6 +13,18 @@ std::vector<double> operator+(const Particle& particle_called_1, const Particle&
   return total_momentum;
 }
 
+std::vector<double> operator-(const Particle& particle_called_1, const Particle& particle_called_2)
+{
+  std::vector<double> total_momentum(4); // initialise total_momentum vector
+  // // Subtract the components of the four-momenta
+  total_momentum[0] = particle_called_1.get_four_momentum_ptr()->get_E() - particle_called_2.get_four_momentum_ptr()->get_E();
+  total_momentum[1] = particle_called_1.get_four_momentum_ptr()->get_px() - particle_called_2.get_four_momentum_ptr()->get_px();
+  total_momentum[2] = particle_called_1.get_four_momentum_ptr()->get_py() - particle_called_2.get_four_momentum_ptr()->get_py();
+  total_momentum[3] = particle_called_1.get_four_momentum_ptr()->get_pz() - particle_called_2.get_four_momentum_ptr()->get_pz();
+
+  return total_momentum;
+}
+
 double dotProduct(const Particle& particle_called_1, const Particle& particle_called_2) 
 {
 
@@ -40,11 +52,17 @@ void Particle::set_rest_mass(double particle_mass)
   // particle mass must be positive
   if(particle_mass < 0)
   {
-    std::cerr<<"Error: Invalid value for rest mass. Mass must be positive."<<std::endl;
-    std::cerr<<"Error: Rest mass of particle not updated."<<std::endl;    
+    std::cerr<<"\033[1;31mError\033[0m: Invalid value for rest mass. Mass must be positive."<<std::endl;
+    std::cerr<<"\033[1;31mError\033[0m: Rest mass of particle not updated."<<std::endl;    
   }
   else
   {
+    // Check if the FourMomentum object exists
+    if(four_momentum_ptr != nullptr)
+    {
+      // Verify energy using new particle mass
+      four_momentum_ptr->verify_energy(four_momentum_ptr->get_E(), four_momentum_ptr->get_px(), four_momentum_ptr->get_py(), four_momentum_ptr->get_pz(), particle_mass);
+    }
     rest_mass = particle_mass;
   }
 }
@@ -127,3 +145,5 @@ Particle::Particle(Particle &&particle_called_to_move)
     four_momentum_ptr = std::move(particle_called_to_move.four_momentum_ptr);
   }
 }
+
+

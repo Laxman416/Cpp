@@ -9,18 +9,32 @@
 #include<cmath>
 #include "FourMomentum.h"
 
-void FourMomentum::verify_input(double& particle_energy) 
+void FourMomentum::verify_energy(double particle_energy, double particle_px, double particle_py, double particle_pz, double particle_mass) 
 {
-  if(particle_energy >= 0) 
-  {
-    return;
-  } 
-  else 
-  {
-    std::cerr<<"Error: Invalid four momentum given. E must be positive. "<<std::endl;
-    std::cerr<<"Setting the energy to 0."<<std::endl;
-    particle_energy = 0; // Set E to 0
-  }
+  double invariant_mass = get_invariant_mass_from_four_momentum();
+  
+  if(std::abs(invariant_mass - particle_mass) > 1e-6 || E * E < (particle_px * particle_px + particle_py * particle_py + particle_pz * particle_pz))
+    {
+      if(std::abs(invariant_mass - particle_mass) > 1e-6)
+      {
+        std::cerr<<"\033[1;31mError\033[0m:  Inconsistent invariant mass and particle mass."<<std::endl;
+      } 
+      else
+      {
+        std::cerr<<"\033[1;31mError\033[0m:  Inconsistent momentum and energy as invariant mass is an imaginary number."<<std::endl;
+      }
+      std::cout<<"\tModifying four momentum to be valid"<<std::endl;
+      std::cout<<"\tAssuming momentum correct and modifying Energy."<<std::endl;
+   
+      // Calculate E using rest mass of particle: E^2 = m^2 + (pc)^2
+      double scaled_energy = std::sqrt(particle_mass * particle_mass + particle_px * particle_px + particle_py * particle_py + particle_pz * particle_pz);
+
+      E = scaled_energy;
+      px = particle_px;  
+      py = particle_py;
+      pz = particle_pz;
+      rest_mass = particle_mass;
+    }
 }
 
 void FourMomentum::print_data() const
@@ -33,32 +47,45 @@ void FourMomentum::print_data() const
   std::cout<<"\t\tpz: "<<pz<<" MeV"<<std::endl;
 }
 
-void FourMomentum::set_E(double energy)
+void FourMomentum::set_E(double E)
 {
-  if(energy >= 0) 
-  {
-    E = energy;
-  }
-  else
-  {
-    std::cerr<<"Error: Invalid E given. E must be positive."<<std::endl;
-    std::cerr<<"Energy of particle not updated."<<std::endl;
-  }
+  // Verify energy and sets it
+  verify_energy(E, this->get_px(), this->get_py(), this->get_pz(), rest_mass);
 }
 
 void FourMomentum::set_px(double particle_px)
 {
-    px = particle_px;
+  // Verify energy using new particle_px and sets it
+  verify_energy(this->get_E(), particle_px, this->get_py(), this->get_pz(), rest_mass);
 }
 
 void FourMomentum::set_py(double particle_py)
 {
-    py= particle_py;
+  // Verify energy using new particle_py and sets it
+  verify_energy(this->get_E(), this->get_px(), particle_py, this->get_pz(), rest_mass);
+  py = particle_py;
 }
 
 void FourMomentum::set_pz(double particle_pz)
 {
-    pz = particle_pz;
+  // Verify energy using new particle_py and sets it
+  verify_energy(this->get_E(), this->get_px(), this->get_py(), particle_pz, rest_mass);
+  pz = particle_pz;
+}
+
+void FourMomentum::set_rest_mass(double particle_mass)
+{
+  // Only modify if not associated with a Particle object
+  if(m_is_particle == false)
+  {
+    // Verify energy using new particle mass and sets it
+    verify_energy(this->get_E(), this->get_px(), this->get_py(), this->get_pz(), particle_mass);
+    rest_mass = particle_mass;
+  }
+  else
+  {
+    std::cerr<<"\033[1;31mError\033[0m: Cannot modify rest_mass when FourMomentum is associated with a Particle object."<<std::endl;
+  }
 }
 
 std::vector<double> FourMomentum::operator+(const FourMomentum& four_momentum_called) const 

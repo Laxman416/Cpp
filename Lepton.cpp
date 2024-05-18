@@ -7,7 +7,7 @@ void Lepton::verify_input(bool is_antiparticle)
 {
   if(is_antiparticle != true && is_antiparticle != false)
   {
-    std::cout<<"Warning: Invalid value for 'is_antiparticle' parameter. Defaulting to false."<<std::endl;
+    std::cout<<"\033[1;31mWarning\033[0m:: Invalid value for 'is_antiparticle' parameter. Defaulting to false."<<std::endl;
     is_antiparticle = false;
   }
 }

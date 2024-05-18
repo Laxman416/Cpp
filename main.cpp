@@ -19,8 +19,8 @@ void create_particles(std::vector<std::unique_ptr<Particle>>& particles)
   particles.reserve(12); 
 
   // Create particle objects
-  particles.emplace_back(std::make_unique<Electron>(false, 1.0, 0.1, 0.1, 0.1));  
-  particles.emplace_back(std::make_unique<Electron>(false, 1.0, 0.2, 0.2, 0.2));
+  particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
+  // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 0.2, 0.2, 0.2));
   // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.15, 0.2, true));
   // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.3, 0.15, true));
   // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.1, 0.3, true));
