@@ -46,6 +46,16 @@ public:
   std::vector<double> sum_four_momentum() const;
 
   ParticleCatalogue get_container_of_a_type(const std::string& particle_type) const;
+
+  // Rule of Five
+  ParticleCatalogue(const ParticleCatalogue &particle_catalogue_called); // Copy Constructor
+  ParticleCatalogue(ParticleCatalogue &&particle_catalogue_called); // Move Constructor
+
+  // Assignment operator made to do deep copy assigning.
+  ParticleCatalogue& operator=(const ParticleCatalogue &particle_catalogue_called);
+
+  // Move assignment operator using function overloading
+  ParticleCatalogue& operator=(ParticleCatalogue&& particle_catalogue_called_to_move);
 };
 
 

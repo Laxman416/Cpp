@@ -49,10 +49,13 @@ std::string ParticleCatalogue::get_label(const std::pair<SafeSharedPtr<Particle>
 
 void ParticleCatalogue::print_particles_with_key() const 
 {
+  std::cout<<"------------------------------------------"<<std::endl;
   for (const auto& particle_entry : particle_container) 
   {
     std::cout << "Key: " << particle_entry.first << ", Particle Type: " << particle_entry.second.second << std::endl;
   }
+  std::cout<<"------------------------------------------"<<std::endl;
+
 }
 
 void ParticleCatalogue::print_particles_count_by_type() const 
@@ -85,10 +88,13 @@ int ParticleCatalogue::get_total_count_of_a_type(const std::string& particle_typ
 
   void ParticleCatalogue::print_all_particles() const
   {
+    std::cout<<"------------------------------------------"<<std::endl;
     for (const auto& particle_entry : particle_container) 
     {
       std::cout<<"Key: "<<particle_entry.first<<std::endl;
       particle_entry.second.first->print_data();
+      std::cout<<"------------------------------------------"<<std::endl;
+
     }
   }
 
@@ -133,6 +139,69 @@ ParticleCatalogue ParticleCatalogue::get_container_of_a_type(const std::string& 
         new_catalogue.add_particle(particle);
     }
   }
-
   return new_catalogue;
 }
+
+// Assignment Constructor to do Deep Copying
+ParticleCatalogue& ParticleCatalogue::operator=(const ParticleCatalogue &particle_catalogue_called)
+{
+  std::cout<<"Calling Assignment Constructor"<<std::endl;
+  // Assignment Constructor replaces existing object with another existing object.
+  // Deep Copying Assignment implemented
+  // RHS assigned to LHS
+  // Need to delete dynamically allocated memory otherwise will cause memory leak
+
+  // no self-assignment
+  if(&particle_catalogue_called == this)
+  {
+    return *this;
+  } 
+  // Assigns all data members from lepton_called to current particle
+  // Deep Copying implemented
+ 
+  this->particle_container = particle_catalogue_called.particle_container;
+  this->particle_count = particle_catalogue_called.particle_count;
+  return *this;
+}
+
+ParticleCatalogue::ParticleCatalogue(const ParticleCatalogue &particle_catalogue_called)
+{
+  std::cout<<"Calling Copy Constructor"<<std::endl;
+
+  {
+    // Copies all data members from particle_called to current catalogue
+    
+  this->particle_container = particle_catalogue_called.particle_container;
+  this->particle_count = particle_catalogue_called.particle_count;
+  }
+}
+
+ParticleCatalogue& ParticleCatalogue::operator=(ParticleCatalogue &&particle_catalogue_called_to_move)
+{
+  std::cout<<"Calling Move Assignment operator"<<std::endl;
+
+  // Check for self-moving
+  if(this == &particle_catalogue_called_to_move)
+  {
+    std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
+    return *this;
+  }
+  else
+  // Move the data members
+  particle_container = std::move(particle_catalogue_called_to_move.particle_container);
+  particle_count = std::move(particle_catalogue_called_to_move.particle_count);
+
+  return *this;
+}
+
+ParticleCatalogue::ParticleCatalogue(ParticleCatalogue &&particle_catalogue_called_to_move)
+{
+  std::cout<<"Calling Move Constructor"<<std::endl;
+  {
+    // Move the data members
+    particle_container = std::move(particle_catalogue_called_to_move.particle_container);
+    particle_count = std::move(particle_catalogue_called_to_move.particle_count);
+  }
+}
+
+
