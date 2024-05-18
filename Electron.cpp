@@ -76,7 +76,7 @@ void Electron::set_rest_mass(double particle_mass)
 
 void Electron::set_name(std::string particle_name)
 {
-  // Particle mass can't be changed in Electron
+  // Particle name can't be changed in Electron
   std::cerr<<"\033[1;31mError\033[0m: Electron particle can not be changed."<<std::endl;
   std::cerr<<"Create a Lepton object if u want an object with a name that can be modified"<<std::endl;
   std::cerr<<"\033[1;31mError\033[0m: Name of particle not updated."<<std::endl;    
@@ -95,7 +95,8 @@ void Electron::set_is_antiparticle(bool is_antiparticle)
     this->m_is_antiparticle = is_antiparticle;
     this->charge = m_is_antiparticle ? -1:1;
     this->name = m_is_antiparticle ? "Antielectron":"Electron";
-    std::cerr<<"Particle updated. The name, charge and boolean data members are modified."<<std::endl;    
+    this->lepton_number = m_is_antiparticle ? -1:1;
+    std::cerr<<"Particle updated. The name, charge, boolean and lepton number data members are modified."<<std::endl;    
   }
 }
 
