@@ -92,18 +92,13 @@ int main()
   ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
 
   // Printing possible Decay Products of Z, W and Higgs
-  // catalogue["Z_1"]->print_decay_products();
-  // catalogue["W^+_1"]->print_decay_products();
-  // catalogue["W^-_1"]->print_decay_products();
+  catalogue["Z_1"]->print_decay_products();
+  catalogue["W^+_1"]->print_decay_products();
+  catalogue["W^-_1"]->print_decay_products();
   catalogue["Higgs_1"]->print_decay_products();
 
-
-  // new_catalogue.print_all_particles();
+  new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
-
-  // sum_four_momentum(leptons_class_vector);
-  
-  // dot_four_momentum(leptons_class_vector);
 
   return 0;
 }
