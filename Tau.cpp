@@ -227,7 +227,6 @@ void Tau::set_charge(int particle_charge)
 {
   // Particle mass can't be changed in tau
   std::cerr<<"\033[1;31mError\033[0m: Tau has a charge and cannot be changed."<<std::endl;
-  std::cerr<<"Modify the m_is_antiparticle data member if u want to change to tau to its antipariticle or vice versa."<<std::endl;
   std::cerr<<"\033[1;31mError\033[0m: Charge of particle not updated."<<std::endl;    
 }
 

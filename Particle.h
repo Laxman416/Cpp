@@ -32,6 +32,7 @@ public:
 
   virtual ~Particle(){};
   virtual void print_data() const =0; // pure virtual function    
+  virtual void print_decay_products(){}; // virtual function    
 
 
   // Use these Setters for all the derived classes. Don't need to modify

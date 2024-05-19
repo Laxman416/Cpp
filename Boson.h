@@ -43,6 +43,7 @@ public:
   virtual ~Boson(){std::cout<<"Boson is destroyed."<<std::endl;};
 
   virtual void print_data() const;
+  virtual void print_data(){};
 
   // Getter Function
   std::string get_associated_force() const {return associated_force;}

@@ -16,6 +16,7 @@
 #include "Boson.h"
 #include "Photon.h"
 #include "Gluon.h"
+#include "Weak.h"
 
 template <class ParticleType>
 void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue) 
@@ -33,26 +34,14 @@ void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue)
   // particle_catalogue.add_particle(std::make_unique<Neutrino>(false, 1.0, 0.1, 0.7, 0.3, false, 2));
   // particle_catalogue.add_particle(std::make_unique<Neutrino>(false, 1.0, 0.1, 0.7, 0.3, false, 3));
   // particle_catalogue.add_particle(std::make_unique<Quark>(true, 1.0, 0.1, 0.7, 0.3, 2, "red", true));
-  particle_catalogue.add_particle(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3));
-  particle_catalogue.add_particle(std::make_unique<Tau>(false, 1.0, 0.1, 0.7, 0.3));
+  // particle_catalogue.add_particle(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3));
+  // particle_catalogue.add_particle(std::make_unique<Tau>(false, 1.0, 0.1, 0.7, 0.3));
+  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, 0.0));
+  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, -1.0));
+  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, 1.0));
 
 
 
-
-
-  // Create particle objects
-  // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
-  // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 0.2, 0.2, 0.2));
-  // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.15, 0.2, true));
-  // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.3, 0.15, true));
-  // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.2, 0.1, 0.3, true));
-  // leptons.emplace_back(std::make_unique<Muon>(false, 1.0, 0.1, 0.1, 0.3, false));
-  // leptons.emplace_back(std::make_unique<Electron>(true, 1.0, 0.5, 0.1, 0.3));
-  // leptons.emplace_back(std::make_unique<Muon>(true, 1.0, 0.1, 0.7, 0.3, true));
-  // leptons.emplace_back(std::make_unique<MuonNeutrino>(true, 1.0, 0.1, 0.7, 0.3, false));
-  // leptons.emplace_back(std::make_unique<ElectronNeutrino>(true, 1.0, 0.1, 0.7, 0.3, false));
-  // leptons.emplace_back(std::make_unique<Tau>(false, 1.0, 0.1, 0.7, 0.3, true));
-  // leptons.emplace_back(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3, true));
 }
 
 // Main program
@@ -66,28 +55,24 @@ int main()
   // Print out data members for all particles
   catalogue.print_particles_with_key();
 
+  // Printing all particles in catalogue
+  catalogue.print_all_particles();
+
   std::cout<<"The total number of particles in the container: "<<catalogue.get_total_particles()<<std::endl;
   catalogue.print_particles_count_by_type();
-  catalogue.print_all_particles();
 
   std::vector<double> sum_all_momentum = catalogue.sum_four_momentum();
 
   ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
-  SafeSharedPtr<Particle> pointer = nullptr;
-  // catalogue["Anticharm_1"]->print_data();
+
+  // Printing possible Decay Products of Z, W and Higgs
+  // catalogue["Z_1"]->print_decay_products();
+  catalogue["W^+_1"]->print_decay_products();
+  catalogue["W^-_1"]->print_decay_products();
 
 
   // new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
-
-  // SafeSharedPtr<Particle> pointer = nullptr;
-  // pointer->print_data();
-
-    // if (pointer) {
-  //   pointer->print_data();
-  // } else {
-  //     std::cerr << "Error: Safe pointer is null." << std::endl;
-  // }
 
   // sum_four_momentum(leptons_class_vector);
   
