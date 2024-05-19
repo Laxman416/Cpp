@@ -95,7 +95,7 @@ SafeSharedPtr<ParticleType> ParticleCatalogue<ParticleType>::operator[](const st
     if(it == particle_container.end()) 
     {
       // Key not found, return a default value (nullptr)
-      std::cerr << "Key not found: " << key << std::endl;
+      std::cerr<<"Key not found: "<<key<<std::endl;
       return nullptr;
     }
     else
@@ -137,7 +137,7 @@ void ParticleCatalogue<ParticleType>::print_particles_count_by_type() const
   {
     const std::string& particle_type = type_count_pair.first;
     int count = type_count_pair.second;
-    std::cout<<"\tType: "<<particle_type <<" has "<<count<<" counts."<<std::endl;
+    std::cout<<"\tType: "<<particle_type<<" has "<<count<<" counts."<<std::endl;
   }
 }
 
@@ -221,7 +221,7 @@ ParticleCatalogue<ParticleType> ParticleCatalogue<ParticleType>::get_container_o
 template<class ParticleType>
 ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(const ParticleCatalogue<ParticleType> &particle_catalogue_called)
 {
-    std::cout << "Calling Assignment Constructor" << std::endl;
+    std::cout<<"Calling Assignment Constructor"<<std::endl;
     // Assignment Constructor replaces existing object with another existing object.
     // Deep Copying Assignment implemented
     // RHS assigned to LHS
@@ -243,7 +243,7 @@ ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(cons
 template<class ParticleType>
 ParticleCatalogue<ParticleType>::ParticleCatalogue(const ParticleCatalogue<ParticleType> &particle_catalogue_called)
 {
-    std::cout << "Calling Copy Constructor" << std::endl;
+    std::cout<<"Calling Copy Constructor"<<std::endl;
     // Copies all data members from particle_called to current catalogue
 
     this->particle_container = particle_catalogue_called.particle_container;
@@ -253,12 +253,12 @@ ParticleCatalogue<ParticleType>::ParticleCatalogue(const ParticleCatalogue<Parti
 template<class ParticleType>
 ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(ParticleCatalogue<ParticleType> &&particle_catalogue_called_to_move)
 {
-    std::cout << "Calling Move Assignment operator" << std::endl;
+    std::cout<<"Calling Move Assignment operator"<<std::endl;
 
     // Check for self-moving
     if(this == &particle_catalogue_called_to_move)
     {
-        std::cout << "Self-moving detected in move assignment operator. Skipping move." << std::endl;
+        std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
         return *this;
     }
     else
@@ -274,7 +274,7 @@ ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(Part
 template<class ParticleType>
 ParticleCatalogue<ParticleType>::ParticleCatalogue(ParticleCatalogue<ParticleType> &&particle_catalogue_called_to_move)
 {
-    std::cout << "Calling Move Constructor" << std::endl;
+    std::cout<<"Calling Move Constructor"<<std::endl;
     // Move the data members
     this->particle_container = std::move(particle_catalogue_called_to_move.particle_container);
     this->particle_count = std::move(particle_catalogue_called_to_move.particle_count);
