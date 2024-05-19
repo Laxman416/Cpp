@@ -1,6 +1,6 @@
 // PHYS 30762 Programming in C++
 // Final Project - Photon class
-// Derived Classes from Boson Class: photon, weak, Higgs
+// Derived Classes from Boson Class: photon, weak, Higgs. gluon
 #ifndef PHOTON_H
 #define PHOTON_H
 

@@ -52,7 +52,7 @@ Photon& Photon::operator=(const Photon &photon_called)
   {
     return *this;
   } 
-  // Assigns all data members from lepton_called to current particle
+  // Assigns all data members from photon to current particle
   // Deep Copying implemented
   Boson::operator=(photon_called);
 
@@ -63,7 +63,7 @@ Photon::Photon(const Photon &photon_called) : Boson(photon_called)
 {
   std::cout<<"Calling Copy Constructor"<<std::endl;
 
-  // Copies all data members from lepton_called to current particle
+  // Copies all data members from photon to current particle
 }
 
 Photon& Photon::operator=(Photon &&photon_called_to_move)

@@ -15,6 +15,7 @@
 #include "Tau.h"
 #include "Boson.h"
 #include "Photon.h"
+#include "Gluon.h"
 
 template <class ParticleType>
 void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue) 

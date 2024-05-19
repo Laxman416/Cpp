@@ -10,7 +10,7 @@ void Boson::print_data() const
   std::cout<<"\tCharge is: "<<this->get_charge()<<std::endl;
   std::cout<<"\tSpin is: "<<this->get_spin()<<std::endl;
   std::cout<<"\tIs it an anitparticle: "<<(this->get_is_antiparticle() ? "true" : "false")<<std::endl;
-  std::cout<<"\tBoson is associated with the : "<<(associated_force)<<" Force"<<std::endl;
+  std::cout<<"\tBoson is associated with the : "<<(this->get_associated_force())<<" Force"<<std::endl;
 
   // Call print_data() function on the four_momentum_ptr object
   if(four_momentum_ptr != nullptr) 
@@ -49,7 +49,7 @@ Boson::Boson(const Boson &boson_called) : Particle(boson_called)
 {
   std::cout<<"Calling Copy Constructor"<<std::endl;
 
-  // Copies all data members from lepton_called to current particle
+  // Copies all data members from boson_called to current particle
   this->associated_force = boson_called.associated_force;
 
 }
