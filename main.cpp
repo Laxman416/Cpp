@@ -73,7 +73,6 @@ void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue)
 // Main program
 int main()
 {
-  // std::vector<std::unique_ptr<Particle>> particle_class_vector; // particle class vector
   ParticleCatalogue<Particle> catalogue;
 
   // Call function to create particles
