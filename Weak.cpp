@@ -80,7 +80,7 @@ void Weak::input_check_charge(double particle_charge)
 {
   if(particle_charge != -1 && particle_charge != 0 && particle_charge != 1) 
   {
-    std::cerr << "Invalid particle charge: must be -1, 0, or 1. Setting charge to 1 by default." << std::endl;
+    std::cerr<<"Invalid particle charge: must be -1, 0, or 1. Setting charge to 1 by default."<<std::endl;
     particle_charge = 1;
   }
 }

@@ -76,7 +76,7 @@ void ParticleCatalogue<ParticleType>::add_particle(const SafeSharedPtr<ParticleT
   {
     // Generate a unique key for the particle
     std::ostringstream key_stream;
-    key_stream << particle->get_name() << "_" << particle_count[particle->get_name()] + 1;
+    key_stream<<particle->get_name()<<"_"<<particle_count[particle->get_name()] + 1;
     key = key_stream.str();
     particle_type = particle->get_type();
   }
@@ -92,7 +92,7 @@ template<class ParticleType>
 SafeSharedPtr<ParticleType> ParticleCatalogue<ParticleType>::operator[](const std::string& key) 
   {
     auto it = particle_container.find(key);
-    if (it == particle_container.end()) 
+    if(it == particle_container.end()) 
     {
       // Key not found, return a default value (nullptr)
       std::cerr << "Key not found: " << key << std::endl;
@@ -142,9 +142,11 @@ void ParticleCatalogue<ParticleType>::print_particles_count_by_type() const
 }
 
 template<class ParticleType>
-int ParticleCatalogue<ParticleType>::get_total_count_of_a_type(const std::string& particle_type) const {
+int ParticleCatalogue<ParticleType>::get_total_count_of_a_type(const std::string& particle_type) const 
+{
   int count = 0;
-  for (const auto& particle_entry : particle_container) {
+  for (const auto& particle_entry : particle_container) 
+  {
     if(particle_entry.second.second == particle_type) 
     {
       count = count + 1;
@@ -201,11 +203,13 @@ ParticleCatalogue<ParticleType> ParticleCatalogue<ParticleType>::get_container_o
 {
   ParticleCatalogue<ParticleType> new_catalogue;
 
-  for (const auto& particle_entry : particle_container) {
+  for(const auto& particle_entry : particle_container) 
+  {
     const auto& particle = particle_entry.second.first;
     const std::string& label = particle_entry.second.second;
 
-    if (label == particle_type) {
+    if(label == particle_type) 
+    {
         new_catalogue.add_particle(particle);
     }
   }
@@ -224,9 +228,9 @@ ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(cons
     // Need to delete dynamically allocated memory otherwise will cause memory leak
 
     // no self-assignment
-    if (&particle_catalogue_called == this)
+    if(&particle_catalogue_called == this)
     {
-        return *this;
+      return *this;
     }
     // Assigns all data members from lepton_called to current particle
     // Deep Copying implemented
@@ -252,7 +256,7 @@ ParticleCatalogue<ParticleType>& ParticleCatalogue<ParticleType>::operator=(Part
     std::cout << "Calling Move Assignment operator" << std::endl;
 
     // Check for self-moving
-    if (this == &particle_catalogue_called_to_move)
+    if(this == &particle_catalogue_called_to_move)
     {
         std::cout << "Self-moving detected in move assignment operator. Skipping move." << std::endl;
         return *this;
