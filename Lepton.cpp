@@ -14,9 +14,14 @@ void Lepton::verify_input(bool is_antiparticle)
 
 void Lepton::print_data() const
 {
-  // // need to use getters from Lepton and Charged Lepton
+  // // need to use getters from Lepton and Particle
   std::cout<<"Print Data for "<<this->get_name()<<": "<<std::endl;
-  std::cout<<"\tRzest Mass is: "<<this->get_rest_mass()<<" MeV"<<std::endl;
+  std::cout<<"\tRest Mass is: "<<this->get_rest_mass()<<" MeV"<<std::endl;
+  std::cout<<"\tCharge is: "<<this->get_charge()<<std::endl;
+  std::cout<<"\tSpin is: "<<this->get_spin()<<std::endl;
+  std::cout<<"\tIs it an anitparticle: "<<(this->get_is_antiparticle() ? "true" : "false")<<std::endl;
+  std::cout<<"\tLepton Number: "<<(this->get_lepton_number())<<std::endl;
+
   // Call print_data() function on the four_momentum_ptr object
   if(four_momentum_ptr != nullptr) 
   {

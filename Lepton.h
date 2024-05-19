@@ -14,7 +14,7 @@
 #include<stdexcept>
 
 
-// Beginning of lepton class - abstract class
+// Beginning of lepton class
 class Lepton : public Particle
 {
 protected:

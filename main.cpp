@@ -10,17 +10,19 @@
 #include "SafeSharedPtr.h"
 #include<vector>
 #include "Neutrino.h"
+#include "Quark.h"
 // #include "Tau.h"
 
-
-void create_particles(ParticleCatalogue& particle_catalogue) 
+template <class ParticleType>
+void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue) 
 {
   // Preallocation isn't possible using std::multimap unlike vector which requires .reserve
   // Create null particle to use if index of container out of range
   particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
   particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
   particle_catalogue.add_particle(std::make_unique<Electron>(true, 1.0, 10, 10, 10));
-  particle_catalogue.add_particle(std::make_unique<Neutrino>(true, 1.0, 0.1, 0.7, 0.3, false, 2));
+  particle_catalogue.add_particle(std::make_unique<Neutrino>(true, 1.0, 0.1, 0.7, 0.3, false, 1));
+  particle_catalogue.add_particle(std::make_unique<Quark>(true, 1.0, 0.1, 0.7, 0.3, 2, "red", true));
 
   // Create particle objects
   // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
@@ -41,7 +43,7 @@ void create_particles(ParticleCatalogue& particle_catalogue)
 int main()
 {
   // std::vector<std::unique_ptr<Particle>> particle_class_vector; // particle class vector
-  ParticleCatalogue catalogue;
+  ParticleCatalogue<Particle> catalogue;
 
   // Call function to create particles
   create_particles(catalogue); 
@@ -55,6 +57,10 @@ int main()
   std::vector<double> sum_all_momentum = catalogue.sum_four_momentum();
 
   ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
+  SafeSharedPtr<Particle> pointer = nullptr;
+  catalogue["Unknown quark_1"]->print_data();
+
+
   // new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
 

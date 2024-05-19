@@ -17,6 +17,9 @@ class Neutrino: public Lepton
 private:
   bool m_has_interacted;
   int flavour; 
+
+  std::string get_particle_name_flavour(bool is_antiparticle, int particle_flavour) const; //used in creation of parameterised constructor: user doesnt need access to it
+
 public:
   Neutrino() = default;
   // Parameterised Constructor
@@ -44,8 +47,6 @@ public:
   // Getter Fn
   const bool get_has_interacted() const {return m_has_interacted;}
   const bool get_neutrino_flavour() const{return flavour;} 
-  
-  std::string get_particle_name_flavour(bool is_antiparticle, int particle_flavour) const; 
   std::string get_type() const override {return "Neutrino";} // used for Container
 
   // Setter Fn
