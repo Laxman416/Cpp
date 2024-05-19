@@ -80,9 +80,10 @@ Photon& Photon::operator=(Photon &&photon_called_to_move)
   {
     // Move the data members
     Boson::operator=(std::move(photon_called_to_move));
+
+    return *this;
   }
     
-  return *this;
 }
 
 Photon::Photon(Photon &&photon_called_to_move) : Boson(std::move(photon_called_to_move))

@@ -58,5 +58,10 @@ public:
   void set_rest_mass(double particle_mass) override; 
   void set_name(std::string particle_name) override;
 
+  Higgs(Higgs &&higgs_called_to_move); // Move Constructor
+  
+  // // Move assignment operator using function overloading
+  Higgs& operator=(Higgs&& higgs_called_to_move);
+
 };
 #endif

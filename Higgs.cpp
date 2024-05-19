@@ -99,3 +99,31 @@ void Higgs::print_decay_products()
     it->second->print_data();   
   }
 }
+
+Higgs& Higgs::operator=(Higgs &&higgs_called_to_move)
+{
+  std::cout<<"Calling Move Assignment operator"<<std::endl;
+
+  // Check for self-moving
+  if(this == &higgs_called_to_move)
+  {
+    std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
+    return *this;
+  }
+  else
+  {
+    // Move the data members
+    Boson::operator=(std::move(higgs_called_to_move));
+    decay_product_pairs = std::move(higgs_called_to_move.decay_product_pairs);
+
+    return *this;
+  }
+}
+
+Higgs::Higgs(Higgs &&higgs_called_to_move) : Boson(std::move(higgs_called_to_move))
+{
+  std::cout<<"Calling Move Constructor"<<std::endl;
+  
+  decay_product_pairs = std::move(higgs_called_to_move.decay_product_pairs);
+
+}

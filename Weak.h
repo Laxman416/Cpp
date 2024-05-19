@@ -65,5 +65,10 @@ public:
   void set_rest_mass(double particle_mass) override; 
   void set_name(std::string particle_name) override;
 
+  Weak(Weak &&photon_called); // Move Constructor
+  
+  // // Move assignment operator using function overloading
+  Weak& operator=(Weak&& photon_called_to_move);
+
 };
 #endif
