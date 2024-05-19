@@ -2,18 +2,16 @@
 #include<iostream>
 #include<string>
 #include "Electron.h"
+#include "Muon.h"
 #include "Lepton.h" 
 #include "CalorimeterLayers.h"
 #include "Particle.h"
 #include "ParticleCatalogue.h"
 #include "SafeSharedPtr.h"
 #include<vector>
-
-// #include "Muon.h"
+#include "Neutrino.h"
 // #include "Tau.h"
-// #include "ElectronNeutrino.h"
-// #include "MuonNeutrino.h"
-// #include "TauNeutrino.h"
+
 
 void create_particles(ParticleCatalogue& particle_catalogue) 
 {
@@ -22,7 +20,7 @@ void create_particles(ParticleCatalogue& particle_catalogue)
   particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
   particle_catalogue.add_particle(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
   particle_catalogue.add_particle(std::make_unique<Electron>(true, 1.0, 10, 10, 10));
-
+  particle_catalogue.add_particle(std::make_unique<Neutrino>(true, 1.0, 0.1, 0.7, 0.3, false, 2));
 
   // Create particle objects
   // particles.emplace_back(std::make_unique<Electron>(false, 1.0, 10, 10, 10));
@@ -52,12 +50,12 @@ int main()
 
   std::cout<<"The total number of particles in the container: "<<catalogue.get_total_particles()<<std::endl;
   catalogue.print_particles_count_by_type();
-  // catalogue.print_all_particles();
+  catalogue.print_all_particles();
 
   std::vector<double> sum_all_momentum = catalogue.sum_four_momentum();
 
   ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
-  new_catalogue.print_all_particles();
+  // new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
 
   // SafeSharedPtr<Particle> pointer = nullptr;
