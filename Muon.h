@@ -22,7 +22,7 @@ public:
   // Parameterised Constructor
   Muon(bool is_antiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool is_isolated_particle):
     is_isolated{is_isolated_particle},
-    Lepton{is_antiparticle ? 1.0 : -1.0, is_antiparticle, 0.511, is_antiparticle ? "Antimuon" : "Muon", particle_energy, particle_px, particle_py, particle_pz, is_antiparticle ? -1 : 1}
+    Lepton{is_antiparticle ? 1.0 : -1.0, is_antiparticle, 105.7, is_antiparticle ? "Antimuon" : "Muon", particle_energy, particle_px, particle_py, particle_pz, is_antiparticle ? -1 : 1}
   {
     verify_input(is_antiparticle);
   }

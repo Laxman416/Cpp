@@ -115,9 +115,9 @@ template<class ParticleType>
 void ParticleCatalogue<ParticleType>::print_particles_with_key() const 
 {
   std::cout<<"------------------------------------------"<<std::endl;
-  for (const auto& particle_entry : particle_container) 
+  for(const auto& particle_entry : particle_container) 
   {
-    std::cout << "Key: " << particle_entry.first << ", Particle Type: " << particle_entry.second.second << std::endl;
+    std::cout<<"Key: "<<std::left<<std::setw(30)<<particle_entry.first<<"Particle Type: "<<particle_entry.second.second<<std::endl;// Makes output cleaner
   }
   std::cout<<"------------------------------------------"<<std::endl;
 

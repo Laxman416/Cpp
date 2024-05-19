@@ -101,7 +101,7 @@ Particle& Particle::operator=(const Particle &particle_called)
   this->charge = particle_called.spin;
   this->rest_mass = particle_called.rest_mass;
   this->m_is_antiparticle = particle_called.m_is_antiparticle;
-  this->four_momentum_ptr = std::make_unique<FourMomentum>(*particle_called.four_momentum_ptr);
+  if(four_momentum_ptr){this->four_momentum_ptr = std::make_unique<FourMomentum>(*particle_called.four_momentum_ptr);}
 
   return *this;
 }
@@ -117,7 +117,7 @@ Particle::Particle(const Particle &particle_called)
     this->charge = particle_called.spin;
     this->rest_mass = particle_called.rest_mass;
     this->m_is_antiparticle = particle_called.m_is_antiparticle;
-    this->four_momentum_ptr = std::make_unique<FourMomentum>(*particle_called.four_momentum_ptr);
+    if(four_momentum_ptr){this->four_momentum_ptr = std::make_unique<FourMomentum>(*particle_called.four_momentum_ptr);}
   }
 }
 
@@ -138,7 +138,7 @@ Particle& Particle::operator=(Particle &&particle_called_to_move)
   name = std::move(particle_called_to_move.name);
   rest_mass = std::move(particle_called_to_move.rest_mass);
   m_is_antiparticle = std::move(particle_called_to_move.m_is_antiparticle);
-  four_momentum_ptr = std::move(particle_called_to_move.four_momentum_ptr);
+  if(four_momentum_ptr){four_momentum_ptr = std::move(particle_called_to_move.four_momentum_ptr);}
   
   return *this;
 }
@@ -154,7 +154,7 @@ Particle::Particle(Particle &&particle_called_to_move)
     name = std::move(particle_called_to_move.name);
     rest_mass = std::move(particle_called_to_move.rest_mass);
     m_is_antiparticle = std::move(particle_called_to_move.m_is_antiparticle);
-    four_momentum_ptr = std::move(particle_called_to_move.four_momentum_ptr);
+    if(four_momentum_ptr){four_momentum_ptr = std::move(particle_called_to_move.four_momentum_ptr);}
   }
 }
 

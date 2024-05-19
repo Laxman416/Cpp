@@ -26,7 +26,7 @@ public:
   Neutrino(bool is_antiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz, bool has_interacted, int particle_flavour):
     m_has_interacted{has_interacted},
     flavour{particle_flavour},
-    Lepton{is_antiparticle ? 1.0 : -1.0, 
+    Lepton{0, 
            is_antiparticle, 
            0.511, 
            get_particle_name_flavour(is_antiparticle, particle_flavour), 
