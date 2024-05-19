@@ -1,5 +1,6 @@
 
 #include<iostream>
+#include <iomanip>
 #include<string>
 #include "Electron.h"
 #include "Muon.h"
@@ -58,8 +59,10 @@ int main()
 
   ParticleCatalogue new_catalogue = catalogue.get_container_of_a_type("Charged Lepton");
   SafeSharedPtr<Particle> pointer = nullptr;
-  catalogue["Unknown quark_1"]->print_data();
+  catalogue["Anticharm_1"]->print_data();
 
+  Quark quark(true, 1.0, 0.1, 0.7, 0.3, 2, "red", true);
+  std::cout<<std::setprecision(10)<<quark.get_baryon_number()<<std::endl;
 
   // new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
