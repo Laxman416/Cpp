@@ -15,7 +15,6 @@ void Weak::print_data() const
   std::cout<<"\tRest Mass is: "<<this->get_rest_mass()<<" MeV"<<std::endl;
   std::cout<<"\tCharge is: "<<this->get_charge()<<std::endl;
   std::cout<<"\tSpin is: "<<this->get_spin()<<std::endl;
-  std::cout<<"\tIs it an anitparticle: "<<(this->get_is_antiparticle() ? "true" : "false")<<std::endl;
   std::cout<<"\tBoson is associated with the : "<<(this->get_associated_force())<<" Force"<<std::endl;
 
   // Call print_data() function on the four_momentum_ptr object

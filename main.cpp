@@ -17,6 +17,7 @@
 #include "Photon.h"
 #include "Gluon.h"
 #include "Weak.h"
+#include "Higgs.h"
 
 template <class ParticleType>
 void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue) 
@@ -36,11 +37,10 @@ void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue)
   // particle_catalogue.add_particle(std::make_unique<Quark>(true, 1.0, 0.1, 0.7, 0.3, 2, "red", true));
   // particle_catalogue.add_particle(std::make_unique<Tau>(true, 1.0, 0.1, 0.7, 0.3));
   // particle_catalogue.add_particle(std::make_unique<Tau>(false, 1.0, 0.1, 0.7, 0.3));
-  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, 0.0));
-  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, -1.0));
-  particle_catalogue.add_particle(std::make_unique<Weak>(1.0, 0.1, 0.7, 0.3, 1.0));
-
-
+  particle_catalogue.add_particle(std::make_unique<Weak>(3000.0 ,2000.0, 2000.0, 1000.0, 0.0));
+  particle_catalogue.add_particle(std::make_unique<Weak>(3000.0 ,2000.0, 2000.0, 1000.0, -1.0));
+  particle_catalogue.add_particle(std::make_unique<Weak>(3000.0 ,2000.0, 2000.0, 1000.0, 1.0));
+  particle_catalogue.add_particle(std::make_unique<Higgs>(3000.0 ,2000.0, 2000.0, 1000.0));
 
 }
 
@@ -67,8 +67,9 @@ int main()
 
   // Printing possible Decay Products of Z, W and Higgs
   // catalogue["Z_1"]->print_decay_products();
-  catalogue["W^+_1"]->print_decay_products();
-  catalogue["W^-_1"]->print_decay_products();
+  // catalogue["W^+_1"]->print_decay_products();
+  // catalogue["W^-_1"]->print_decay_products();
+  catalogue["Higgs_1"]->print_decay_products();
 
 
   // new_catalogue.print_all_particles();
