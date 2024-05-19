@@ -1,5 +1,5 @@
 // PHYS 30762 Programming in C++
-// Assignment 3 - Quark class
+// Final Project - Quark Class
 // Derived Classes from Particle Class: Leptons and Quarks
 #ifndef QUARK_H
 #define QUARK_H

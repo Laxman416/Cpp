@@ -13,6 +13,8 @@
 #include "Neutrino.h"
 #include "Quark.h"
 #include "Tau.h"
+#include "Boson.h"
+#include "Photon.h"
 
 template <class ParticleType>
 void create_particles(ParticleCatalogue<ParticleType>& particle_catalogue) 

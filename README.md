@@ -1,1 +1,1 @@
-g++ -g main.cpp Electron.cpp Muon.cpp Lepton.cpp Particle.cpp FourMomentum.cpp Neutrino.cpp Quark.cpp Tau.cpp -o main
+g++ -g main.cpp Electron.cpp Muon.cpp Lepton.cpp Particle.cpp FourMomentum.cpp Neutrino.cpp Quark.cpp Tau.cpp Boson.cpp Photon.cpp -o main

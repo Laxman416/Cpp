@@ -52,7 +52,7 @@ public:
   double get_spin() const {return spin;}
   double get_rest_mass() const {return rest_mass;}
   double get_charge() const {return charge;}
-  double get_is_antiparticle() const {return m_is_antiparticle;}
+  bool get_is_antiparticle() const {return m_is_antiparticle;} // overide in photons, and Higgs
   std::string get_name() const {return name;}
   const std::unique_ptr<FourMomentum>& get_four_momentum_ptr() const { return four_momentum_ptr; }
 

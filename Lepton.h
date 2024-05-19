@@ -39,7 +39,6 @@ public:
   
   void verify_input(bool is_antiparticle);
 
-
   // Getter Function
   int get_lepton_number() const {return lepton_number;}
   std::string get_type() const override { return "Lepton";}

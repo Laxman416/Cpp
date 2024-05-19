@@ -30,7 +30,8 @@ private:
   std::unique_ptr<Quark> m_decayed_up_quark_ptr;
   std::unique_ptr<Quark> m_decayed_down_quark_ptr;
 
-
+  // Private Functions
+  
   // Private so no Access to Outside. Fn get_decayed_particle_ptr will decide which fn to use
   const std::unique_ptr<Electron>& get_decayed_electron_ptr() const;
   const std::unique_ptr<Muon>& get_decayed_muon_ptr() const;
@@ -72,6 +73,7 @@ public:
   const std::unique_ptr<Neutrino>& get_decayed_tau_neutrino_ptr() const;
   const std::unique_ptr<Quark>&get_decayed_up_quark_ptr() const;
   const std::unique_ptr<Quark>& get_decayed_down_quark_ptr() const;
+  std::string get_type() const override { return "Charged Lepton";}
 
   // Setter Fn
   void set_is_decay_leptonic(bool is_decay_leptonic){m_is_decay_leptonic = is_decay_leptonic;}
