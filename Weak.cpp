@@ -169,3 +169,32 @@ void Weak::print_decay_products()
     it->second->print_data();   
   }
 }
+
+
+Weak& Weak::operator=(Weak &&weak_called_to_move)
+{
+  std::cout<<"Calling Move Assignment operator"<<std::endl;
+
+  // Check for self-moving
+  if(this == &weak_called_to_move)
+  {
+    std::cout<<"Self-moving detected in move assignment operator. Skipping move."<<std::endl;
+    return *this;
+  }
+  else
+  {
+    // Move the data members
+    Boson::operator=(std::move(weak_called_to_move));
+  decay_product_pairs = std::move(weak_called_to_move.decay_product_pairs);
+
+    return *this;
+  }
+}
+
+Weak::Weak(Weak &&weak_called_to_move) : Boson(std::move(weak_called_to_move))
+{
+  std::cout<<"Calling Move Constructor"<<std::endl;
+  
+  decay_product_pairs = std::move(weak_called_to_move.decay_product_pairs);
+
+}
