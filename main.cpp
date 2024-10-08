@@ -121,23 +121,23 @@ int main()
   // To change set particles data members, need to use particles_class_vector[i].set_ ....
 
   // // Function to do sum and dot of four momentum
-  // sum_four_momentum(particles_class_vector);
-  // dot_four_momentum(particles_class_vector);
+  sum_four_momentum(particles_class_vector);
+  dot_four_momentum(particles_class_vector);
 
   // // Call Function which uses copy constructor to copy a muon to a new muon
-  // copy_object(particles_class_vector[2]);
+  copy_object(particles_class_vector[2]);
 
   // // Call Function which uses assignment operator to copy a electron to a new electron
-  // particle new_electron;
-  // copy_object_assignment_operator(new_electron,particles_class_vector[0]);
+  particle new_electron;
+  copy_object_assignment_operator(new_electron,particles_class_vector[0]);
 
   // // Call Function which uses move constructor to move positron to new positron
-  // move_object(particles_class_vector[6]);
+  move_object(particles_class_vector[6]);
 
   // // Move antimuon to another antimuon using moving assignment
-  // particle new_antimuon;
-  // new_antimuon = std::move(particles_class_vector[7]);
-  // new_antimuon.print_data();
+  particle new_antimuon;
+  new_antimuon = std::move(particles_class_vector[7]);
+  new_antimuon.print_data();
 
   std::cout<<"Program is Finished."<<std::endl;
 }
