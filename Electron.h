@@ -25,7 +25,7 @@ public:
   Electron(bool is_antiparticle, double particle_energy, double particle_px, double particle_py, double particle_pz) :
     calorimeter_energies_ptr(std::make_unique<CalorimeterEnergies>(particle_energy/2, particle_energy/2, 0.0, 0.0, four_momentum_ptr)),
     // Call Parameterised Constructor for ChargedLepton
-    ChargedLepton{is_antiparticle ? -1:1, is_antiparticle, 0.511 ,is_antiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
+    ChargedLepton{is_antiparticle ? -1.0:1.0, is_antiparticle, 0.511 ,is_antiparticle ? "Positron":"Electron", particle_energy, particle_px, particle_py, particle_pz}
   {
     verify_input(is_antiparticle);
   }

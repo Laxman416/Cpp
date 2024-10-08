@@ -12,7 +12,7 @@ private:
   std::shared_ptr<FourMomentum> four_momentum_ptr; // special shared pointer for the FourMomentum object
 
 public:
-  CalorimeterEnergies(double energy_EM_1, double energy_EM_2, double energy_HAD_1, double energy_HAD_2, std::shared_ptr<FourMomentum> momentum_ptr) :
+  CalorimeterEnergies(double energy_EM_1, double energy_EM_2, double energy_HAD_1, double energy_HAD_2) :
   four_momentum_ptr(momentum_ptr),
   calorimeter_energies(4, 0.0)
   {
@@ -47,9 +47,6 @@ public:
 
     // Calculate total energy
     double total_energy = energy_EM_1 + energy_EM_2 + energy_HAD_1 + energy_HAD_2;
-
-    // Update four-momentum energy
-    four_momentum_ptr->set_E(total_energy);
   }
 
   
