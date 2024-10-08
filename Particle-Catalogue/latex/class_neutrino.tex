@@ -1,0 +1,256 @@
+\doxysection{Neutrino Class Reference}
+\hypertarget{class_neutrino}{}\label{class_neutrino}\index{Neutrino@{Neutrino}}
+
+
+{\ttfamily \#include $<$Neutrino.\+h$>$}
+
+Inheritance diagram for Neutrino\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_neutrino}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_neutrino_aabe131859f52116a55e56527e50a8fda}{Neutrino}} ()=default
+\item 
+\mbox{\hyperlink{class_neutrino_acfdad604a4443bff9e83474d907468c6}{Neutrino}} (bool is\+\_\+antiparticle, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, bool has\+\_\+interacted, int particle\+\_\+flavour)
+\item 
+\mbox{\hyperlink{class_neutrino_afef01a189dd3b30bd0c4a40e724bc311}{\texorpdfstring{$\sim$}{\string~}\+Neutrino}} ()
+\item 
+void \mbox{\hyperlink{class_neutrino_a9ab6af770e3dfd73a20c971b273b6d62}{print\+\_\+data}} () const
+\item 
+const bool \mbox{\hyperlink{class_neutrino_a54cc65f74b0ee07383c6d0b14a4e5496}{get\+\_\+has\+\_\+interacted}} () const
+\item 
+const bool \mbox{\hyperlink{class_neutrino_aa0198e1751360ff5c496d6c84bdf28ff}{get\+\_\+neutrino\+\_\+flavour}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_neutrino_a652f417dfe3de1970d47310b47f10727}{get\+\_\+type}} () const override
+\item 
+void \mbox{\hyperlink{class_neutrino_a024ac0560c78887479aab3646a276690}{set\+\_\+has\+\_\+interacted}} (bool has\+\_\+interacted)
+\item 
+void \mbox{\hyperlink{class_neutrino_a9789d08a440083ff11ba6e7e77413913}{set\+\_\+is\+\_\+antiparticle}} (bool is\+\_\+antiparticle)
+\item 
+void \mbox{\hyperlink{class_neutrino_a666371e948879edc93546745e4a9f976}{set\+\_\+neutrino\+\_\+flavour}} (bool particle\+\_\+flavour)
+\item 
+void \mbox{\hyperlink{class_neutrino_a4cfd091b84470672ea8728998a668d49}{set\+\_\+rest\+\_\+mass}} (double particle\+\_\+mass)
+\item 
+void \mbox{\hyperlink{class_neutrino_aca49c090dcfcdff0d62647f49c6b52a1}{set\+\_\+name}} (std\+::string particle\+\_\+name)
+\item 
+\mbox{\hyperlink{class_neutrino_a4344ecc834034668509a260de3e269db}{Neutrino}} (const \mbox{\hyperlink{class_neutrino}{Neutrino}} \&neutrino\+\_\+called)
+\item 
+\mbox{\hyperlink{class_neutrino_a6a5d2c672573c1f3af56a4d2f1866772}{Neutrino}} (\mbox{\hyperlink{class_neutrino}{Neutrino}} \&\&neutrino\+\_\+called)
+\item 
+\mbox{\hyperlink{class_neutrino}{Neutrino}} \& \mbox{\hyperlink{class_neutrino_a67e3dd524d85199d5a376154f5eee73c}{operator=}} (const \mbox{\hyperlink{class_neutrino}{Neutrino}} \&neutrino\+\_\+called)
+\item 
+\mbox{\hyperlink{class_neutrino}{Neutrino}} \& \mbox{\hyperlink{class_neutrino_a37858ad2bc655bef3852e2a1c6b1f810}{operator=}} (\mbox{\hyperlink{class_neutrino}{Neutrino}} \&\&neutrino\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}} ()=default
+\item 
+\mbox{\hyperlink{class_lepton_a5ab065b5e3623852a0f293b74eeeaaad}{Lepton}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, int particle\+\_\+lepton\+\_\+number)
+\item 
+virtual \mbox{\hyperlink{class_lepton_a5ce71dbdf8bb5203625d6fd79a095126}{\texorpdfstring{$\sim$}{\string~}\+Lepton}} ()
+\item 
+void \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+int \mbox{\hyperlink{class_lepton_adbca036986ac65a94a98ec2e9f942556}{get\+\_\+lepton\+\_\+number}} () const
+\item 
+virtual void \mbox{\hyperlink{class_lepton_a4821893ec73195821b49cf173b54c5bb}{set\+\_\+lepton\+\_\+number}} (int particle\+\_\+lepton\+\_\+number)
+\item 
+\mbox{\hyperlink{class_lepton_ae0a346d1a68b155ec7ba2933dd0f6cca}{Lepton}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton_a675e35824a2ddc886ef869e6b7db2102}{Lepton}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a63c32e190f52baccc4dd5fa72e95568f}{operator=}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a668ae440c1b557dd05db3c967fb6246f}{operator=}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+spin)
+\item 
+void \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+virtual \mbox{\hyperlink{class_particle_a058b1abe765620e5c5bad2aad654e6bc}{\texorpdfstring{$\sim$}{\string~}\+Particle}} ()
+\item 
+virtual void \mbox{\hyperlink{class_particle_adcc423153df0ac801db3933b396c4bc2}{print\+\_\+decay\+\_\+products}} ()
+\item 
+void \mbox{\hyperlink{class_particle_a5a402d369a37091bfa9de927dc881f89}{set\+\_\+four\+\_\+momentum\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ momentum\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_particle_a1aeac259fe605da978515cb4a5bb9ee7}{set\+\_\+energy}} (double particle\+\_\+energy)
+\item 
+void \mbox{\hyperlink{class_particle_ae332be8023becf68f1ff5cd6f899e04e}{set\+\_\+px}} (double particle\+\_\+px)
+\item 
+void \mbox{\hyperlink{class_particle_a9b88a73601331a6282132c205403cdc8}{set\+\_\+py}} (double particle\+\_\+py)
+\item 
+void \mbox{\hyperlink{class_particle_a3bb48fc138a58b9fffad3d60501caa31}{set\+\_\+pz}} (double particle\+\_\+pz)
+\item 
+double \mbox{\hyperlink{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}{get\+\_\+spin}} () const
+\item 
+double \mbox{\hyperlink{class_particle_aa0b2cd179036d78598e82306c9e12cd5}{get\+\_\+rest\+\_\+mass}} () const
+\item 
+double \mbox{\hyperlink{class_particle_ace872a5c45504859bf205e5637d1b2a4}{get\+\_\+charge}} () const
+\item 
+bool \mbox{\hyperlink{class_particle_af8a27bbe7e54818aed1ae1675ec11629}{get\+\_\+is\+\_\+antiparticle}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\+\_\+name}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \& \mbox{\hyperlink{class_particle_a8530b94f3fcdcac718b1d9126b312642}{get\+\_\+four\+\_\+momentum\+\_\+ptr}} () const
+\item 
+\mbox{\hyperlink{class_particle_a2b3c4f466ec6eda0b93246abfd547ed7}{Particle}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_aaf787bae47280ce10f5191637dd72d74}{Particle}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_a1ed0d9cc396b6348c86f6672b7bde30d}{operator=}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\+\_\+number}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}}
+\item 
+double \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\+\_\+mass}}
+\item 
+std\+::string \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}
+\item 
+bool \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\+\_\+is\+\_\+antiparticle}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\+\_\+momentum\+\_\+ptr}}
+\item 
+double \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_neutrino_aabe131859f52116a55e56527e50a8fda}\label{class_neutrino_aabe131859f52116a55e56527e50a8fda} 
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{Neutrino()}{Neutrino()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Neutrino\+::\+Neutrino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_neutrino_acfdad604a4443bff9e83474d907468c6}\label{class_neutrino_acfdad604a4443bff9e83474d907468c6} 
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{Neutrino()}{Neutrino()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Neutrino\+::\+Neutrino (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle,  }\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz,  }\item[{bool}]{has\+\_\+interacted,  }\item[{int}]{particle\+\_\+flavour }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_neutrino_afef01a189dd3b30bd0c4a40e724bc311}\label{class_neutrino_afef01a189dd3b30bd0c4a40e724bc311} 
+\index{Neutrino@{Neutrino}!````~Neutrino@{\texorpdfstring{$\sim$}{\string~}Neutrino}}
+\index{````~Neutrino@{\texorpdfstring{$\sim$}{\string~}Neutrino}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Neutrino()}{\string~Neutrino()}}
+{\footnotesize\ttfamily Neutrino\+::\texorpdfstring{$\sim$}{\string~}\+Neutrino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_neutrino_a4344ecc834034668509a260de3e269db}\label{class_neutrino_a4344ecc834034668509a260de3e269db} 
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{Neutrino()}{Neutrino()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Neutrino\+::\+Neutrino (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_neutrino}{Neutrino}} \&}]{neutrino\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_neutrino_a6a5d2c672573c1f3af56a4d2f1866772}\label{class_neutrino_a6a5d2c672573c1f3af56a4d2f1866772} 
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\index{Neutrino@{Neutrino}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{Neutrino()}{Neutrino()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Neutrino\+::\+Neutrino (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_neutrino}{Neutrino}} \&\&}]{neutrino\+\_\+called }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_neutrino_a54cc65f74b0ee07383c6d0b14a4e5496}\label{class_neutrino_a54cc65f74b0ee07383c6d0b14a4e5496} 
+\index{Neutrino@{Neutrino}!get\_has\_interacted@{get\_has\_interacted}}
+\index{get\_has\_interacted@{get\_has\_interacted}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{get\_has\_interacted()}{get\_has\_interacted()}}
+{\footnotesize\ttfamily const bool Neutrino\+::get\+\_\+has\+\_\+interacted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_neutrino_aa0198e1751360ff5c496d6c84bdf28ff}\label{class_neutrino_aa0198e1751360ff5c496d6c84bdf28ff} 
+\index{Neutrino@{Neutrino}!get\_neutrino\_flavour@{get\_neutrino\_flavour}}
+\index{get\_neutrino\_flavour@{get\_neutrino\_flavour}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{get\_neutrino\_flavour()}{get\_neutrino\_flavour()}}
+{\footnotesize\ttfamily const bool Neutrino\+::get\+\_\+neutrino\+\_\+flavour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_neutrino_a652f417dfe3de1970d47310b47f10727}\label{class_neutrino_a652f417dfe3de1970d47310b47f10727} 
+\index{Neutrino@{Neutrino}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Neutrino\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_ae34bf0af5dc46cc8c3978c8498043c1c}{Lepton}}.
+
+\Hypertarget{class_neutrino_a67e3dd524d85199d5a376154f5eee73c}\label{class_neutrino_a67e3dd524d85199d5a376154f5eee73c} 
+\index{Neutrino@{Neutrino}!operator=@{operator=}}
+\index{operator=@{operator=}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_neutrino}{Neutrino}} \& Neutrino\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_neutrino}{Neutrino}} \&}]{neutrino\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_neutrino_a37858ad2bc655bef3852e2a1c6b1f810}\label{class_neutrino_a37858ad2bc655bef3852e2a1c6b1f810} 
+\index{Neutrino@{Neutrino}!operator=@{operator=}}
+\index{operator=@{operator=}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_neutrino}{Neutrino}} \& Neutrino\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_neutrino}{Neutrino}} \&\&}]{neutrino\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_neutrino_a9ab6af770e3dfd73a20c971b273b6d62}\label{class_neutrino_a9ab6af770e3dfd73a20c971b273b6d62} 
+\index{Neutrino@{Neutrino}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
+{\footnotesize\ttfamily void Neutrino\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_a04e5d9df8e35f481bf7f828ded949e36}{Lepton}}.
+
+\Hypertarget{class_neutrino_a024ac0560c78887479aab3646a276690}\label{class_neutrino_a024ac0560c78887479aab3646a276690} 
+\index{Neutrino@{Neutrino}!set\_has\_interacted@{set\_has\_interacted}}
+\index{set\_has\_interacted@{set\_has\_interacted}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{set\_has\_interacted()}{set\_has\_interacted()}}
+{\footnotesize\ttfamily void Neutrino\+::set\+\_\+has\+\_\+interacted (\begin{DoxyParamCaption}\item[{bool}]{has\+\_\+interacted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_neutrino_a9789d08a440083ff11ba6e7e77413913}\label{class_neutrino_a9789d08a440083ff11ba6e7e77413913} 
+\index{Neutrino@{Neutrino}!set\_is\_antiparticle@{set\_is\_antiparticle}}
+\index{set\_is\_antiparticle@{set\_is\_antiparticle}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{set\_is\_antiparticle()}{set\_is\_antiparticle()}}
+{\footnotesize\ttfamily void Neutrino\+::set\+\_\+is\+\_\+antiparticle (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle }\end{DoxyParamCaption})}
+
+\Hypertarget{class_neutrino_aca49c090dcfcdff0d62647f49c6b52a1}\label{class_neutrino_aca49c090dcfcdff0d62647f49c6b52a1} 
+\index{Neutrino@{Neutrino}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Neutrino\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string}]{particle\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_a20c58fcf6ab3928518b912b0e94a8c7d}{Particle}}.
+
+\Hypertarget{class_neutrino_a666371e948879edc93546745e4a9f976}\label{class_neutrino_a666371e948879edc93546745e4a9f976} 
+\index{Neutrino@{Neutrino}!set\_neutrino\_flavour@{set\_neutrino\_flavour}}
+\index{set\_neutrino\_flavour@{set\_neutrino\_flavour}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{set\_neutrino\_flavour()}{set\_neutrino\_flavour()}}
+{\footnotesize\ttfamily void Neutrino\+::set\+\_\+neutrino\+\_\+flavour (\begin{DoxyParamCaption}\item[{bool}]{particle\+\_\+flavour }\end{DoxyParamCaption})}
+
+\Hypertarget{class_neutrino_a4cfd091b84470672ea8728998a668d49}\label{class_neutrino_a4cfd091b84470672ea8728998a668d49} 
+\index{Neutrino@{Neutrino}!set\_rest\_mass@{set\_rest\_mass}}
+\index{set\_rest\_mass@{set\_rest\_mass}!Neutrino@{Neutrino}}
+\doxysubsubsection{\texorpdfstring{set\_rest\_mass()}{set\_rest\_mass()}}
+{\footnotesize\ttfamily void Neutrino\+::set\+\_\+rest\+\_\+mass (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_add4444505ff3ac348bf7511560b8b529}{Particle}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_neutrino_8h}{Neutrino.\+h}}\item 
+\mbox{\hyperlink{_neutrino_8cpp}{Neutrino.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,213 @@
+\doxysection{Four\+Momentum Class Reference}
+\hypertarget{class_four_momentum}{}\label{class_four_momentum}\index{FourMomentum@{FourMomentum}}
+
+
+{\ttfamily \#include $<$Four\+Momentum.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_four_momentum_ad744a5840e41f604b5994bd89761a149}{Four\+Momentum}} ()=default
+\item 
+\mbox{\hyperlink{class_four_momentum_a26b6eb291d04dfb6c9dfe5e047939ee2}{Four\+Momentum}} (const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&four\+\_\+momentum\+\_\+called)
+\item 
+\mbox{\hyperlink{class_four_momentum_a268f95eafc77087b9b242ee18685b742}{Four\+Momentum}} (\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&\&four\+\_\+momentum\+\_\+called)
+\item 
+\mbox{\hyperlink{class_four_momentum_a2633116065d5ff54d84c76227b161846}{Four\+Momentum}} (double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+mass, bool is\+\_\+particle)
+\item 
+\mbox{\hyperlink{class_four_momentum_a2c09a635a967919dda12246ac70c09eb}{\texorpdfstring{$\sim$}{\string~}\+Four\+Momentum}} ()
+\item 
+void \mbox{\hyperlink{class_four_momentum_af7399a47d9114dd199715c839c88b74c}{verify\+\_\+energy}} (double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+name)
+\item 
+double \mbox{\hyperlink{class_four_momentum_a5a42d4e51e518f86ab9efcb71d66ce70}{get\+\_\+E}} () const
+\item 
+double \mbox{\hyperlink{class_four_momentum_a4ff1391da6be416dc06224efcdbb4c0b}{get\+\_\+px}} () const
+\item 
+double \mbox{\hyperlink{class_four_momentum_aa45b4e4fa02fd317cbca8b78e334ab66}{get\+\_\+py}} () const
+\item 
+double \mbox{\hyperlink{class_four_momentum_ae6ab3a5a56d6d4db3fe1fe48568a8410}{get\+\_\+pz}} () const
+\item 
+double \mbox{\hyperlink{class_four_momentum_aa9bfa87427294fd192e0778307fb0508}{get\+\_\+rest\+\_\+mass}} () const
+\item 
+void \mbox{\hyperlink{class_four_momentum_a49a1baafe9a47edd1c7c200636587167}{set\+\_\+E}} (double particle\+\_\+energy)
+\item 
+void \mbox{\hyperlink{class_four_momentum_a2ad33860e02cc7b34067b0f2cfdc16b2}{set\+\_\+px}} (double particle\+\_\+px)
+\item 
+void \mbox{\hyperlink{class_four_momentum_ab6556834047ef24b00a052fc61fe912b}{set\+\_\+py}} (double particle\+\_\+py)
+\item 
+void \mbox{\hyperlink{class_four_momentum_aa1951caf84a3801870c2e81e9cdc525a}{set\+\_\+pz}} (double particle\+\_\+pz)
+\item 
+void \mbox{\hyperlink{class_four_momentum_a39c0096adf4f65418cc11ddf1a995891}{set\+\_\+rest\+\_\+mass}} (double particle\+\_\+mass)
+\item 
+void \mbox{\hyperlink{class_four_momentum_a3a4a1d6ba999b1a3079629ec39ccdfd9}{print\+\_\+data}} () const
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_four_momentum_a34b9dffaede4d0058d0538f055661a13}{operator+}} (const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&four\+\_\+momentum\+\_\+called) const
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_four_momentum_a3dd464ec6f8718032d1ed64743f45e6c}{operator+}} (const std\+::vector$<$ double $>$ \&std\+\_\+vector\+\_\+called) const
+\item 
+double \mbox{\hyperlink{class_four_momentum_a826fa8ee440d8a38a68269b267fbaa4e}{dot\+Product}} (const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&four\+\_\+momentum\+\_\+called) const
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_four_momentum_a259c6377472071baf1ce06ed0d048c00}{operator-\/}} (const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&four\+\_\+momentum\+\_\+called) const
+\item 
+\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \& \mbox{\hyperlink{class_four_momentum_a353d0f2a95ba83e98b943bbd31096517}{operator=}} (const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&four\+\_\+momentum\+\_\+called)
+\item 
+\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \& \mbox{\hyperlink{class_four_momentum_ae606726abcf9ccef546ad0c028a75336}{operator=}} (\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&\&four\+\_\+momentum\+\_\+to\+\_\+move)
+\item 
+double \mbox{\hyperlink{class_four_momentum_af438188424eae9c679632620e291ae87}{get\+\_\+invariant\+\_\+mass\+\_\+from\+\_\+four\+\_\+momentum}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_four_momentum_ad744a5840e41f604b5994bd89761a149}\label{class_four_momentum_ad744a5840e41f604b5994bd89761a149} 
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{FourMomentum()}{FourMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Four\+Momentum\+::\+Four\+Momentum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_four_momentum_a26b6eb291d04dfb6c9dfe5e047939ee2}\label{class_four_momentum_a26b6eb291d04dfb6c9dfe5e047939ee2} 
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{FourMomentum()}{FourMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Four\+Momentum\+::\+Four\+Momentum (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_a268f95eafc77087b9b242ee18685b742}\label{class_four_momentum_a268f95eafc77087b9b242ee18685b742} 
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{FourMomentum()}{FourMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Four\+Momentum\+::\+Four\+Momentum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&\&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_a2633116065d5ff54d84c76227b161846}\label{class_four_momentum_a2633116065d5ff54d84c76227b161846} 
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\index{FourMomentum@{FourMomentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{FourMomentum()}{FourMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Four\+Momentum\+::\+Four\+Momentum (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz,  }\item[{double}]{particle\+\_\+mass,  }\item[{bool}]{is\+\_\+particle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_a2c09a635a967919dda12246ac70c09eb}\label{class_four_momentum_a2c09a635a967919dda12246ac70c09eb} 
+\index{FourMomentum@{FourMomentum}!````~FourMomentum@{\texorpdfstring{$\sim$}{\string~}FourMomentum}}
+\index{````~FourMomentum@{\texorpdfstring{$\sim$}{\string~}FourMomentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FourMomentum()}{\string~FourMomentum()}}
+{\footnotesize\ttfamily Four\+Momentum\+::\texorpdfstring{$\sim$}{\string~}\+Four\+Momentum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_four_momentum_a826fa8ee440d8a38a68269b267fbaa4e}\label{class_four_momentum_a826fa8ee440d8a38a68269b267fbaa4e} 
+\index{FourMomentum@{FourMomentum}!dotProduct@{dotProduct}}
+\index{dotProduct@{dotProduct}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{dotProduct()}{dotProduct()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::dot\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_four_momentum_a5a42d4e51e518f86ab9efcb71d66ce70}\label{class_four_momentum_a5a42d4e51e518f86ab9efcb71d66ce70} 
+\index{FourMomentum@{FourMomentum}!get\_E@{get\_E}}
+\index{get\_E@{get\_E}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_E()}{get\_E()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+E (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_af438188424eae9c679632620e291ae87}\label{class_four_momentum_af438188424eae9c679632620e291ae87} 
+\index{FourMomentum@{FourMomentum}!get\_invariant\_mass\_from\_four\_momentum@{get\_invariant\_mass\_from\_four\_momentum}}
+\index{get\_invariant\_mass\_from\_four\_momentum@{get\_invariant\_mass\_from\_four\_momentum}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_invariant\_mass\_from\_four\_momentum()}{get\_invariant\_mass\_from\_four\_momentum()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+invariant\+\_\+mass\+\_\+from\+\_\+four\+\_\+momentum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_a4ff1391da6be416dc06224efcdbb4c0b}\label{class_four_momentum_a4ff1391da6be416dc06224efcdbb4c0b} 
+\index{FourMomentum@{FourMomentum}!get\_px@{get\_px}}
+\index{get\_px@{get\_px}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_px()}{get\_px()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+px (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_aa45b4e4fa02fd317cbca8b78e334ab66}\label{class_four_momentum_aa45b4e4fa02fd317cbca8b78e334ab66} 
+\index{FourMomentum@{FourMomentum}!get\_py@{get\_py}}
+\index{get\_py@{get\_py}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_py()}{get\_py()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+py (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_ae6ab3a5a56d6d4db3fe1fe48568a8410}\label{class_four_momentum_ae6ab3a5a56d6d4db3fe1fe48568a8410} 
+\index{FourMomentum@{FourMomentum}!get\_pz@{get\_pz}}
+\index{get\_pz@{get\_pz}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_pz()}{get\_pz()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+pz (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_aa9bfa87427294fd192e0778307fb0508}\label{class_four_momentum_aa9bfa87427294fd192e0778307fb0508} 
+\index{FourMomentum@{FourMomentum}!get\_rest\_mass@{get\_rest\_mass}}
+\index{get\_rest\_mass@{get\_rest\_mass}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{get\_rest\_mass()}{get\_rest\_mass()}}
+{\footnotesize\ttfamily double Four\+Momentum\+::get\+\_\+rest\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_four_momentum_a34b9dffaede4d0058d0538f055661a13}\label{class_four_momentum_a34b9dffaede4d0058d0538f055661a13} 
+\index{FourMomentum@{FourMomentum}!operator+@{operator+}}
+\index{operator+@{operator+}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Four\+Momentum\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_four_momentum_a3dd464ec6f8718032d1ed64743f45e6c}\label{class_four_momentum_a3dd464ec6f8718032d1ed64743f45e6c} 
+\index{FourMomentum@{FourMomentum}!operator+@{operator+}}
+\index{operator+@{operator+}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Four\+Momentum\+::operator+ (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{std\+\_\+vector\+\_\+called }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_four_momentum_a259c6377472071baf1ce06ed0d048c00}\label{class_four_momentum_a259c6377472071baf1ce06ed0d048c00} 
+\index{FourMomentum@{FourMomentum}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Four\+Momentum\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_four_momentum_a353d0f2a95ba83e98b943bbd31096517}\label{class_four_momentum_a353d0f2a95ba83e98b943bbd31096517} 
+\index{FourMomentum@{FourMomentum}!operator=@{operator=}}
+\index{operator=@{operator=}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \& Four\+Momentum\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&}]{four\+\_\+momentum\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_ae606726abcf9ccef546ad0c028a75336}\label{class_four_momentum_ae606726abcf9ccef546ad0c028a75336} 
+\index{FourMomentum@{FourMomentum}!operator=@{operator=}}
+\index{operator=@{operator=}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \& Four\+Momentum\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} \&\&}]{four\+\_\+momentum\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_a3a4a1d6ba999b1a3079629ec39ccdfd9}\label{class_four_momentum_a3a4a1d6ba999b1a3079629ec39ccdfd9} 
+\index{FourMomentum@{FourMomentum}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_four_momentum_a49a1baafe9a47edd1c7c200636587167}\label{class_four_momentum_a49a1baafe9a47edd1c7c200636587167} 
+\index{FourMomentum@{FourMomentum}!set\_E@{set\_E}}
+\index{set\_E@{set\_E}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{set\_E()}{set\_E()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::set\+\_\+E (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+energy }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_a2ad33860e02cc7b34067b0f2cfdc16b2}\label{class_four_momentum_a2ad33860e02cc7b34067b0f2cfdc16b2} 
+\index{FourMomentum@{FourMomentum}!set\_px@{set\_px}}
+\index{set\_px@{set\_px}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{set\_px()}{set\_px()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::set\+\_\+px (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+px }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_ab6556834047ef24b00a052fc61fe912b}\label{class_four_momentum_ab6556834047ef24b00a052fc61fe912b} 
+\index{FourMomentum@{FourMomentum}!set\_py@{set\_py}}
+\index{set\_py@{set\_py}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{set\_py()}{set\_py()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::set\+\_\+py (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+py }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_aa1951caf84a3801870c2e81e9cdc525a}\label{class_four_momentum_aa1951caf84a3801870c2e81e9cdc525a} 
+\index{FourMomentum@{FourMomentum}!set\_pz@{set\_pz}}
+\index{set\_pz@{set\_pz}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{set\_pz()}{set\_pz()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::set\+\_\+pz (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+pz }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_a39c0096adf4f65418cc11ddf1a995891}\label{class_four_momentum_a39c0096adf4f65418cc11ddf1a995891} 
+\index{FourMomentum@{FourMomentum}!set\_rest\_mass@{set\_rest\_mass}}
+\index{set\_rest\_mass@{set\_rest\_mass}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{set\_rest\_mass()}{set\_rest\_mass()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::set\+\_\+rest\+\_\+mass (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+mass }\end{DoxyParamCaption})}
+
+\Hypertarget{class_four_momentum_af7399a47d9114dd199715c839c88b74c}\label{class_four_momentum_af7399a47d9114dd199715c839c88b74c} 
+\index{FourMomentum@{FourMomentum}!verify\_energy@{verify\_energy}}
+\index{verify\_energy@{verify\_energy}!FourMomentum@{FourMomentum}}
+\doxysubsubsection{\texorpdfstring{verify\_energy()}{verify\_energy()}}
+{\footnotesize\ttfamily void Four\+Momentum\+::verify\+\_\+energy (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz,  }\item[{double}]{particle\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_four_momentum_8h}{Four\+Momentum.\+h}}\item 
+\mbox{\hyperlink{_four_momentum_8cpp}{Four\+Momentum.\+cpp}}\end{DoxyCompactItemize}

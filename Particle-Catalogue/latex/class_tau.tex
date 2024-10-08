@@ -1,0 +1,360 @@
+\doxysection{Tau Class Reference}
+\hypertarget{class_tau}{}\label{class_tau}\index{Tau@{Tau}}
+
+
+{\ttfamily \#include $<$Tau.\+h$>$}
+
+Inheritance diagram for Tau\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_tau}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tau_a99dd1b666163f4e3211c81da1a6e888d}{Tau}} ()=default
+\item 
+\mbox{\hyperlink{class_tau_a3b573fd2b1ff234281309c705018bcb9}{Tau}} (bool is\+\_\+antiparticle, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz)
+\item 
+\mbox{\hyperlink{class_tau_a707209df5193a67cc311a6916735c3ca}{\texorpdfstring{$\sim$}{\string~}\+Tau}} ()
+\item 
+void \mbox{\hyperlink{class_tau_a43f23e09c0bc63a6e871dfe04a0cc0d9}{print\+\_\+data}} () const
+\item 
+void \mbox{\hyperlink{class_tau_a928bb2e7ebc0f6a3d86fac60744fdad1}{decay\+\_\+tau}} ()
+\item 
+const bool \mbox{\hyperlink{class_tau_a2da7515526329f5ed2409209d71d11c3}{get\+\_\+is\+\_\+decay\+\_\+leptonic}} () const
+\item 
+const bool \mbox{\hyperlink{class_tau_a3112d5386fb5b502d4aa24cb6f730d5b}{get\+\_\+is\+\_\+decay\+\_\+to\+\_\+electrons}} () const
+\item 
+const void \mbox{\hyperlink{class_tau_a8e8dda7d830229d2375e94399e6beb06}{get\+\_\+decayed\+\_\+lepton\+\_\+ptr}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ \& \mbox{\hyperlink{class_tau_a64d4f17bf8a96e8b7526779228e31d37}{get\+\_\+decayed\+\_\+lepton\+\_\+neutrino\+\_\+ptr}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ \& \mbox{\hyperlink{class_tau_a6f3af2a372236fcbc9de4547ad1489ba}{get\+\_\+decayed\+\_\+tau\+\_\+neutrino\+\_\+ptr}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ \& \mbox{\hyperlink{class_tau_abccadb6b8752cd81c2e02a8e0d7527c1}{get\+\_\+decayed\+\_\+up\+\_\+quark\+\_\+ptr}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ \& \mbox{\hyperlink{class_tau_a1b2a02f3490f3fc4e9605dd78293efef}{get\+\_\+decayed\+\_\+down\+\_\+quark\+\_\+ptr}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_tau_ac2a64e58109dc47b16c49e4f7a853581}{get\+\_\+type}} () const override
+\item 
+void \mbox{\hyperlink{class_tau_ae26bf237a820c660de0af122c23caea9}{set\+\_\+is\+\_\+decay\+\_\+leptonic}} (bool is\+\_\+decay\+\_\+leptonic)
+\item 
+void \mbox{\hyperlink{class_tau_a55732db541116b3ed87f037b7fae3330}{set\+\_\+is\+\_\+decay\+\_\+to\+\_\+electrons}} (bool is\+\_\+decay\+\_\+to\+\_\+electrons)
+\item 
+void \mbox{\hyperlink{class_tau_aa428ca85686d061270adc16fef576c17}{set\+\_\+decayed\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_electron}{Electron}} $>$ decayed\+\_\+electron\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_ac9e2e8cb429bb729c928ee3b79d0c0cd}{set\+\_\+decayed\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_muon}{Muon}} $>$ decayed\+\_\+muon\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_a08df0efd4e49f9ae3cfbef8eb0e6371a}{set\+\_\+neutrino\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ decayed\+\_\+neutrino\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_acdac305950fdbae2c6b3d3a93a17014a}{set\+\_\+tau\+\_\+neutrino\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ decayed\+\_\+tau\+\_\+neutrino\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_ab14f22105eac749108b49f2a72ae3e47}{set\+\_\+up\+\_\+quark\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ decayed\+\_\+up\+\_\+quark\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_a5acfd66346f4f12042b69b8f74d1daba}{set\+\_\+down\+\_\+quark\+\_\+particle\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ decayed\+\_\+down\+\_\+quark\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_tau_a9da399e2d8efbff8a91f0ee96f5d2c1b}{set\+\_\+is\+\_\+antiparticle}} (bool is\+\_\+antiparticle)
+\item 
+void \mbox{\hyperlink{class_tau_a5fda619ba46a05a7e0b7c4632915dbbd}{set\+\_\+rest\+\_\+mass}} (double particle\+\_\+mass)
+\item 
+void \mbox{\hyperlink{class_tau_a3e84bf6bb0c7fabece7c948fcf7c7a58}{set\+\_\+name}} (std\+::string particle\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_tau_ab797c6d302492a87dd97224e39b1c882}{set\+\_\+charge}} (int particle\+\_\+charge)
+\item 
+\mbox{\hyperlink{class_tau_ab29a09e7ef1978ae294cf46f3f7aca14}{Tau}} (const \mbox{\hyperlink{class_tau}{Tau}} \&tau\+\_\+called)
+\item 
+\mbox{\hyperlink{class_tau_a282ec86e5ed684b5704fc8f898293cd5}{Tau}} (\mbox{\hyperlink{class_tau}{Tau}} \&\&tau\+\_\+called\+\_\+to\+\_\+move)
+\item 
+\mbox{\hyperlink{class_tau}{Tau}} \& \mbox{\hyperlink{class_tau_aaebad08c44a949899f36b94b3a965347}{operator=}} (const \mbox{\hyperlink{class_tau}{Tau}} \&tau\+\_\+called)
+\item 
+\mbox{\hyperlink{class_tau}{Tau}} \& \mbox{\hyperlink{class_tau_ab8a77ca17e0231691b9d24b39d83d846}{operator=}} (\mbox{\hyperlink{class_tau}{Tau}} \&\&tau\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}} ()=default
+\item 
+\mbox{\hyperlink{class_lepton_a5ab065b5e3623852a0f293b74eeeaaad}{Lepton}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, int particle\+\_\+lepton\+\_\+number)
+\item 
+virtual \mbox{\hyperlink{class_lepton_a5ce71dbdf8bb5203625d6fd79a095126}{\texorpdfstring{$\sim$}{\string~}\+Lepton}} ()
+\item 
+void \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+int \mbox{\hyperlink{class_lepton_adbca036986ac65a94a98ec2e9f942556}{get\+\_\+lepton\+\_\+number}} () const
+\item 
+virtual void \mbox{\hyperlink{class_lepton_a4821893ec73195821b49cf173b54c5bb}{set\+\_\+lepton\+\_\+number}} (int particle\+\_\+lepton\+\_\+number)
+\item 
+\mbox{\hyperlink{class_lepton_ae0a346d1a68b155ec7ba2933dd0f6cca}{Lepton}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton_a675e35824a2ddc886ef869e6b7db2102}{Lepton}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a63c32e190f52baccc4dd5fa72e95568f}{operator=}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a668ae440c1b557dd05db3c967fb6246f}{operator=}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+spin)
+\item 
+void \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+virtual \mbox{\hyperlink{class_particle_a058b1abe765620e5c5bad2aad654e6bc}{\texorpdfstring{$\sim$}{\string~}\+Particle}} ()
+\item 
+virtual void \mbox{\hyperlink{class_particle_adcc423153df0ac801db3933b396c4bc2}{print\+\_\+decay\+\_\+products}} ()
+\item 
+void \mbox{\hyperlink{class_particle_a5a402d369a37091bfa9de927dc881f89}{set\+\_\+four\+\_\+momentum\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ momentum\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_particle_a1aeac259fe605da978515cb4a5bb9ee7}{set\+\_\+energy}} (double particle\+\_\+energy)
+\item 
+void \mbox{\hyperlink{class_particle_ae332be8023becf68f1ff5cd6f899e04e}{set\+\_\+px}} (double particle\+\_\+px)
+\item 
+void \mbox{\hyperlink{class_particle_a9b88a73601331a6282132c205403cdc8}{set\+\_\+py}} (double particle\+\_\+py)
+\item 
+void \mbox{\hyperlink{class_particle_a3bb48fc138a58b9fffad3d60501caa31}{set\+\_\+pz}} (double particle\+\_\+pz)
+\item 
+double \mbox{\hyperlink{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}{get\+\_\+spin}} () const
+\item 
+double \mbox{\hyperlink{class_particle_aa0b2cd179036d78598e82306c9e12cd5}{get\+\_\+rest\+\_\+mass}} () const
+\item 
+double \mbox{\hyperlink{class_particle_ace872a5c45504859bf205e5637d1b2a4}{get\+\_\+charge}} () const
+\item 
+bool \mbox{\hyperlink{class_particle_af8a27bbe7e54818aed1ae1675ec11629}{get\+\_\+is\+\_\+antiparticle}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\+\_\+name}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \& \mbox{\hyperlink{class_particle_a8530b94f3fcdcac718b1d9126b312642}{get\+\_\+four\+\_\+momentum\+\_\+ptr}} () const
+\item 
+\mbox{\hyperlink{class_particle_a2b3c4f466ec6eda0b93246abfd547ed7}{Particle}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_aaf787bae47280ce10f5191637dd72d74}{Particle}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_a1ed0d9cc396b6348c86f6672b7bde30d}{operator=}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\+\_\+number}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}}
+\item 
+double \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\+\_\+mass}}
+\item 
+std\+::string \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}
+\item 
+bool \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\+\_\+is\+\_\+antiparticle}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\+\_\+momentum\+\_\+ptr}}
+\item 
+double \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tau_a99dd1b666163f4e3211c81da1a6e888d}\label{class_tau_a99dd1b666163f4e3211c81da1a6e888d} 
+\index{Tau@{Tau}!Tau@{Tau}}
+\index{Tau@{Tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{Tau()}{Tau()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Tau\+::\+Tau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_tau_a3b573fd2b1ff234281309c705018bcb9}\label{class_tau_a3b573fd2b1ff234281309c705018bcb9} 
+\index{Tau@{Tau}!Tau@{Tau}}
+\index{Tau@{Tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{Tau()}{Tau()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Tau\+::\+Tau (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle,  }\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a707209df5193a67cc311a6916735c3ca}\label{class_tau_a707209df5193a67cc311a6916735c3ca} 
+\index{Tau@{Tau}!````~Tau@{\texorpdfstring{$\sim$}{\string~}Tau}}
+\index{````~Tau@{\texorpdfstring{$\sim$}{\string~}Tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Tau()}{\string~Tau()}}
+{\footnotesize\ttfamily Tau\+::\texorpdfstring{$\sim$}{\string~}\+Tau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_ab29a09e7ef1978ae294cf46f3f7aca14}\label{class_tau_ab29a09e7ef1978ae294cf46f3f7aca14} 
+\index{Tau@{Tau}!Tau@{Tau}}
+\index{Tau@{Tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{Tau()}{Tau()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Tau\+::\+Tau (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tau}{Tau}} \&}]{tau\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_a282ec86e5ed684b5704fc8f898293cd5}\label{class_tau_a282ec86e5ed684b5704fc8f898293cd5} 
+\index{Tau@{Tau}!Tau@{Tau}}
+\index{Tau@{Tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{Tau()}{Tau()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Tau\+::\+Tau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tau}{Tau}} \&\&}]{tau\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tau_a928bb2e7ebc0f6a3d86fac60744fdad1}\label{class_tau_a928bb2e7ebc0f6a3d86fac60744fdad1} 
+\index{Tau@{Tau}!decay\_tau@{decay\_tau}}
+\index{decay\_tau@{decay\_tau}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{decay\_tau()}{decay\_tau()}}
+{\footnotesize\ttfamily void Tau\+::decay\+\_\+tau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_a1b2a02f3490f3fc4e9605dd78293efef}\label{class_tau_a1b2a02f3490f3fc4e9605dd78293efef} 
+\index{Tau@{Tau}!get\_decayed\_down\_quark\_ptr@{get\_decayed\_down\_quark\_ptr}}
+\index{get\_decayed\_down\_quark\_ptr@{get\_decayed\_down\_quark\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_decayed\_down\_quark\_ptr()}{get\_decayed\_down\_quark\_ptr()}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ \& Tau\+::get\+\_\+decayed\+\_\+down\+\_\+quark\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_tau_a64d4f17bf8a96e8b7526779228e31d37}\label{class_tau_a64d4f17bf8a96e8b7526779228e31d37} 
+\index{Tau@{Tau}!get\_decayed\_lepton\_neutrino\_ptr@{get\_decayed\_lepton\_neutrino\_ptr}}
+\index{get\_decayed\_lepton\_neutrino\_ptr@{get\_decayed\_lepton\_neutrino\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_decayed\_lepton\_neutrino\_ptr()}{get\_decayed\_lepton\_neutrino\_ptr()}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ \& Tau\+::get\+\_\+decayed\+\_\+lepton\+\_\+neutrino\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_tau_a8e8dda7d830229d2375e94399e6beb06}\label{class_tau_a8e8dda7d830229d2375e94399e6beb06} 
+\index{Tau@{Tau}!get\_decayed\_lepton\_ptr@{get\_decayed\_lepton\_ptr}}
+\index{get\_decayed\_lepton\_ptr@{get\_decayed\_lepton\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_decayed\_lepton\_ptr()}{get\_decayed\_lepton\_ptr()}}
+{\footnotesize\ttfamily const void Tau\+::get\+\_\+decayed\+\_\+lepton\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_tau_a6f3af2a372236fcbc9de4547ad1489ba}\label{class_tau_a6f3af2a372236fcbc9de4547ad1489ba} 
+\index{Tau@{Tau}!get\_decayed\_tau\_neutrino\_ptr@{get\_decayed\_tau\_neutrino\_ptr}}
+\index{get\_decayed\_tau\_neutrino\_ptr@{get\_decayed\_tau\_neutrino\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_decayed\_tau\_neutrino\_ptr()}{get\_decayed\_tau\_neutrino\_ptr()}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$ \& Tau\+::get\+\_\+decayed\+\_\+tau\+\_\+neutrino\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_tau_abccadb6b8752cd81c2e02a8e0d7527c1}\label{class_tau_abccadb6b8752cd81c2e02a8e0d7527c1} 
+\index{Tau@{Tau}!get\_decayed\_up\_quark\_ptr@{get\_decayed\_up\_quark\_ptr}}
+\index{get\_decayed\_up\_quark\_ptr@{get\_decayed\_up\_quark\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_decayed\_up\_quark\_ptr()}{get\_decayed\_up\_quark\_ptr()}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$ \& Tau\+::get\+\_\+decayed\+\_\+up\+\_\+quark\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_tau_a2da7515526329f5ed2409209d71d11c3}\label{class_tau_a2da7515526329f5ed2409209d71d11c3} 
+\index{Tau@{Tau}!get\_is\_decay\_leptonic@{get\_is\_decay\_leptonic}}
+\index{get\_is\_decay\_leptonic@{get\_is\_decay\_leptonic}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_is\_decay\_leptonic()}{get\_is\_decay\_leptonic()}}
+{\footnotesize\ttfamily const bool Tau\+::get\+\_\+is\+\_\+decay\+\_\+leptonic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a3112d5386fb5b502d4aa24cb6f730d5b}\label{class_tau_a3112d5386fb5b502d4aa24cb6f730d5b} 
+\index{Tau@{Tau}!get\_is\_decay\_to\_electrons@{get\_is\_decay\_to\_electrons}}
+\index{get\_is\_decay\_to\_electrons@{get\_is\_decay\_to\_electrons}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_is\_decay\_to\_electrons()}{get\_is\_decay\_to\_electrons()}}
+{\footnotesize\ttfamily const bool Tau\+::get\+\_\+is\+\_\+decay\+\_\+to\+\_\+electrons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_ac2a64e58109dc47b16c49e4f7a853581}\label{class_tau_ac2a64e58109dc47b16c49e4f7a853581} 
+\index{Tau@{Tau}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Tau\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_ae34bf0af5dc46cc8c3978c8498043c1c}{Lepton}}.
+
+\Hypertarget{class_tau_aaebad08c44a949899f36b94b3a965347}\label{class_tau_aaebad08c44a949899f36b94b3a965347} 
+\index{Tau@{Tau}!operator=@{operator=}}
+\index{operator=@{operator=}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tau}{Tau}} \& Tau\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tau}{Tau}} \&}]{tau\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_ab8a77ca17e0231691b9d24b39d83d846}\label{class_tau_ab8a77ca17e0231691b9d24b39d83d846} 
+\index{Tau@{Tau}!operator=@{operator=}}
+\index{operator=@{operator=}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tau}{Tau}} \& Tau\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tau}{Tau}} \&\&}]{tau\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_a43f23e09c0bc63a6e871dfe04a0cc0d9}\label{class_tau_a43f23e09c0bc63a6e871dfe04a0cc0d9} 
+\index{Tau@{Tau}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
+{\footnotesize\ttfamily void Tau\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_a04e5d9df8e35f481bf7f828ded949e36}{Lepton}}.
+
+\Hypertarget{class_tau_ab797c6d302492a87dd97224e39b1c882}\label{class_tau_ab797c6d302492a87dd97224e39b1c882} 
+\index{Tau@{Tau}!set\_charge@{set\_charge}}
+\index{set\_charge@{set\_charge}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_charge()}{set\_charge()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+charge (\begin{DoxyParamCaption}\item[{int}]{particle\+\_\+charge }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_aa428ca85686d061270adc16fef576c17}\label{class_tau_aa428ca85686d061270adc16fef576c17} 
+\index{Tau@{Tau}!set\_decayed\_particle\_ptr@{set\_decayed\_particle\_ptr}}
+\index{set\_decayed\_particle\_ptr@{set\_decayed\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_decayed\_particle\_ptr()}{set\_decayed\_particle\_ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+decayed\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_electron}{Electron}} $>$}]{decayed\+\_\+electron\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_ac9e2e8cb429bb729c928ee3b79d0c0cd}\label{class_tau_ac9e2e8cb429bb729c928ee3b79d0c0cd} 
+\index{Tau@{Tau}!set\_decayed\_particle\_ptr@{set\_decayed\_particle\_ptr}}
+\index{set\_decayed\_particle\_ptr@{set\_decayed\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_decayed\_particle\_ptr()}{set\_decayed\_particle\_ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+decayed\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_muon}{Muon}} $>$}]{decayed\+\_\+muon\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a5acfd66346f4f12042b69b8f74d1daba}\label{class_tau_a5acfd66346f4f12042b69b8f74d1daba} 
+\index{Tau@{Tau}!set\_down\_quark\_particle\_ptr@{set\_down\_quark\_particle\_ptr}}
+\index{set\_down\_quark\_particle\_ptr@{set\_down\_quark\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_down\_quark\_particle\_ptr()}{set\_down\_quark\_particle\_ptr()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+down\+\_\+quark\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$}]{decayed\+\_\+down\+\_\+quark\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a9da399e2d8efbff8a91f0ee96f5d2c1b}\label{class_tau_a9da399e2d8efbff8a91f0ee96f5d2c1b} 
+\index{Tau@{Tau}!set\_is\_antiparticle@{set\_is\_antiparticle}}
+\index{set\_is\_antiparticle@{set\_is\_antiparticle}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_is\_antiparticle()}{set\_is\_antiparticle()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+is\+\_\+antiparticle (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tau_ae26bf237a820c660de0af122c23caea9}\label{class_tau_ae26bf237a820c660de0af122c23caea9} 
+\index{Tau@{Tau}!set\_is\_decay\_leptonic@{set\_is\_decay\_leptonic}}
+\index{set\_is\_decay\_leptonic@{set\_is\_decay\_leptonic}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_is\_decay\_leptonic()}{set\_is\_decay\_leptonic()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+is\+\_\+decay\+\_\+leptonic (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+decay\+\_\+leptonic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a55732db541116b3ed87f037b7fae3330}\label{class_tau_a55732db541116b3ed87f037b7fae3330} 
+\index{Tau@{Tau}!set\_is\_decay\_to\_electrons@{set\_is\_decay\_to\_electrons}}
+\index{set\_is\_decay\_to\_electrons@{set\_is\_decay\_to\_electrons}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_is\_decay\_to\_electrons()}{set\_is\_decay\_to\_electrons()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+is\+\_\+decay\+\_\+to\+\_\+electrons (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+decay\+\_\+to\+\_\+electrons }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a3e84bf6bb0c7fabece7c948fcf7c7a58}\label{class_tau_a3e84bf6bb0c7fabece7c948fcf7c7a58} 
+\index{Tau@{Tau}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string}]{particle\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_a20c58fcf6ab3928518b912b0e94a8c7d}{Particle}}.
+
+\Hypertarget{class_tau_a08df0efd4e49f9ae3cfbef8eb0e6371a}\label{class_tau_a08df0efd4e49f9ae3cfbef8eb0e6371a} 
+\index{Tau@{Tau}!set\_neutrino\_particle\_ptr@{set\_neutrino\_particle\_ptr}}
+\index{set\_neutrino\_particle\_ptr@{set\_neutrino\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_neutrino\_particle\_ptr()}{set\_neutrino\_particle\_ptr()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+neutrino\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$}]{decayed\+\_\+neutrino\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_a5fda619ba46a05a7e0b7c4632915dbbd}\label{class_tau_a5fda619ba46a05a7e0b7c4632915dbbd} 
+\index{Tau@{Tau}!set\_rest\_mass@{set\_rest\_mass}}
+\index{set\_rest\_mass@{set\_rest\_mass}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_rest\_mass()}{set\_rest\_mass()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+rest\+\_\+mass (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_add4444505ff3ac348bf7511560b8b529}{Particle}}.
+
+\Hypertarget{class_tau_acdac305950fdbae2c6b3d3a93a17014a}\label{class_tau_acdac305950fdbae2c6b3d3a93a17014a} 
+\index{Tau@{Tau}!set\_tau\_neutrino\_particle\_ptr@{set\_tau\_neutrino\_particle\_ptr}}
+\index{set\_tau\_neutrino\_particle\_ptr@{set\_tau\_neutrino\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_tau\_neutrino\_particle\_ptr()}{set\_tau\_neutrino\_particle\_ptr()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+tau\+\_\+neutrino\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_neutrino}{Neutrino}} $>$}]{decayed\+\_\+tau\+\_\+neutrino\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tau_ab14f22105eac749108b49f2a72ae3e47}\label{class_tau_ab14f22105eac749108b49f2a72ae3e47} 
+\index{Tau@{Tau}!set\_up\_quark\_particle\_ptr@{set\_up\_quark\_particle\_ptr}}
+\index{set\_up\_quark\_particle\_ptr@{set\_up\_quark\_particle\_ptr}!Tau@{Tau}}
+\doxysubsubsection{\texorpdfstring{set\_up\_quark\_particle\_ptr()}{set\_up\_quark\_particle\_ptr()}}
+{\footnotesize\ttfamily void Tau\+::set\+\_\+up\+\_\+quark\+\_\+particle\+\_\+ptr (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_quark}{Quark}} $>$}]{decayed\+\_\+up\+\_\+quark\+\_\+ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_tau_8h}{Tau.\+h}}\item 
+\mbox{\hyperlink{_tau_8cpp}{Tau.\+cpp}}\end{DoxyCompactItemize}

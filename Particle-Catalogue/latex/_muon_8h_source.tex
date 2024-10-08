@@ -1,0 +1,63 @@
+\doxysection{Muon.\+h}
+\hypertarget{_muon_8h_source}{}\label{_muon_8h_source}\mbox{\hyperlink{_muon_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 5\ -\/\ Muon\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ charged\ leptons\ and\ neutral\ leptons:\ electorns,\ muons,\ tau,\ electron\ neutrino,\ muon\ neutrino,\ tau\ neutrino}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MUON\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MUON\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lepton_8h}{Lepton.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_muon}{Muon}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_lepton}{Lepton}}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Beginning\ of\ Electron\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{bool}\ is\_isolated;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{class_muon_ace633a81a37a06dc0e517c7afa8abfdf}{Muon}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{class_muon_aedb58616b7522194d739f5deb78ed1f6}{Muon}}(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{bool}\ is\_isolated\_particle):}
+\DoxyCodeLine{00024\ \ \ \ \ is\_isolated\{is\_isolated\_particle\},}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\{is\_antiparticle\ ?\ 1.0\ :\ -\/1.0,\ is\_antiparticle,\ 105.7,\ is\_antiparticle\ ?\ \textcolor{stringliteral}{"{}Antimuon"{}}\ :\ \textcolor{stringliteral}{"{}Muon"{}},\ particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ is\_antiparticle\ ?\ -\/1\ :\ 1\}}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00028\ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{class_muon_a63a6efce50e985cf6b1ae7b2e2223aa1}{\string~Muon}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_muon_a56b829dc934f0d24b06ede37535392fb}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Getter\ Fn}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_muon_a5a17ad9f0bf3d1dc6761a3fd22e360dc}{get\_is\_isolated}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ is\_isolated;\}\ \ }
+\DoxyCodeLine{00037\ \ \ std::string\ \mbox{\hyperlink{class_muon_a68d80c03fbf992a4549a3e4428bcd10e}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Charged\ Lepton"{}};\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Setter\ Fn}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_muon_a5e1fa4395f303dd8ef8c29a120ca0748}{set\_is\_isolated}}(\textcolor{keywordtype}{bool}\ is\_isolated\_particle)\{is\_isolated\ =\ is\_isolated\_particle;\}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_muon_a8f0e105444942097c5c590a2166df215}{set\_is\_antiparticle}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ tau,\ electron\ or\ muon\ classses.}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_muon_a344f784d4a8d54dfec7b43ccd087d7a6}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_muon_adda09dcd4ee26b5c0c427c1ce30df9e1}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{class_muon_ace633a81a37a06dc0e517c7afa8abfdf}{Muon}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_muon}{Muon}}\ \&muon\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{class_muon_ace633a81a37a06dc0e517c7afa8abfdf}{Muon}}(\mbox{\hyperlink{class_muon}{Muon}}\ \&\&muon\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{class_muon}{Muon}}\&\ \mbox{\hyperlink{class_muon_a79e0be77632b6063c7a7a89bde378438}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_muon}{Muon}}\ \&muon\_called);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{class_muon}{Muon}}\&\ \mbox{\hyperlink{class_muon_a79e0be77632b6063c7a7a89bde378438}{operator=}}(\mbox{\hyperlink{class_muon}{Muon}}\&\&\ muon\_called\_to\_move);}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+
+\end{DoxyCode}

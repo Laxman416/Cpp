@@ -1,0 +1,111 @@
+\doxysection{Tau.\+h}
+\hypertarget{_tau_8h_source}{}\label{_tau_8h_source}\mbox{\hyperlink{_tau_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 5\ -\/\ Tau\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ :\ electorns,\ muons,\ tau,\ neutrino}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TAU\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TAU\_h}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lepton_8h}{Lepton.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_electron_8h}{Electron.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_muon_8h}{Muon.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_neutrino_8h}{Neutrino.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_quark_8h}{Quark.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Beginning\ of\ Tau\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tau}{Tau}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_lepton}{Lepton}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{bool}\ m\_is\_decay\_leptonic;}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ m\_is\_decay\_to\_electrons;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ unique\_ptr\ as\ the\ decayed\ lepton\ should\ only\ be\ accessed\ by\ the\ decayed\ Tau}}
+\DoxyCodeLine{00026\ \ \ std::unique\_ptr<Electron>\ m\_decayed\_electron\_ptr;}
+\DoxyCodeLine{00027\ \ \ std::unique\_ptr<Muon>\ m\_decayed\_muon\_ptr;}
+\DoxyCodeLine{00028\ \ \ std::unique\_ptr<Neutrino>\ m\_decayed\_neutrino\_ptr;}
+\DoxyCodeLine{00029\ \ \ std::unique\_ptr<Neutrino>\ m\_decayed\_tau\_neutrino\_ptr;}
+\DoxyCodeLine{00030\ \ \ std::unique\_ptr<Quark>\ m\_decayed\_up\_quark\_ptr;}
+\DoxyCodeLine{00031\ \ \ std::unique\_ptr<Quark>\ m\_decayed\_down\_quark\_ptr;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Private\ Functions}}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Private\ so\ no\ Access\ to\ Outside.\ Fn\ get\_decayed\_particle\_ptr\ will\ decide\ which\ fn\ to\ use}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Electron>\&\ get\_decayed\_electron\_ptr()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Muon>\&\ get\_decayed\_muon\_ptr()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Public\ version:\ decay\_tau()}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ decay\_tau\_leptonically();\ \textcolor{comment}{//\ fn\ to\ process\ leptonic\ decay}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ decay\_tau\_hadronically();\ \textcolor{comment}{//\ fn\ to\ process\ tau\ deacy\ }}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ determine\_decay\_leptonic();\ \textcolor{comment}{//\ Random\ fn\ to\ determine\ if\ decay\ is\ leptonic}}
+\DoxyCodeLine{00044\ \ \ std::pair<std::string,\ std::string>\ generateRandomQuarkColor();\ \textcolor{comment}{//\ Random\ fn\ to\ obtain\ a\ pair\ of\ colours}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{class_tau_a99dd1b666163f4e3211c81da1a6e888d}{Tau}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{class_tau_a3b573fd2b1ff234281309c705018bcb9}{Tau}}(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz):}
+\DoxyCodeLine{00050\ \ \ \ \ m\_decayed\_electron\_ptr(nullptr),}
+\DoxyCodeLine{00051\ \ \ \ \ m\_decayed\_muon\_ptr(nullptr),}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Call\ Parameterised\ Constructor\ for\ Lepton}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\{is\_antiparticle\ ?\ 1.0\ :\ -\/1.0,\ is\_antiparticle,\ 1778,\ is\_antiparticle\ ?\ \textcolor{stringliteral}{"{}Antitau"{}}\ :\ \textcolor{stringliteral}{"{}Tau"{}},\ particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ is\_antiparticle\ ?\ -\/1\ :\ 1\}}
+\DoxyCodeLine{00055\ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00057\ \ \ \ \ m\_is\_decay\_leptonic\ =\ determine\_decay\_leptonic();\textcolor{comment}{//\ use\ branching\ ratios\ to\ randomise\ if\ decay\ is\ leptonic\ or\ hadronic}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_tau_a928bb2e7ebc0f6a3d86fac60744fdad1}{decay\_tau}}();}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{class_tau_a707209df5193a67cc311a6916735c3ca}{\string~Tau}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a43f23e09c0bc63a6e871dfe04a0cc0d9}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Decays\ the\ tau\ via\ Leptonic\ decay\ or\ Hadronic\ decay}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a928bb2e7ebc0f6a3d86fac60744fdad1}{decay\_tau}}();\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ Getter\ Fn}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tau_a2da7515526329f5ed2409209d71d11c3}{get\_is\_decay\_leptonic}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_is\_decay\_leptonic;\}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tau_a3112d5386fb5b502d4aa24cb6f730d5b}{get\_is\_decay\_to\_electrons}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_is\_decay\_to\_electrons;\}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a8e8dda7d830229d2375e94399e6beb06}{get\_decayed\_lepton\_ptr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Neutrino>\&\ \mbox{\hyperlink{class_tau_a64d4f17bf8a96e8b7526779228e31d37}{get\_decayed\_lepton\_neutrino\_ptr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Neutrino>\&\ \mbox{\hyperlink{class_tau_a6f3af2a372236fcbc9de4547ad1489ba}{get\_decayed\_tau\_neutrino\_ptr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Quark>\&\mbox{\hyperlink{class_tau_abccadb6b8752cd81c2e02a8e0d7527c1}{get\_decayed\_up\_quark\_ptr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<Quark>\&\ \mbox{\hyperlink{class_tau_a1b2a02f3490f3fc4e9605dd78293efef}{get\_decayed\_down\_quark\_ptr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ std::string\ \mbox{\hyperlink{class_tau_ac2a64e58109dc47b16c49e4f7a853581}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Charged\ Lepton"{}};\}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ Setter\ Fn}}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_ae26bf237a820c660de0af122c23caea9}{set\_is\_decay\_leptonic}}(\textcolor{keywordtype}{bool}\ is\_decay\_leptonic)\{m\_is\_decay\_leptonic\ =\ is\_decay\_leptonic;\}}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a55732db541116b3ed87f037b7fae3330}{set\_is\_decay\_to\_electrons}}(\textcolor{keywordtype}{bool}\ is\_decay\_to\_electrons)\{m\_is\_decay\_to\_electrons\ =\ is\_decay\_to\_electrons;\}}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_aa428ca85686d061270adc16fef576c17}{set\_decayed\_particle\_ptr}}(std::unique\_ptr<Electron>\ decayed\_electron\_ptr)\{m\_decayed\_electron\_ptr\ =\ std::move(decayed\_electron\_ptr);\}}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_ac9e2e8cb429bb729c928ee3b79d0c0cd}{set\_decayed\_particle\_ptr}}(std::unique\_ptr<Muon>\ decayed\_muon\_ptr)\{m\_decayed\_muon\_ptr\ =\ std::move(decayed\_muon\_ptr);\}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a08df0efd4e49f9ae3cfbef8eb0e6371a}{set\_neutrino\_particle\_ptr}}(std::unique\_ptr<Neutrino>\ decayed\_neutrino\_ptr)\{m\_decayed\_neutrino\_ptr\ =\ std::move(decayed\_neutrino\_ptr);\}}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_acdac305950fdbae2c6b3d3a93a17014a}{set\_tau\_neutrino\_particle\_ptr}}(std::unique\_ptr<Neutrino>\ decayed\_tau\_neutrino\_ptr)\{m\_decayed\_tau\_neutrino\_ptr\ =\ std::move(decayed\_tau\_neutrino\_ptr);\}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_ab14f22105eac749108b49f2a72ae3e47}{set\_up\_quark\_particle\_ptr}}(std::unique\_ptr<Quark>\ decayed\_up\_quark\_ptr)\{m\_decayed\_up\_quark\_ptr\ =\ std::move(decayed\_up\_quark\_ptr);\}}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a5acfd66346f4f12042b69b8f74d1daba}{set\_down\_quark\_particle\_ptr}}(std::unique\_ptr<Quark>\ decayed\_down\_quark\_ptr)\{m\_decayed\_down\_quark\_ptr\ =\ std::move(decayed\_down\_quark\_ptr);\}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a9da399e2d8efbff8a91f0ee96f5d2c1b}{set\_is\_antiparticle}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ tau,\ electron\ or\ muon\ classses.}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a5fda619ba46a05a7e0b7c4632915dbbd}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass);\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_a3e84bf6bb0c7fabece7c948fcf7c7a58}{set\_name}}(std::string\ particle\_name);}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tau_ab797c6d302492a87dd97224e39b1c882}{set\_charge}}(\textcolor{keywordtype}{int}\ particle\_charge);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{class_tau_a99dd1b666163f4e3211c81da1a6e888d}{Tau}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tau}{Tau}}\ \&tau\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{class_tau_a99dd1b666163f4e3211c81da1a6e888d}{Tau}}(\mbox{\hyperlink{class_tau}{Tau}}\ \&\&tau\_called\_to\_move);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{class_tau}{Tau}}\&\ \mbox{\hyperlink{class_tau_aaebad08c44a949899f36b94b3a965347}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tau}{Tau}}\ \&tau\_called);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00102\ \ \ \mbox{\hyperlink{class_tau}{Tau}}\&\ \mbox{\hyperlink{class_tau_aaebad08c44a949899f36b94b3a965347}{operator=}}(\mbox{\hyperlink{class_tau}{Tau}}\&\&\ tau\_called\_to\_move);}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00106\ }
+
+\end{DoxyCode}

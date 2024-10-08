@@ -1,0 +1,72 @@
+\doxysection{Higgs.\+h}
+\hypertarget{_higgs_8h_source}{}\label{_higgs_8h_source}\mbox{\hyperlink{_higgs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Final\ Project\ -\/\ Higgs\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Boson\ Class:\ photon,\ weak,\ Higgs,\ gluon}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ HIGGS\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ HIGGS\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boson_8h}{Boson.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Beginning\ of\ Higgs\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_higgs}{Higgs}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_boson}{Boson}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{comment}{//\ vector\ to\ contain\ all\ possible\ decay\ products\ pairs}}
+\DoxyCodeLine{00018\ \ \ std::vector<std::pair<std::unique\_ptr<Particle>,\ std::unique\_ptr<Particle>>>\ decay\_product\_pairs;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ Private\ Function}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ add\_decay\_product\_pair(std::unique\_ptr<Particle>\ decay\_product\_1,\ std::unique\_ptr<Particle>\ decay\_product\_2)}
+\DoxyCodeLine{00023\ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ decay\_product\_pairs.push\_back(std::make\_pair(std::move(decay\_product\_1),\ std::move(decay\_product\_2)));}
+\DoxyCodeLine{00025\ \ \ \}}
+\DoxyCodeLine{00026\ \ \ std::pair<std::string,\ std::string>\ generateRandomQuarkColor();\ \textcolor{comment}{//\ Random\ fn\ to\ obtain\ a\ pair\ of\ colours}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{class_higgs_a1f3b7fd59d4918a1413798c6195193b3}{Higgs}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00032\ \ \ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Use\ particle\_charge\ to\ determine\ wheather\ Z\ W-\/\ or\ W+}}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_higgs_a9271f5ff763c2c5b508fba2aa869684e}{Higgs}}(\textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz)\ :}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Call\ Parameterised\ Constructor\ for\ ChargedLepton}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_boson}{Boson}}\{0.0,\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ false,\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ 126000.0,\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Higgs"{}},\ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ particle\_energy,\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ particle\_px,\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ particle\_py,\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ particle\_pz,\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Higgs\ Mechanism"{}},\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ 0\}}
+\DoxyCodeLine{00046\ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_higgs_ae4eb55d4eee890bf27f3680eaeda290c}{decay\_higgs}}();}
+\DoxyCodeLine{00048\ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_higgs_a13281e5dea8f61acc6e2285ee5bd083d}{\string~Higgs}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_higgs_ae4eb55d4eee890bf27f3680eaeda290c}{decay\_higgs}}();\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_higgs_aef4dc2ed273de19cc7e49a9ba1c39fd3}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_higgs_acf5796b573ef79c0a5bbd5f004773da7}{print\_decay\_products}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ photon,\ W,\ Z\ or\ H}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_higgs_aae964ea20f3503f7ef708f9d75c343b6}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_higgs_aadb34884461807ebc9290158b32cfa09}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{class_higgs_a1f3b7fd59d4918a1413798c6195193b3}{Higgs}}(\mbox{\hyperlink{class_higgs}{Higgs}}\ \&\&higgs\_called\_to\_move);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00062\ \ \ }
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ //\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{class_higgs}{Higgs}}\&\ \mbox{\hyperlink{class_higgs_a11ca22b833c7f4255ada7f9ed16511e8}{operator=}}(\mbox{\hyperlink{class_higgs}{Higgs}}\&\&\ higgs\_called\_to\_move);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

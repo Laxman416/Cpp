@@ -1,0 +1,79 @@
+\doxysection{Weak.\+h}
+\hypertarget{_weak_8h_source}{}\label{_weak_8h_source}\mbox{\hyperlink{_weak_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Final\ Project\ -\/\ Weak\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Boson\ Class:\ photon,\ weak,\ Higgs,\ gluon}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ WEAK\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ WEAK\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boson_8h}{Boson.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Beginning\ of\ Weak\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_weak}{Weak}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_boson}{Boson}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{comment}{//\ vector\ to\ contain\ all\ possible\ decay\ products\ pairs}}
+\DoxyCodeLine{00018\ \ \ std::vector<std::pair<std::unique\_ptr<Particle>,\ std::unique\_ptr<Particle>>>\ decay\_product\_pairs;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ Private\ Function}}
+\DoxyCodeLine{00021\ \ \ std::string\ get\_particle\_name\_from\_charge(\textcolor{keywordtype}{double}\ particle\_charge)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{bool}\ get\_is\_antiparticle\_from\_charge(\textcolor{keywordtype}{double}\ particle\_charge);}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{double}\ get\_particle\_mass\_from\_flavour(\textcolor{keywordtype}{double}\ particle\_charge)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ add\_decay\_product\_pair(std::unique\_ptr<Particle>\ decay\_product\_1,\ std::unique\_ptr<Particle>\ decay\_product\_2)}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ decay\_product\_pairs.push\_back(std::make\_pair(std::move(decay\_product\_1),\ std::move(decay\_product\_2)));}
+\DoxyCodeLine{00028\ \ \ \}}
+\DoxyCodeLine{00029\ \ \ std::pair<std::string,\ std::string>\ generateRandomQuarkColor();\ \textcolor{comment}{//\ Random\ fn\ to\ obtain\ a\ pair\ of\ colours}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{class_weak_a0eec3611d2159cffaf8e6f451d7a7caf}{Weak}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00035\ \ \ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Use\ particle\_charge\ to\ determine\ wheather\ Z\ W-\/\ or\ W+}}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{class_weak_ae71e16d6603c04d94e012079dab4d463}{Weak}}(\textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{double}\ particle\_charge)\ :}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Call\ Parameterised\ Constructor\ for\ ChargedLepton}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_boson}{Boson}}\{particle\_charge,\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ get\_is\_antiparticle\_from\_charge(particle\_charge),\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ get\_particle\_mass\_from\_flavour(particle\_charge),\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ get\_particle\_name\_from\_charge(particle\_charge),\ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ particle\_energy,\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ particle\_px,\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ particle\_py,\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ particle\_pz,\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Weak"{}},\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ 1\}}
+\DoxyCodeLine{00049\ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_weak_a1af5b9ab910e5ca54915591ba84b4632}{input\_check\_charge}}(particle\_charge);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_weak_a3022a169512a00df86c5d2367b889903}{decay\_weak}}();}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{class_weak_a7ca4b9b9a99268604c95c80848b5489a}{\string~Weak}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_a3022a169512a00df86c5d2367b889903}{decay\_weak}}();\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_a07544e9b28aa83d92bd6e769bf8790fe}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_a3fc927b08ec2451f7a65824e7c11b2bb}{print\_decay\_products}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_a1af5b9ab910e5ca54915591ba84b4632}{input\_check\_charge}}(\textcolor{keywordtype}{double}\ particle\_charge);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ photon,\ W,\ Z\ or\ H}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_ab2dc98232f13ec5a8270a4f716a282ec}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_weak_a0a63fb959a484062a58641867975b5cd}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{class_weak_a0eec3611d2159cffaf8e6f451d7a7caf}{Weak}}(\mbox{\hyperlink{class_weak}{Weak}}\ \&\&photon\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00069\ \ \ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ //\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{class_weak}{Weak}}\&\ \mbox{\hyperlink{class_weak_aefa82a7b4e4029cf2c5ba87ff997c7e0}{operator=}}(\mbox{\hyperlink{class_weak}{Weak}}\&\&\ photon\_called\_to\_move);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

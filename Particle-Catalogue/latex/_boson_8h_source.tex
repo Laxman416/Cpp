@@ -1,0 +1,71 @@
+\doxysection{Boson.\+h}
+\hypertarget{_boson_8h_source}{}\label{_boson_8h_source}\mbox{\hyperlink{_boson_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Final\ Project\ -\/\ Boson\ Class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ Bosons\ containing\ the\ force\ carriers}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ BOSON\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ BOSON\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_four_momentum_8h}{FourMomentum.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include<stdexcept>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Beginning\ of\ Boson\ class\ }}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_boson}{Boson}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_particle}{Particle}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ Data\ Members}}
+\DoxyCodeLine{00021\ \ \ std::string\ \mbox{\hyperlink{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}{associated\_force}};\ \textcolor{comment}{//\ the\ force\ associated\ with\ the\ Boson.\ Higgs\ doesn't\ have\ one\ -\/\ contributes\ to\ Higgs\ mechanism\ which\ gives\ mass\ to\ W\ bosons.}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f}{Boson}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ default\ constructor}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor\ for\ Lepton}}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{class_boson_a0d677649fe3e8d2857b5b9793cd362d8}{Boson}}(\textcolor{keywordtype}{double}\ particle\_charge,\ \textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_mass,\ std::string\ particle\_name,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ std::string\ particle\_associated\_force,\ \textcolor{keywordtype}{double}\ particle\_spin)\ :\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}{associated\_force}}\{particle\_associated\_force\},}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_particle}{Particle}}(particle\_charge,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ is\_antiparticle,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_mass,\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_name,\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_energy,\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_px,\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_py,\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_pz,\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ particle\_spin)}
+\DoxyCodeLine{00038\ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00040\ \ \ \}\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_boson_ab3fc73715d83e5e69831f60d0e464e66}{\string~Boson}}()\{std::cout<<\textcolor{stringliteral}{"{}Boson\ is\ destroyed."{}}<<std::endl;\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boson_a02cb3b45104e063f835c3beb52516daf}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boson_aaf0692aa3c4142cf994e52eafabf425a}{print\_data}}()\{\};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Getter\ Function}}
+\DoxyCodeLine{00049\ \ \ std::string\ \mbox{\hyperlink{class_boson_a44e05faac545bd324f617b7154542fe0}{get\_associated\_force}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}{associated\_force}};\}}
+\DoxyCodeLine{00050\ \ \ std::string\ \mbox{\hyperlink{class_boson_ab64ca49cfd8da59240529fdba0ae4970}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Boson"{}};\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ Setter\ Fn\ \ }}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boson_a3a1aa42c3c843b6cebd4adee3f26520b}{set\_lepton\_number}}(std::string\ particle\_associated\_force)\{\mbox{\hyperlink{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}{associated\_force}}\ =\ particle\_associated\_force;\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f}{Boson}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_boson}{Boson}}\ \&boson\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f}{Boson}}(\mbox{\hyperlink{class_boson}{Boson}}\ \&\&boson\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{class_boson}{Boson}}\&\ \mbox{\hyperlink{class_boson_af285642c50d101533ed3b3dd95c27c5b}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_boson}{Boson}}\ \&boson\_called\_to\_move);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{class_boson}{Boson}}\&\ \mbox{\hyperlink{class_boson_af285642c50d101533ed3b3dd95c27c5b}{operator=}}(\mbox{\hyperlink{class_boson}{Boson}}\&\&\ boson\_called\_to\_move);}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

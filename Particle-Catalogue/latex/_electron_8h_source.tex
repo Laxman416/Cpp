@@ -1,0 +1,65 @@
+\doxysection{Electron.\+h}
+\hypertarget{_electron_8h_source}{}\label{_electron_8h_source}\mbox{\hyperlink{_electron_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 5\ -\/\ Electron\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ charged\ leptons\ and\ neutral\ leptons:\ electorns,\ muons,\ tau,\ electron\ neutrino,\ muon\ neutrino,\ tau\ neutrino}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ ELECTRON\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ELECTRON\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_calorimeter_layers_8h}{CalorimeterLayers.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_calorimeter_energies_8h}{CalorimeterEnergies.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_four_momentum_8h}{FourMomentum.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lepton_8h}{Lepton.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Beginning\ of\ Electron\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_electron}{Electron}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_lepton}{Lepton}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ std::unique\_ptr<CalorimeterEnergies>\ calorimeter\_energies\_ptr;\ \textcolor{comment}{//\ special\ unique\ pointer\ for\ the\ CalorimeterEnergies\ object}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_electron_a8b783cf1b5e6801e7832a85324074b73}{Electron}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00026\ \ \ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{class_electron_a4208d0345463ac90a5826e95c83723ba}{Electron}}(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz)\ :}
+\DoxyCodeLine{00028\ \ \ \ \ calorimeter\_energies\_ptr(std::make\_unique<\mbox{\hyperlink{class_calorimeter_energies}{CalorimeterEnergies}}>(particle\_energy/2,\ particle\_energy/2,\ 0.0,\ 0.0)),}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Call\ Parameterised\ Constructor\ for\ ChargedLepton}}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\{is\_antiparticle\ ?\ 1.0\ :\ -\/1.0,\ is\_antiparticle,\ 0.511,\ is\_antiparticle\ ?\ \textcolor{stringliteral}{"{}Positron"{}}\ :\ \textcolor{stringliteral}{"{}Electron"{}},\ particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ is\_antiparticle\ ?\ -\/1\ :\ 1\}}
+\DoxyCodeLine{00031\ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00033\ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{class_electron_abe2659dbbdb5cacfb00a1ec723504c6a}{\string~Electron}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_electron_a5857e5b4d8ccff901b90782d015bce11}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Getter\ Fn}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<CalorimeterEnergies>\&\ \mbox{\hyperlink{class_electron_a874720e1c1c516386fe3245bbea927e0}{get\_calorimeter\_energies\_ptr}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ calorimeter\_energies\_ptr;\}\ \ }
+\DoxyCodeLine{00042\ \ \ std::string\ \mbox{\hyperlink{class_electron_a599649bc218f41d38e6a93b6ade9e43e}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Charged\ Lepton"{}};\}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Setter\ Fn}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_electron_a7ef546f29c65d3fab5c0d0909b84ffe2}{set\_calorimeter\_energy}}(\textcolor{keywordtype}{double}\ energy\_EM\_1,\ \textcolor{keywordtype}{double}\ energy\_EM\_2);}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_electron_af9717a93fa82dc2abe8b3793f91aa6cf}{set\_is\_antiparticle}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ tau,\ electron\ or\ muon\ classses.}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_electron_a3ee3b30b41ca0c530b6e9812f55f07d0}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_electron_a575369f2d96e86fb33f99c7cb36e4baf}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_electron_a8b783cf1b5e6801e7832a85324074b73}{Electron}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_electron}{Electron}}\ \&electron\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{class_electron_a8b783cf1b5e6801e7832a85324074b73}{Electron}}(\mbox{\hyperlink{class_electron}{Electron}}\ \&\&electron\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{class_electron}{Electron}}\&\ \mbox{\hyperlink{class_electron_a843ad5c30b5d17079d23a5080af977dc}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_electron}{Electron}}\ \&electron\_called);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{class_electron}{Electron}}\&\ \mbox{\hyperlink{class_electron_a843ad5c30b5d17079d23a5080af977dc}{operator=}}(\mbox{\hyperlink{class_electron}{Electron}}\&\&\ electron\_called\_to\_move);}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
