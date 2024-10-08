@@ -1,0 +1,155 @@
+\doxysection{Particle\+Catalogue\texorpdfstring{$<$}{<} Particle\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_particle_catalogue}{}\label{class_particle_catalogue}\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+
+
+{\ttfamily \#include $<$Particle\+Catalogue.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{Particle\+Catalogue}} ()
+\item 
+void \mbox{\hyperlink{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1}{add\+\_\+particle}} (const \mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$ \&particle)
+\item 
+\mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$ \mbox{\hyperlink{class_particle_catalogue_a5c9a093a1d55004e3bd28a61b51ba40f}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::string \&key)
+\item 
+std\+::string \mbox{\hyperlink{class_particle_catalogue_af1dd5b8851f95c97b7424aa17a1777aa}{get\+\_\+label}} (const std\+::pair$<$ \mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$, std\+::string $>$ \&particle\+\_\+entry) const
+\item 
+void \mbox{\hyperlink{class_particle_catalogue_aca4af320855510dcc9336ac41fc892af}{print\+\_\+particles\+\_\+with\+\_\+key}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{class_particle_catalogue_ae36cf78b4082d2cf29c77723871feb23}{get\+\_\+total\+\_\+particles}} () const
+\item 
+void \mbox{\hyperlink{class_particle_catalogue_a3d7ff064aed0369404f9ed7c8c0d2359}{print\+\_\+particles\+\_\+count\+\_\+by\+\_\+type}} () const
+\item 
+int \mbox{\hyperlink{class_particle_catalogue_ae9f2394af39a774c44e09880b1ac4624}{get\+\_\+total\+\_\+count\+\_\+of\+\_\+a\+\_\+type}} (const std\+::string \&particle\+\_\+type) const
+\item 
+void \mbox{\hyperlink{class_particle_catalogue_ac3ea47e0c8a906efb90dec87a7dee13a}{print\+\_\+all\+\_\+particles}} () const
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_particle_catalogue_a5bcb45af6cfe7cb28b756140a0073040}{sum\+\_\+four\+\_\+momentum}} () const
+\item 
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \mbox{\hyperlink{class_particle_catalogue_a168b11642d1403bcf75b148dd500a9aa}{get\+\_\+container\+\_\+of\+\_\+a\+\_\+type}} (const std\+::string \&particle\+\_\+type) const
+\item 
+\mbox{\hyperlink{class_particle_catalogue_a89abd3d53d32937a695372b1dabad95c}{Particle\+Catalogue}} (const \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \&particle\+\_\+catalogue\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_catalogue_a5ff8b5e82270391d0c9688ea780b0a4b}{Particle\+Catalogue}} (\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \&\&particle\+\_\+catalogue\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \& \mbox{\hyperlink{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}{operator=}} (const \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \&particle\+\_\+catalogue\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \& \mbox{\hyperlink{class_particle_catalogue_a1a7dc26038174178317d1d00a03c5ff1}{operator=}} (\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}} \&\&particle\+\_\+catalogue\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}\label{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!ParticleCatalogue@{ParticleCatalogue}}
+\index{ParticleCatalogue@{ParticleCatalogue}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{ParticleCatalogue()}{ParticleCatalogue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\mbox{\hyperlink{class_particle_catalogue}{\+::\+Particle\+Catalogue}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_particle_catalogue_a89abd3d53d32937a695372b1dabad95c}\label{class_particle_catalogue_a89abd3d53d32937a695372b1dabad95c} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!ParticleCatalogue@{ParticleCatalogue}}
+\index{ParticleCatalogue@{ParticleCatalogue}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{ParticleCatalogue()}{ParticleCatalogue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\mbox{\hyperlink{class_particle_catalogue}{\+::\+Particle\+Catalogue}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \&}]{particle\+\_\+catalogue\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_particle_catalogue_a5ff8b5e82270391d0c9688ea780b0a4b}\label{class_particle_catalogue_a5ff8b5e82270391d0c9688ea780b0a4b} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!ParticleCatalogue@{ParticleCatalogue}}
+\index{ParticleCatalogue@{ParticleCatalogue}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{ParticleCatalogue()}{ParticleCatalogue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\mbox{\hyperlink{class_particle_catalogue}{\+::\+Particle\+Catalogue}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \&\&}]{particle\+\_\+catalogue\+\_\+called }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1}\label{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!add\_particle@{add\_particle}}
+\index{add\_particle@{add\_particle}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+void \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$ \&}]{particle }\end{DoxyParamCaption})}
+
+\Hypertarget{class_particle_catalogue_a168b11642d1403bcf75b148dd500a9aa}\label{class_particle_catalogue_a168b11642d1403bcf75b148dd500a9aa} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!get\_container\_of\_a\_type@{get\_container\_of\_a\_type}}
+\index{get\_container\_of\_a\_type@{get\_container\_of\_a\_type}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_container\_of\_a\_type()}{get\_container\_of\_a\_type()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::get\+\_\+container\+\_\+of\+\_\+a\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{particle\+\_\+type }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_af1dd5b8851f95c97b7424aa17a1777aa}\label{class_particle_catalogue_af1dd5b8851f95c97b7424aa17a1777aa} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!get\_label@{get\_label}}
+\index{get\_label@{get\_label}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_label()}{get\_label()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+std\+::string \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::get\+\_\+label (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ \mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$, std\+::string $>$ \&}]{particle\+\_\+entry }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_ae9f2394af39a774c44e09880b1ac4624}\label{class_particle_catalogue_ae9f2394af39a774c44e09880b1ac4624} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!get\_total\_count\_of\_a\_type@{get\_total\_count\_of\_a\_type}}
+\index{get\_total\_count\_of\_a\_type@{get\_total\_count\_of\_a\_type}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_total\_count\_of\_a\_type()}{get\_total\_count\_of\_a\_type()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+int \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::get\+\_\+total\+\_\+count\+\_\+of\+\_\+a\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{particle\+\_\+type }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_ae36cf78b4082d2cf29c77723871feb23}\label{class_particle_catalogue_ae36cf78b4082d2cf29c77723871feb23} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!get\_total\_particles@{get\_total\_particles}}
+\index{get\_total\_particles@{get\_total\_particles}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_total\_particles()}{get\_total\_particles()}}
+{\footnotesize\ttfamily template$<$typename Particle\+Type $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::get\+\_\+total\+\_\+particles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}\label{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \& \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \&}]{particle\+\_\+catalogue\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_particle_catalogue_a1a7dc26038174178317d1d00a03c5ff1}\label{class_particle_catalogue_a1a7dc26038174178317d1d00a03c5ff1} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \& \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$ \&\&}]{particle\+\_\+catalogue\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_particle_catalogue_a5c9a093a1d55004e3bd28a61b51ba40f}\label{class_particle_catalogue_a5c9a093a1d55004e3bd28a61b51ba40f} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+\mbox{\hyperlink{class_safe_shared_ptr}{Safe\+Shared\+Ptr}}$<$ Particle\+Type $>$ \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})}
+
+\Hypertarget{class_particle_catalogue_ac3ea47e0c8a906efb90dec87a7dee13a}\label{class_particle_catalogue_ac3ea47e0c8a906efb90dec87a7dee13a} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!print\_all\_particles@{print\_all\_particles}}
+\index{print\_all\_particles@{print\_all\_particles}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{print\_all\_particles()}{print\_all\_particles()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+void \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::print\+\_\+all\+\_\+particles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_a3d7ff064aed0369404f9ed7c8c0d2359}\label{class_particle_catalogue_a3d7ff064aed0369404f9ed7c8c0d2359} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!print\_particles\_count\_by\_type@{print\_particles\_count\_by\_type}}
+\index{print\_particles\_count\_by\_type@{print\_particles\_count\_by\_type}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{print\_particles\_count\_by\_type()}{print\_particles\_count\_by\_type()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+void \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::print\+\_\+particles\+\_\+count\+\_\+by\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_aca4af320855510dcc9336ac41fc892af}\label{class_particle_catalogue_aca4af320855510dcc9336ac41fc892af} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!print\_particles\_with\_key@{print\_particles\_with\_key}}
+\index{print\_particles\_with\_key@{print\_particles\_with\_key}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{print\_particles\_with\_key()}{print\_particles\_with\_key()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+void \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::print\+\_\+particles\+\_\+with\+\_\+key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_particle_catalogue_a5bcb45af6cfe7cb28b756140a0073040}\label{class_particle_catalogue_a5bcb45af6cfe7cb28b756140a0073040} 
+\index{ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}!sum\_four\_momentum@{sum\_four\_momentum}}
+\index{sum\_four\_momentum@{sum\_four\_momentum}!ParticleCatalogue$<$ ParticleType $>$@{ParticleCatalogue$<$ ParticleType $>$}}
+\doxysubsubsection{\texorpdfstring{sum\_four\_momentum()}{sum\_four\_momentum()}}
+{\footnotesize\ttfamily template$<$class Particle\+Type $>$ \\
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_particle_catalogue}{Particle\+Catalogue}}$<$ Particle\+Type $>$\+::sum\+\_\+four\+\_\+momentum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_particle_catalogue_8h}{Particle\+Catalogue.\+h}}\end{DoxyCompactItemize}

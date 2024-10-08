@@ -1,0 +1,95 @@
+\doxysection{Quark.\+h}
+\hypertarget{_quark_8h_source}{}\label{_quark_8h_source}\mbox{\hyperlink{_quark_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Final\ Project\ -\/\ Quark\ Class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ Leptons\ and\ Quarks}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ QUARK\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ QUARK\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_four_momentum_8h}{FourMomentum.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include<stdexcept>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Beginning\ of\ quark\ class\ }}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_quark}{Quark}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_particle}{Particle}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ User\ doesnt\ need\ access\ to\ these\ functions}}
+\DoxyCodeLine{00021\ \ \ std::string\ get\_particle\_name\_from\_flavour(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{int}\ particle\_flavour,\ \textcolor{keywordtype}{bool}\ is\_up\_type)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ get\_particle\_mass\_from\_flavour(\textcolor{keywordtype}{bool}\ is\_up\_type,\ \textcolor{keywordtype}{int}\ particle\_flavour)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{double}\ get\_particle\_charge\_from\_up\_type(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{bool}\ is\_up\_type)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ verify\_input(\textcolor{keywordtype}{bool}\ is\_antiparticle);\textcolor{comment}{//returns\ baryon\ number\ as\ well}}
+\DoxyCodeLine{00025\ \ \ std::string\ verify\_input\_color\_charge(\textcolor{keyword}{const}\ std::string\&\ particle\_colour\_charge)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Data\ Members}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{double}\ baryon\_number;}
+\DoxyCodeLine{00030\ \ \ std::string\ colour\_charge;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{bool}\ m\_is\_up\_type;\ \textcolor{comment}{//\ boolean\ to\ use\ for\ Weak\ Decays:\ In\ weak\ quark\ decays,\ only\ coupling\ between\ up-\/type\ and\ down-\/type}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{int}\ flavour;\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{class_quark_ae279173a336732e7d3e696ccf374de6e}{Quark}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ default\ constructor}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor\ for\ Lepton}}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{class_quark_a38c5ad0f04228bd1a5890e96511c12c8}{Quark}}(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{int}\ particle\_flavour,\ std::string\ particle\_colour\_charge,\ \textcolor{keywordtype}{bool}\ particle\_is\_up\_type)\ :\ \ }
+\DoxyCodeLine{00040\ \ \ \ \ flavour\{particle\_flavour\},}
+\DoxyCodeLine{00041\ \ \ \ \ m\_is\_up\_type\{particle\_is\_up\_type\},}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_particle}{Particle}}(get\_particle\_charge\_from\_up\_type(is\_antiparticle\ ,\ particle\_is\_up\_type),\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ is\_antiparticle,\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ get\_particle\_mass\_from\_flavour(particle\_is\_up\_type,\ particle\_flavour),\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ get\_particle\_name\_from\_flavour(is\_antiparticle,\ particle\_flavour,\ particle\_is\_up\_type),\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ particle\_energy,\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ particle\_px,\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ particle\_py,\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ particle\_pz,\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ 0.5)}
+\DoxyCodeLine{00052\ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ colour\_charge\ =\ verify\_input\_color\_charge(particle\_colour\_charge);}
+\DoxyCodeLine{00054\ \ \ \ \ baryon\_number\ =\ verify\_input(is\_antiparticle);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \}\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_quark_a9c938c389cbfbfd515c266c3f017a3ce}{\string~Quark}}()\{std::cout<<\textcolor{stringliteral}{"{}Quark\ is\ destroyed."{}}<<std::endl;\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a7bb06ab9599cf552f0018b288afa8a07}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ Getter\ Function}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_quark_a63a9ecff9a2128696c94cbf6418e6406}{get\_baryon\_number}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ baryon\_number;\}}
+\DoxyCodeLine{00065\ \ \ std::string\ \mbox{\hyperlink{class_quark_abbf95634db6cd2e047092f0a6fd6a9d1}{get\_type}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_quark_a8b63286f41424d8a15b8588aca31f9a2}{get\_colour\_charge}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ colour\_charge;\}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_quark_a4309f83209a2e3ddf7a3c0db4efe6fa8}{get\_is\_up\_type}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_is\_up\_type;\}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_quark_aaf09aa55f06e824ebfb75fbbeb65ac4b}{get\_quark\_flavour}}()\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ flavour;\}\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Setter\ Fn\ \ }}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a39401c449a69062cbbe2e07bf91467aa}{set\_baryon\_number}}(\textcolor{keywordtype}{double}\ particle\_lepton\_number);}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_aadc29c977fb15e5d1e9779424e2c4ee8}{set\_is\_antiparticle}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a36d0b0e185a834a04b2b141e70276243}{set\_colour\_charge}}(std::string\ particle\_colour\_charge);}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a045cb7232a8a0037a48d6aefe49a5c0b}{set\_is\_up\_type}}(\textcolor{keywordtype}{bool}\ is\_up\_type);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ tau,\ electron\ or\ muon\ classses.}}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a151519b181403f13d15458746b1ab3f5}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_quark_a7fb37bf240601bf809839c567105b8e2}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{class_quark_ae279173a336732e7d3e696ccf374de6e}{Quark}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_quark}{Quark}}\ \&quark\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{class_quark_ae279173a336732e7d3e696ccf374de6e}{Quark}}(\mbox{\hyperlink{class_quark}{Quark}}\ \&\&quark\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{class_quark}{Quark}}\&\ \mbox{\hyperlink{class_quark_a18ff7c57152af82fd1d109ad0d9adfb1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_quark}{Quark}}\ \&quark\_called\_to\_move);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{class_quark}{Quark}}\&\ \mbox{\hyperlink{class_quark_a18ff7c57152af82fd1d109ad0d9adfb1}{operator=}}(\mbox{\hyperlink{class_quark}{Quark}}\&\&\ quark\_called\_to\_move);}
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

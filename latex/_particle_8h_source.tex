@@ -1,0 +1,83 @@
+\doxysection{Particle.\+h}
+\hypertarget{_particle_8h_source}{}\label{_particle_8h_source}\mbox{\hyperlink{_particle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARTICLE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARTICLE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_four_momentum_8h}{FourMomentum.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Abstract\ base\ class\ (use\ as\ interface\ only)\ -\/-\/\ pure\ virtual\ fn.}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_particle}{Particle}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}};\ \textcolor{comment}{//\ boolean:\ true\ if\ antiparticle}}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\_mass}};\ \textcolor{comment}{//\ in\ MeV}}
+\DoxyCodeLine{00014\ \ \ std::string\ \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}};}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\_is\_antiparticle}};\ \textcolor{comment}{//\ boolean:\ true\ if\ antiparticle}}
+\DoxyCodeLine{00016\ \ \ std::unique\_ptr<FourMomentum>\ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}};\ \textcolor{comment}{//\ special\ unique\ pointer\ for\ the\ FourMomentum\ object}}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Parameterised\ Constructor\ for\ Lepton}}
+\DoxyCodeLine{00020\ \ \mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}}(\textcolor{keywordtype}{double}\ particle\_charge,\ \textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_mass,\ std::string\ particle\_name,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{double}\ particle\_spin)\ :\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}}\{particle\_spin\},}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\_mass}}\{particle\_mass\},}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}\{particle\_name\},}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\_is\_antiparticle}}\{is\_antiparticle\},}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}}\{particle\_charge\},}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}(std::make\_unique<\mbox{\hyperlink{class_four_momentum}{FourMomentum}}>(particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\_mass}},\ true))\ \textcolor{comment}{//\ in\ MeV}}
+\DoxyCodeLine{00027\ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ Verify\ Input}}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\_input}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_particle_a058b1abe765620e5c5bad2aad654e6bc}{\string~Particle}}()\{\};}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_ac909666b6a9781595f87a2632d82bf03}{print\_data}}()\ \textcolor{keyword}{const}\ =0;\ \textcolor{comment}{//\ pure\ virtual\ function\ \ \ \ }}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_adcc423153df0ac801db3933b396c4bc2}{print\_decay\_products}}()\{\};\ \textcolor{comment}{//\ virtual\ function\ \ \ \ }}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Use\ these\ Setters\ for\ all\ the\ derived\ classes.\ Don't\ need\ to\ modify}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_a5a402d369a37091bfa9de927dc881f89}{set\_four\_momentum\_ptr}}(std::unique\_ptr<FourMomentum>\ momentum\_ptr)\{\mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}\ =\ std::move(momentum\_ptr);\}}
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Wrapper\ Functions\ that\ Call\ the\ FourMomentum\ functions\ in\ the\ Particle\ Object}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_a1aeac259fe605da978515cb4a5bb9ee7}{set\_energy}}(\textcolor{keywordtype}{double}\ particle\_energy)\{\mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}-\/>set\_E(particle\_energy);\}}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_ae332be8023becf68f1ff5cd6f899e04e}{set\_px}}(\textcolor{keywordtype}{double}\ particle\_px)\{\mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}-\/>set\_px(particle\_px);\}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_a9b88a73601331a6282132c205403cdc8}{set\_py}}(\textcolor{keywordtype}{double}\ particle\_py)\{\mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}-\/>set\_py(particle\_py);\}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_a3bb48fc138a58b9fffad3d60501caa31}{set\_pz}}(\textcolor{keywordtype}{double}\ particle\_pz)\{\mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}}-\/>set\_pz(particle\_pz);\}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ Setter\ Fn\ that\ should\ be\ overidden\ in\ derived\ classes\ -\/\ so\ that\ particle\ mass\ and\ name\ is\ dependent\ on\ derived\ class\ but\ when\ used\ for\ base\ class\ it\ is\ possible\ to\ change}}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_add4444505ff3ac348bf7511560b8b529}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_a20c58fcf6ab3928518b912b0e94a8c7d}{set\_name}}(std::string\ particle\_name)\{\mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}\ =\ particle\_name;\}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_particle_ab31965ec141bb40ee490c1cec5cf0180}{get\_type}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//\ overide\ in\ electron,\ muon,\ tau\ etc...\ different\ from\ name\ as\ antiparticle\ same\ type\ as\ particle}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Use\ these\ Getters\ for\ all\ the\ derived\ classes.\ Don't\ need\ to\ modify}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}{get\_spin}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}};\}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_aa0b2cd179036d78598e82306c9e12cd5}{get\_rest\_mass}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\_mass}};\}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_ace872a5c45504859bf205e5637d1b2a4}{get\_charge}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}};\}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_particle_af8a27bbe7e54818aed1ae1675ec11629}{get\_is\_antiparticle}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\_is\_antiparticle}};\}\ \textcolor{comment}{//\ overide\ in\ photons,\ and\ Higgs}}
+\DoxyCodeLine{00057\ \ \ std::string\ \mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}};\}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<FourMomentum>\&\ \mbox{\hyperlink{class_particle_a8530b94f3fcdcac718b1d9126b312642}{get\_four\_momentum\_ptr}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\_momentum\_ptr}};\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//\ Friend\ Functions\ -\/\ allows\ to\ do\ operations\ on\ different\ types\ of\ particles.}}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{friend}\ std::vector<double>\ \mbox{\hyperlink{class_particle_a5d7fdb9fe05563d516a96f03ab10983c}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_2);}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{friend}\ std::vector<double>\ \mbox{\hyperlink{class_particle_a5d7fdb9fe05563d516a96f03ab10983c}{operator+}}(\textcolor{keyword}{const}\ std::vector<double>\&\ particle\_called\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_2);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{friend}\ std::vector<double>\ \mbox{\hyperlink{class_particle_a37c7fd6457acc411964e1abd5b9a54ec}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_2);}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_particle_aec5a63b51b74b9da0767e52cc901456c}{dotProduct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\&\ particle\_called\_2);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\ \&particle\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}}(\mbox{\hyperlink{class_particle}{Particle}}\ \&\&particle\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{class_particle}{Particle}}\&\ \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle}{Particle}}\ \&particle\_called);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{class_particle}{Particle}}\&\ \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}}(\mbox{\hyperlink{class_particle}{Particle}}\&\&\ particle\_called\_to\_move);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

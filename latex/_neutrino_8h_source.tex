@@ -1,0 +1,76 @@
+\doxysection{Neutrino.\+h}
+\hypertarget{_neutrino_8h_source}{}\label{_neutrino_8h_source}\mbox{\hyperlink{_neutrino_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 5\ -\/\ Neutrino\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Particle\ Class:\ charged\ leptons\ and\ neutral\ leptons:\ electorns,\ muons,\ tau,\ electron\ neutrino,\ muon\ neutrino,\ tau\ neutrino}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ NEUTRINO\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ NEUTRINO\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lepton_8h}{Lepton.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_neutrino}{Neutrino}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_lepton}{Lepton}}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Beginning\ of\ Electron\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{bool}\ m\_has\_interacted;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{int}\ flavour;\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ std::string\ get\_particle\_name\_flavour(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{int}\ particle\_flavour)\ \textcolor{keyword}{const};\ \textcolor{comment}{//used\ in\ creation\ of\ parameterised\ constructor:\ user\ doesnt\ need\ access\ to\ it}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_neutrino_aabe131859f52116a55e56527e50a8fda}{Neutrino}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{class_neutrino_acfdad604a4443bff9e83474d907468c6}{Neutrino}}(\textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{bool}\ has\_interacted,\ \textcolor{keywordtype}{int}\ particle\_flavour):}
+\DoxyCodeLine{00027\ \ \ \ \ m\_has\_interacted\{has\_interacted\},}
+\DoxyCodeLine{00028\ \ \ \ \ flavour\{particle\_flavour\},}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\{0,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ is\_antiparticle,\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ 0.511,\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ get\_particle\_name\_flavour(is\_antiparticle,\ particle\_flavour),\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ particle\_energy,\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ particle\_px,\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ particle\_py,\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ particle\_pz,\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ is\_antiparticle\ ?\ -\/1\ :\ 1\}}
+\DoxyCodeLine{00038\ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_neutrino_afef01a189dd3b30bd0c4a40e724bc311}{\string~Neutrino}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_a9ab6af770e3dfd73a20c971b273b6d62}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Getter\ Fn}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_neutrino_a54cc65f74b0ee07383c6d0b14a4e5496}{get\_has\_interacted}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_has\_interacted;\}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_neutrino_aa0198e1751360ff5c496d6c84bdf28ff}{get\_neutrino\_flavour}}()\textcolor{keyword}{\ const}\{\textcolor{keywordflow}{return}\ flavour;\}\ }
+\DoxyCodeLine{00050\ \ \ std::string\ \mbox{\hyperlink{class_neutrino_a652f417dfe3de1970d47310b47f10727}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Neutrino"{}};\}\ \textcolor{comment}{//\ used\ for\ Container}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Setter\ Fn}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_a024ac0560c78887479aab3646a276690}{set\_has\_interacted}}(\textcolor{keywordtype}{bool}\ has\_interacted)\{m\_has\_interacted\ =\ has\_interacted;\}}
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Overwrite\ virtual\ fn\ from\ base\ class}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_a9789d08a440083ff11ba6e7e77413913}{set\_is\_antiparticle}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_a666371e948879edc93546745e4a9f976}{set\_neutrino\_flavour}}(\textcolor{keywordtype}{bool}\ particle\_flavour);}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ tau,\ electron\ or\ muon\ classses.}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_a4cfd091b84470672ea8728998a668d49}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass);\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_neutrino_aca49c090dcfcdff0d62647f49c6b52a1}{set\_name}}(std::string\ particle\_name);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{class_neutrino_aabe131859f52116a55e56527e50a8fda}{Neutrino}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_neutrino}{Neutrino}}\ \&neutrino\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{class_neutrino_aabe131859f52116a55e56527e50a8fda}{Neutrino}}(\mbox{\hyperlink{class_neutrino}{Neutrino}}\ \&\&neutrino\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{class_neutrino}{Neutrino}}\&\ \mbox{\hyperlink{class_neutrino_a67e3dd524d85199d5a376154f5eee73c}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_neutrino}{Neutrino}}\ \&neutrino\_called);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{class_neutrino}{Neutrino}}\&\ \mbox{\hyperlink{class_neutrino_a67e3dd524d85199d5a376154f5eee73c}{operator=}}(\mbox{\hyperlink{class_neutrino}{Neutrino}}\&\&\ neutrino\_called\_to\_move);}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

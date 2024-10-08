@@ -1,0 +1,64 @@
+\doxysection{Lepton.\+h}
+\hypertarget{_lepton_8h_source}{}\label{_lepton_8h_source}\mbox{\hyperlink{_lepton_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 3\ -\/\ Lepton\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Lepton\ Class:\ charged\ leptons\ and\ neutral\ leptons}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LEPTON\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LEPTON\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_four_momentum_8h}{FourMomentum.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_particle_8h}{Particle.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include<stdexcept>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Beginning\ of\ lepton\ class}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_lepton}{Lepton}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_particle}{Particle}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\_number}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ default\ constructor}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor\ for\ Lepton}}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_lepton_a5ab065b5e3623852a0f293b74eeeaaad}{Lepton}}(\textcolor{keywordtype}{double}\ particle\_charge,\ \textcolor{keywordtype}{bool}\ is\_antiparticle,\ \textcolor{keywordtype}{double}\ particle\_mass,\ std::string\ particle\_name,\ \textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{int}\ particle\_lepton\_number)\ :\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\_number}}\{particle\_lepton\_number\},}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_particle}{Particle}}(particle\_charge,\ is\_antiparticle,\ particle\_mass,\ particle\_name,\ particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ 0.5)}
+\DoxyCodeLine{00031\ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(is\_antiparticle);}
+\DoxyCodeLine{00033\ \ \ \}\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_lepton_a5ce71dbdf8bb5203625d6fd79a095126}{\string~Lepton}}()\{std::cout<<\textcolor{stringliteral}{"{}Lepton\ is\ destroyed."{}}<<std::endl;\};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lepton_a04e5d9df8e35f481bf7f828ded949e36}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\_input}}(\textcolor{keywordtype}{bool}\ is\_antiparticle);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Getter\ Function}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_lepton_adbca036986ac65a94a98ec2e9f942556}{get\_lepton\_number}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\_number}};\}}
+\DoxyCodeLine{00044\ \ \ std::string\ \mbox{\hyperlink{class_lepton_ae34bf0af5dc46cc8c3978c8498043c1c}{get\_type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Lepton"{}};\}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ Setter\ Fn\ \ }}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lepton_a4821893ec73195821b49cf173b54c5bb}{set\_lepton\_number}}(\textcolor{keywordtype}{int}\ particle\_lepton\_number)\{\mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\_number}}\ =\ particle\_lepton\_number;\}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_lepton}{Lepton}}\ \&lepton\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}}(\mbox{\hyperlink{class_lepton}{Lepton}}\ \&\&lepton\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\&\ \mbox{\hyperlink{class_lepton_a63c32e190f52baccc4dd5fa72e95568f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_lepton}{Lepton}}\ \&lepton\_called);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{class_lepton}{Lepton}}\&\ \mbox{\hyperlink{class_lepton_a63c32e190f52baccc4dd5fa72e95568f}{operator=}}(\mbox{\hyperlink{class_lepton}{Lepton}}\&\&\ lepton\_called\_to\_move);}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

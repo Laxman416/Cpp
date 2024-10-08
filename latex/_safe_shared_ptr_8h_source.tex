@@ -1,0 +1,35 @@
+\doxysection{Safe\+Shared\+Ptr.\+h}
+\hypertarget{_safe_shared_ptr_8h_source}{}\label{_safe_shared_ptr_8h_source}\mbox{\hyperlink{_safe_shared_ptr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SAFESHAREDPTR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SAFESHAREDPTR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \textcolor{comment}{//\ exit\ fn}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr}}\ :\ \textcolor{keyword}{public}\ std::shared\_ptr<T>\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ Inheriting\ constructors\ from\ std::shared\_ptr}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{using\ }std::shared\_ptr<T>::shared\_ptr;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Overloading\ the\ -\/>\ operator}}
+\DoxyCodeLine{00015\ \ \ \ \ T*\ \mbox{\hyperlink{class_safe_shared_ptr_a7e84768d242132548f6fce25d0b03286}{operator-\/>}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00016\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this-\/>get()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Terminates\ program\ when\ attempting\ to\ dereference\ a\ shared\ pointer}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)033[1;31mError:\ Attempted\ to\ dereference\ a\ null\ Safe\ Shared\ Pointer.\ Terminating\ Program.\(\backslash\)033[0m"{}}<<std::endl;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_SUCCESS);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ the\ underlying\ pointer\ if\ it's\ not\ null}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::shared\_ptr<T>::operator-\/>();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

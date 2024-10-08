@@ -1,0 +1,93 @@
+\doxysection{Four\+Momentum.\+h}
+\hypertarget{_four_momentum_8h_source}{}\label{_four_momentum_8h_source}\mbox{\hyperlink{_four_momentum_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Assignment\ 5-\/\ four\ momentum\ class}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ FOURMOMENTUM\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ FOURMOMENTUM\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ light\_speed\ 2.99792458e8}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Beginning\ of\ four\_momentum\ class}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_four_momentum}{FourMomentum}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ E;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{double}\ px;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{double}\ py;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{double}\ pz;}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ rest\_mass;\ \textcolor{comment}{//\ Need\ to\ verify\ E\ input}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ m\_is\_particle;\ \textcolor{comment}{//\ a\ boolean\ to\ use\ to\ be\ able\ to\ only\ change\ rest\_mass\ if\ false,\ otherwise\ it\ is\ tied\ to\ the\ particle\ object.}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{class_four_momentum_ad744a5840e41f604b5994bd89761a149}{FourMomentum}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ default\ constructor}}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_four_momentum_ad744a5840e41f604b5994bd89761a149}{FourMomentum}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\ \&four\_momentum\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{class_four_momentum_ad744a5840e41f604b5994bd89761a149}{FourMomentum}}(\mbox{\hyperlink{class_four_momentum}{FourMomentum}}\ \&\&four\_momentum\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//Parameterised\ constructor}}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{class_four_momentum_a2633116065d5ff54d84c76227b161846}{FourMomentum}}(\textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{double}\ particle\_mass,\ \textcolor{keywordtype}{bool}\ is\_particle\ )\ :}
+\DoxyCodeLine{00032\ \ \ \ \ E\{particle\_energy\},\ }
+\DoxyCodeLine{00033\ \ \ \ \ px\{particle\_px\},}
+\DoxyCodeLine{00034\ \ \ \ \ py\{particle\_py\},}
+\DoxyCodeLine{00035\ \ \ \ \ pz\{particle\_pz\},}
+\DoxyCodeLine{00036\ \ \ \ \ rest\_mass\{particle\_mass\},}
+\DoxyCodeLine{00037\ \ \ \ \ m\_is\_particle\{is\_particle\}}
+\DoxyCodeLine{00038\ \ \ \{\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_four_momentum_af7399a47d9114dd199715c839c88b74c}{verify\_energy}}(particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ particle\_mass);}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ \ \ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_four_momentum_a2c09a635a967919dda12246ac70c09eb}{\string~FourMomentum}}()}
+\DoxyCodeLine{00044\ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Destroying\ FourMomentum\ Object"{}}<<std::endl;}
+\DoxyCodeLine{00046\ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Function\ to\ validate\ input\ of\ parameterised\ constructor}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_af7399a47d9114dd199715c839c88b74c}{verify\_energy}}(\textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz,\ \textcolor{keywordtype}{double}\ particle\_name);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ Getter\ functions\ read\ only\ (accessors)\ to\ the\ data\ members}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_a5a42d4e51e518f86ab9efcb71d66ce70}{get\_E}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ E;\}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_a4ff1391da6be416dc06224efcdbb4c0b}{get\_px}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ px;\}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_aa45b4e4fa02fd317cbca8b78e334ab66}{get\_py}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ py;\}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_ae6ab3a5a56d6d4db3fe1fe48568a8410}{get\_pz}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ pz;\}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_aa9bfa87427294fd192e0778307fb0508}{get\_rest\_mass}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ rest\_mass;\}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Setter\ functions,\ to\ change\ value\ of\ data\ members\ and\ validate\ the\ input}}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Avaliable\ in\ case\ you\ want\ to\ use\ FourMomentum\ without\ other\ objects\ as\ it\ doesn't\ require\ the\ mass\ of\ the\ particle.}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_a49a1baafe9a47edd1c7c200636587167}{set\_E}}(\textcolor{keywordtype}{double}\ particle\_energy);}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_a2ad33860e02cc7b34067b0f2cfdc16b2}{set\_px}}(\textcolor{keywordtype}{double}\ particle\_px);}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_ab6556834047ef24b00a052fc61fe912b}{set\_py}}(\textcolor{keywordtype}{double}\ particle\_py);}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_aa1951caf84a3801870c2e81e9cdc525a}{set\_pz}}(\textcolor{keywordtype}{double}\ particle\_pz);}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_a39c0096adf4f65418cc11ddf1a995891}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Function\ to\ print\ info\ about\ a\ particle}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_four_momentum_a3a4a1d6ba999b1a3079629ec39ccdfd9}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ }
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ overload\ +operator\ to\ sum\ four\ momentums}}
+\DoxyCodeLine{00070\ \ \ std::vector<double>\ \mbox{\hyperlink{class_four_momentum_a34b9dffaede4d0058d0538f055661a13}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\ four\_momentum\_called)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ std::vector<double>\ \mbox{\hyperlink{class_four_momentum_a34b9dffaede4d0058d0538f055661a13}{operator+}}(\textcolor{keyword}{const}\ std::vector<double>\&\ std\_vector\_called)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_a826fa8ee440d8a38a68269b267fbaa4e}{dotProduct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\ four\_momentum\_called)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ overload\ +operator\ to\ subtract\ four\ momentums}}
+\DoxyCodeLine{00076\ \ \ std::vector<double>\ \mbox{\hyperlink{class_four_momentum_a259c6377472071baf1ce06ed0d048c00}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\ four\_momentum\_called)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \ \ }
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\ \mbox{\hyperlink{class_four_momentum_a353d0f2a95ba83e98b943bbd31096517}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\ \&four\_momentum\_called);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\ \mbox{\hyperlink{class_four_momentum_a353d0f2a95ba83e98b943bbd31096517}{operator=}}(\mbox{\hyperlink{class_four_momentum}{FourMomentum}}\&\&\ four\_momentum\_to\_move);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{comment}{//\ Calculate\ Invariant\ Mass}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_four_momentum_af438188424eae9c679632620e291ae87}{get\_invariant\_mass\_from\_four\_momentum}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ sqrt(E\ *\ E\ -\/\ px\ *\ px\ -\/\ py\ *\ py\ -\/\ pz\ *\ pz);\}}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

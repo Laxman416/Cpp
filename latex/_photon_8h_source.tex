@@ -1,0 +1,50 @@
+\doxysection{Photon.\+h}
+\hypertarget{_photon_8h_source}{}\label{_photon_8h_source}\mbox{\hyperlink{_photon_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ PHYS\ 30762\ Programming\ in\ C++}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Final\ Project\ -\/\ Photon\ class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Derived\ Classes\ from\ Boson\ Class:\ photon,\ weak,\ Higgs.\ gluon}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ PHOTON\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ PHOTON\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boson_8h}{Boson.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Beginning\ of\ Electron\ class\ -\/\ derived\ class}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_photon}{Photon}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_boson}{Boson}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{class_photon_a4c1d2ecb0312516d5b5153185cc0a1b0}{Photon}}()\ =\ \textcolor{keywordflow}{default};\ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Parameterised\ Constructor}}
+\DoxyCodeLine{00020\ \ \ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{class_photon_a1b602d7fa2656442fa6b984f658dfd18}{Photon}}(\textcolor{keywordtype}{double}\ particle\_energy,\ \textcolor{keywordtype}{double}\ particle\_px,\ \textcolor{keywordtype}{double}\ particle\_py,\ \textcolor{keywordtype}{double}\ particle\_pz)\ :}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Call\ Parameterised\ Constructor\ for\ ChargedLepton}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_boson}{Boson}}\{0,\ 0,\ 0,\ \textcolor{stringliteral}{"{}Photon"{}},\ particle\_energy,\ particle\_px,\ particle\_py,\ particle\_pz,\ \textcolor{stringliteral}{"{}EM"{}},\ 1\}}
+\DoxyCodeLine{00024\ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{comment}{//\ Destructor\ }}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_photon_abf7ea9e523933932c34ee51ebc5a54ff}{\string~Photon}}()\{std::cout<<this-\/>\mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\_name}}()<<\textcolor{stringliteral}{"{}\ is\ destroyed."{}}<<std::endl;\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_photon_af17a1f451f8de8b093a6f072171e98bf}{print\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Code\ these\ setters\ to\ override\ from\ base\ class.\ Don't\ want\ to\ change\ these\ values\ directly\ in\ the\ photon,\ W,\ Z\ or\ H}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_photon_a4775197eabcca10f17c9b57d2a8fc83b}{set\_rest\_mass}}(\textcolor{keywordtype}{double}\ particle\_mass)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_photon_a6646557f4a8f8453e53da127d491bb27}{set\_name}}(std::string\ particle\_name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{class_photon_a4c1d2ecb0312516d5b5153185cc0a1b0}{Photon}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_photon}{Photon}}\ \&photon\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{class_photon_a4c1d2ecb0312516d5b5153185cc0a1b0}{Photon}}(\mbox{\hyperlink{class_photon}{Photon}}\ \&\&photon\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{class_photon}{Photon}}\&\ \mbox{\hyperlink{class_photon_ac46cadb8639fd07ba832a910ad9432e5}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_photon}{Photon}}\ \&photon\_called);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_photon}{Photon}}\&\ \mbox{\hyperlink{class_photon_ac46cadb8639fd07ba832a910ad9432e5}{operator=}}(\mbox{\hyperlink{class_photon}{Photon}}\&\&\ photon\_called\_to\_move);}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\doxysection{Calorimeter\+Energies.\+h}
+\hypertarget{_calorimeter_energies_8h_source}{}\label{_calorimeter_energies_8h_source}\mbox{\hyperlink{_calorimeter_energies_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CALORIMETERENERGIES\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CALORIMETERENERGIES\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_calorimeter_layers_8h}{CalorimeterLayers.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_calorimeter_energies}{CalorimeterEnergies}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ std::vector<double>\ calorimeter\_energies;\ \textcolor{comment}{//\ Vector\ to\ store\ energy\ deposited\ in\ each\ calorimeter\ layer}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{class_calorimeter_energies_acc0e8963dd27a227e349a5810c8d4c5e}{CalorimeterEnergies}}(\textcolor{keywordtype}{double}\ energy\_EM\_1,\ \textcolor{keywordtype}{double}\ energy\_EM\_2,\ \textcolor{keywordtype}{double}\ energy\_HAD\_1,\ \textcolor{keywordtype}{double}\ energy\_HAD\_2)\ :}
+\DoxyCodeLine{00015\ \ \ calorimeter\_energies(4,\ 0.0)}
+\DoxyCodeLine{00016\ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Set\ EM\_1\ and\ EM\_2\ to\ half\ of\ the\ energy}}
+\DoxyCodeLine{00018\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa6b039fbd7fdf8314f7d6d888b611db3a}{EM\_1}}]\ =\ energy\_EM\_1;}
+\DoxyCodeLine{00019\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83faa373f90fa646bdaf29360e4ecdd3124f}{EM\_2}}]\ =\ energy\_EM\_2;}
+\DoxyCodeLine{00020\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa91be663a3cbea8cd9056666117e84446}{HAD\_1}}]\ =\ energy\_HAD\_1;}
+\DoxyCodeLine{00021\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fae8a4f497aa9fb955b19aa02260ec9cf6}{HAD\_2}}]\ =\ energy\_HAD\_2;\ }
+\DoxyCodeLine{00022\ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calorimeter_energies_a68bd3cc4d6c1316d290a0daeadeb55b0}{print\_calorimeter\_info}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00025\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tCalorimeter\ Information:"{}}<<std::endl;}
+\DoxyCodeLine{00027\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tEM\_1\ Energy:\ "{}}<<calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa6b039fbd7fdf8314f7d6d888b611db3a}{EM\_1}}]<<std::endl;}
+\DoxyCodeLine{00028\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tEM\_2\ Energy:\ "{}}<<calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83faa373f90fa646bdaf29360e4ecdd3124f}{EM\_2}}]<<std::endl;}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tHAD\_1\ Energy:\ "{}}<<calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa91be663a3cbea8cd9056666117e84446}{HAD\_1}}]<<std::endl;}
+\DoxyCodeLine{00030\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tHAD\_2\ Energy:\ "{}}<<calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fae8a4f497aa9fb955b19aa02260ec9cf6}{HAD\_2}}]<<std::endl;}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Getter\ Fn}}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{class_calorimeter_energies_a3298fd2890e7c5bd967ba00a856c79f5}{getCalorimeterEnergies}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ calorimeter\_energies;\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calorimeter_energies_a780b37fdddb2b496dd85cef281ba6e05}{set\_calorimeter\_energy}}(\textcolor{keywordtype}{double}\ energy\_EM\_1,\ \textcolor{keywordtype}{double}\ energy\_EM\_2,\ \textcolor{keywordtype}{double}\ energy\_HAD\_1,\ \textcolor{keywordtype}{double}\ energy\_HAD\_2)\ }
+\DoxyCodeLine{00037\ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa6b039fbd7fdf8314f7d6d888b611db3a}{EM\_1}}]\ =\ energy\_EM\_1;}
+\DoxyCodeLine{00039\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83faa373f90fa646bdaf29360e4ecdd3124f}{EM\_2}}]\ =\ energy\_EM\_2;}
+\DoxyCodeLine{00040\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fa91be663a3cbea8cd9056666117e84446}{HAD\_1}}]\ =\ energy\_HAD\_1;}
+\DoxyCodeLine{00041\ \ \ \ \ calorimeter\_energies[\mbox{\hyperlink{_calorimeter_layers_8h_ac94a7448afbb3ec603c05640ae8df83fae8a4f497aa9fb955b19aa02260ec9cf6}{HAD\_2}}]\ =\ energy\_HAD\_2;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

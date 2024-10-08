@@ -1,0 +1,209 @@
+\doxysection{Boson Class Reference}
+\hypertarget{class_boson}{}\label{class_boson}\index{Boson@{Boson}}
+
+
+{\ttfamily \#include $<$Boson.\+h$>$}
+
+Inheritance diagram for Boson\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_boson}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f}{Boson}} ()=default
+\item 
+\mbox{\hyperlink{class_boson_a0d677649fe3e8d2857b5b9793cd362d8}{Boson}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, std\+::string particle\+\_\+associated\+\_\+force, double particle\+\_\+spin)
+\item 
+virtual \mbox{\hyperlink{class_boson_ab3fc73715d83e5e69831f60d0e464e66}{\texorpdfstring{$\sim$}{\string~}\+Boson}} ()
+\item 
+virtual void \mbox{\hyperlink{class_boson_a02cb3b45104e063f835c3beb52516daf}{print\+\_\+data}} () const
+\item 
+virtual void \mbox{\hyperlink{class_boson_aaf0692aa3c4142cf994e52eafabf425a}{print\+\_\+data}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_boson_a44e05faac545bd324f617b7154542fe0}{get\+\_\+associated\+\_\+force}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_boson_ab64ca49cfd8da59240529fdba0ae4970}{get\+\_\+type}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_boson_a3a1aa42c3c843b6cebd4adee3f26520b}{set\+\_\+lepton\+\_\+number}} (std\+::string particle\+\_\+associated\+\_\+force)
+\item 
+\mbox{\hyperlink{class_boson_afc9f5501101e0470f3940af78c6d5b58}{Boson}} (const \mbox{\hyperlink{class_boson}{Boson}} \&boson\+\_\+called)
+\item 
+\mbox{\hyperlink{class_boson_ac3012c670fec26ce774d38447c1e73b4}{Boson}} (\mbox{\hyperlink{class_boson}{Boson}} \&\&boson\+\_\+called)
+\item 
+\mbox{\hyperlink{class_boson}{Boson}} \& \mbox{\hyperlink{class_boson_af285642c50d101533ed3b3dd95c27c5b}{operator=}} (const \mbox{\hyperlink{class_boson}{Boson}} \&boson\+\_\+called\+\_\+to\+\_\+move)
+\item 
+\mbox{\hyperlink{class_boson}{Boson}} \& \mbox{\hyperlink{class_boson_a56c0c3d279ae68cda0a02d1dfa52b434}{operator=}} (\mbox{\hyperlink{class_boson}{Boson}} \&\&boson\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+spin)
+\item 
+void \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+virtual \mbox{\hyperlink{class_particle_a058b1abe765620e5c5bad2aad654e6bc}{\texorpdfstring{$\sim$}{\string~}\+Particle}} ()
+\item 
+virtual void \mbox{\hyperlink{class_particle_adcc423153df0ac801db3933b396c4bc2}{print\+\_\+decay\+\_\+products}} ()
+\item 
+void \mbox{\hyperlink{class_particle_a5a402d369a37091bfa9de927dc881f89}{set\+\_\+four\+\_\+momentum\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ momentum\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_particle_a1aeac259fe605da978515cb4a5bb9ee7}{set\+\_\+energy}} (double particle\+\_\+energy)
+\item 
+void \mbox{\hyperlink{class_particle_ae332be8023becf68f1ff5cd6f899e04e}{set\+\_\+px}} (double particle\+\_\+px)
+\item 
+void \mbox{\hyperlink{class_particle_a9b88a73601331a6282132c205403cdc8}{set\+\_\+py}} (double particle\+\_\+py)
+\item 
+void \mbox{\hyperlink{class_particle_a3bb48fc138a58b9fffad3d60501caa31}{set\+\_\+pz}} (double particle\+\_\+pz)
+\item 
+virtual void \mbox{\hyperlink{class_particle_add4444505ff3ac348bf7511560b8b529}{set\+\_\+rest\+\_\+mass}} (double particle\+\_\+mass)
+\item 
+virtual void \mbox{\hyperlink{class_particle_a20c58fcf6ab3928518b912b0e94a8c7d}{set\+\_\+name}} (std\+::string particle\+\_\+name)
+\item 
+double \mbox{\hyperlink{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}{get\+\_\+spin}} () const
+\item 
+double \mbox{\hyperlink{class_particle_aa0b2cd179036d78598e82306c9e12cd5}{get\+\_\+rest\+\_\+mass}} () const
+\item 
+double \mbox{\hyperlink{class_particle_ace872a5c45504859bf205e5637d1b2a4}{get\+\_\+charge}} () const
+\item 
+bool \mbox{\hyperlink{class_particle_af8a27bbe7e54818aed1ae1675ec11629}{get\+\_\+is\+\_\+antiparticle}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\+\_\+name}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \& \mbox{\hyperlink{class_particle_a8530b94f3fcdcac718b1d9126b312642}{get\+\_\+four\+\_\+momentum\+\_\+ptr}} () const
+\item 
+\mbox{\hyperlink{class_particle_a2b3c4f466ec6eda0b93246abfd547ed7}{Particle}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_aaf787bae47280ce10f5191637dd72d74}{Particle}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_a1ed0d9cc396b6348c86f6672b7bde30d}{operator=}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}{associated\+\_\+force}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}}
+\item 
+double \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\+\_\+mass}}
+\item 
+std\+::string \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}
+\item 
+bool \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\+\_\+is\+\_\+antiparticle}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\+\_\+momentum\+\_\+ptr}}
+\item 
+double \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f}\label{class_boson_a9d3dcaf37c798d00cf77a09e038b4e0f} 
+\index{Boson@{Boson}!Boson@{Boson}}
+\index{Boson@{Boson}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{Boson()}{Boson()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Boson\+::\+Boson (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_boson_a0d677649fe3e8d2857b5b9793cd362d8}\label{class_boson_a0d677649fe3e8d2857b5b9793cd362d8} 
+\index{Boson@{Boson}!Boson@{Boson}}
+\index{Boson@{Boson}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{Boson()}{Boson()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Boson\+::\+Boson (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+charge,  }\item[{bool}]{is\+\_\+antiparticle,  }\item[{double}]{particle\+\_\+mass,  }\item[{std\+::string}]{particle\+\_\+name,  }\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz,  }\item[{std\+::string}]{particle\+\_\+associated\+\_\+force,  }\item[{double}]{particle\+\_\+spin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_boson_ab3fc73715d83e5e69831f60d0e464e66}\label{class_boson_ab3fc73715d83e5e69831f60d0e464e66} 
+\index{Boson@{Boson}!````~Boson@{\texorpdfstring{$\sim$}{\string~}Boson}}
+\index{````~Boson@{\texorpdfstring{$\sim$}{\string~}Boson}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Boson()}{\string~Boson()}}
+{\footnotesize\ttfamily virtual Boson\+::\texorpdfstring{$\sim$}{\string~}\+Boson (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_boson_afc9f5501101e0470f3940af78c6d5b58}\label{class_boson_afc9f5501101e0470f3940af78c6d5b58} 
+\index{Boson@{Boson}!Boson@{Boson}}
+\index{Boson@{Boson}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{Boson()}{Boson()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Boson\+::\+Boson (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_boson}{Boson}} \&}]{boson\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_boson_ac3012c670fec26ce774d38447c1e73b4}\label{class_boson_ac3012c670fec26ce774d38447c1e73b4} 
+\index{Boson@{Boson}!Boson@{Boson}}
+\index{Boson@{Boson}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{Boson()}{Boson()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Boson\+::\+Boson (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_boson}{Boson}} \&\&}]{boson\+\_\+called }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_boson_a44e05faac545bd324f617b7154542fe0}\label{class_boson_a44e05faac545bd324f617b7154542fe0} 
+\index{Boson@{Boson}!get\_associated\_force@{get\_associated\_force}}
+\index{get\_associated\_force@{get\_associated\_force}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{get\_associated\_force()}{get\_associated\_force()}}
+{\footnotesize\ttfamily std\+::string Boson\+::get\+\_\+associated\+\_\+force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_boson_ab64ca49cfd8da59240529fdba0ae4970}\label{class_boson_ab64ca49cfd8da59240529fdba0ae4970} 
+\index{Boson@{Boson}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Boson\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_particle_ab31965ec141bb40ee490c1cec5cf0180}{Particle}}.
+
+\Hypertarget{class_boson_a56c0c3d279ae68cda0a02d1dfa52b434}\label{class_boson_a56c0c3d279ae68cda0a02d1dfa52b434} 
+\index{Boson@{Boson}!operator=@{operator=}}
+\index{operator=@{operator=}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_boson}{Boson}} \& Boson\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_boson}{Boson}} \&\&}]{boson\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_boson_af285642c50d101533ed3b3dd95c27c5b}\label{class_boson_af285642c50d101533ed3b3dd95c27c5b} 
+\index{Boson@{Boson}!operator=@{operator=}}
+\index{operator=@{operator=}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_boson}{Boson}} \& Boson\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_boson}{Boson}} \&}]{boson\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_boson_aaf0692aa3c4142cf994e52eafabf425a}\label{class_boson_aaf0692aa3c4142cf994e52eafabf425a} 
+\index{Boson@{Boson}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Boson\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_boson_a02cb3b45104e063f835c3beb52516daf}\label{class_boson_a02cb3b45104e063f835c3beb52516daf} 
+\index{Boson@{Boson}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Boson\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_particle_ac909666b6a9781595f87a2632d82bf03}{Particle}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_gluon_aa326b544725a5eeb5e093762be9a2a0f}{Gluon}}, \mbox{\hyperlink{class_higgs_aef4dc2ed273de19cc7e49a9ba1c39fd3}{Higgs}}, \mbox{\hyperlink{class_photon_af17a1f451f8de8b093a6f072171e98bf}{Photon}}, and \mbox{\hyperlink{class_weak_a07544e9b28aa83d92bd6e769bf8790fe}{Weak}}.
+
+\Hypertarget{class_boson_a3a1aa42c3c843b6cebd4adee3f26520b}\label{class_boson_a3a1aa42c3c843b6cebd4adee3f26520b} 
+\index{Boson@{Boson}!set\_lepton\_number@{set\_lepton\_number}}
+\index{set\_lepton\_number@{set\_lepton\_number}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{set\_lepton\_number()}{set\_lepton\_number()}}
+{\footnotesize\ttfamily virtual void Boson\+::set\+\_\+lepton\+\_\+number (\begin{DoxyParamCaption}\item[{std\+::string}]{particle\+\_\+associated\+\_\+force }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9}\label{class_boson_aa09ed5faf571ce9d2803d29f07f8d5e9} 
+\index{Boson@{Boson}!associated\_force@{associated\_force}}
+\index{associated\_force@{associated\_force}!Boson@{Boson}}
+\doxysubsubsection{\texorpdfstring{associated\_force}{associated\_force}}
+{\footnotesize\ttfamily std\+::string Boson\+::associated\+\_\+force\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_boson_8h}{Boson.\+h}}\item 
+\mbox{\hyperlink{_boson_8cpp}{Boson.\+cpp}}\end{DoxyCompactItemize}

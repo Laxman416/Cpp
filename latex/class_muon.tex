@@ -1,0 +1,240 @@
+\doxysection{Muon Class Reference}
+\hypertarget{class_muon}{}\label{class_muon}\index{Muon@{Muon}}
+
+
+{\ttfamily \#include $<$Muon.\+h$>$}
+
+Inheritance diagram for Muon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_muon}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_muon_ace633a81a37a06dc0e517c7afa8abfdf}{Muon}} ()=default
+\item 
+\mbox{\hyperlink{class_muon_aedb58616b7522194d739f5deb78ed1f6}{Muon}} (bool is\+\_\+antiparticle, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, bool is\+\_\+isolated\+\_\+particle)
+\item 
+\mbox{\hyperlink{class_muon_a63a6efce50e985cf6b1ae7b2e2223aa1}{\texorpdfstring{$\sim$}{\string~}\+Muon}} ()
+\item 
+void \mbox{\hyperlink{class_muon_a56b829dc934f0d24b06ede37535392fb}{print\+\_\+data}} () const
+\item 
+const bool \mbox{\hyperlink{class_muon_a5a17ad9f0bf3d1dc6761a3fd22e360dc}{get\+\_\+is\+\_\+isolated}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_muon_a68d80c03fbf992a4549a3e4428bcd10e}{get\+\_\+type}} () const override
+\item 
+void \mbox{\hyperlink{class_muon_a5e1fa4395f303dd8ef8c29a120ca0748}{set\+\_\+is\+\_\+isolated}} (bool is\+\_\+isolated\+\_\+particle)
+\item 
+void \mbox{\hyperlink{class_muon_a8f0e105444942097c5c590a2166df215}{set\+\_\+is\+\_\+antiparticle}} (bool is\+\_\+antiparticle)
+\item 
+void \mbox{\hyperlink{class_muon_a344f784d4a8d54dfec7b43ccd087d7a6}{set\+\_\+rest\+\_\+mass}} (double particle\+\_\+mass) override
+\item 
+void \mbox{\hyperlink{class_muon_adda09dcd4ee26b5c0c427c1ce30df9e1}{set\+\_\+name}} (std\+::string particle\+\_\+name) override
+\item 
+\mbox{\hyperlink{class_muon_a7d1534b8875364d8d31ab3594b0a8cc2}{Muon}} (const \mbox{\hyperlink{class_muon}{Muon}} \&muon\+\_\+called)
+\item 
+\mbox{\hyperlink{class_muon_ac259e0a605be0afd74dbbc3881f7f367}{Muon}} (\mbox{\hyperlink{class_muon}{Muon}} \&\&muon\+\_\+called)
+\item 
+\mbox{\hyperlink{class_muon}{Muon}} \& \mbox{\hyperlink{class_muon_a79e0be77632b6063c7a7a89bde378438}{operator=}} (const \mbox{\hyperlink{class_muon}{Muon}} \&muon\+\_\+called)
+\item 
+\mbox{\hyperlink{class_muon}{Muon}} \& \mbox{\hyperlink{class_muon_a7baa2c554994fdd80123eeb26112a8b0}{operator=}} (\mbox{\hyperlink{class_muon}{Muon}} \&\&muon\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lepton_a46aba73ace51df87d8390ffccf4c358e}{Lepton}} ()=default
+\item 
+\mbox{\hyperlink{class_lepton_a5ab065b5e3623852a0f293b74eeeaaad}{Lepton}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, int particle\+\_\+lepton\+\_\+number)
+\item 
+virtual \mbox{\hyperlink{class_lepton_a5ce71dbdf8bb5203625d6fd79a095126}{\texorpdfstring{$\sim$}{\string~}\+Lepton}} ()
+\item 
+void \mbox{\hyperlink{class_lepton_a34f8ba3155e05fd720c96ec61824cc81}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+int \mbox{\hyperlink{class_lepton_adbca036986ac65a94a98ec2e9f942556}{get\+\_\+lepton\+\_\+number}} () const
+\item 
+virtual void \mbox{\hyperlink{class_lepton_a4821893ec73195821b49cf173b54c5bb}{set\+\_\+lepton\+\_\+number}} (int particle\+\_\+lepton\+\_\+number)
+\item 
+\mbox{\hyperlink{class_lepton_ae0a346d1a68b155ec7ba2933dd0f6cca}{Lepton}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton_a675e35824a2ddc886ef869e6b7db2102}{Lepton}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a63c32e190f52baccc4dd5fa72e95568f}{operator=}} (const \mbox{\hyperlink{class_lepton}{Lepton}} \&lepton\+\_\+called)
+\item 
+\mbox{\hyperlink{class_lepton}{Lepton}} \& \mbox{\hyperlink{class_lepton_a668ae440c1b557dd05db3c967fb6246f}{operator=}} (\mbox{\hyperlink{class_lepton}{Lepton}} \&\&lepton\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_a19cd7c09d6e29bb04cea5940d765418b}{Particle}} (double particle\+\_\+charge, bool is\+\_\+antiparticle, double particle\+\_\+mass, std\+::string particle\+\_\+name, double particle\+\_\+energy, double particle\+\_\+px, double particle\+\_\+py, double particle\+\_\+pz, double particle\+\_\+spin)
+\item 
+void \mbox{\hyperlink{class_particle_ac9e2285c207556ce167a18b650d7f5af}{verify\+\_\+input}} (bool is\+\_\+antiparticle)
+\item 
+virtual \mbox{\hyperlink{class_particle_a058b1abe765620e5c5bad2aad654e6bc}{\texorpdfstring{$\sim$}{\string~}\+Particle}} ()
+\item 
+virtual void \mbox{\hyperlink{class_particle_adcc423153df0ac801db3933b396c4bc2}{print\+\_\+decay\+\_\+products}} ()
+\item 
+void \mbox{\hyperlink{class_particle_a5a402d369a37091bfa9de927dc881f89}{set\+\_\+four\+\_\+momentum\+\_\+ptr}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ momentum\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{class_particle_a1aeac259fe605da978515cb4a5bb9ee7}{set\+\_\+energy}} (double particle\+\_\+energy)
+\item 
+void \mbox{\hyperlink{class_particle_ae332be8023becf68f1ff5cd6f899e04e}{set\+\_\+px}} (double particle\+\_\+px)
+\item 
+void \mbox{\hyperlink{class_particle_a9b88a73601331a6282132c205403cdc8}{set\+\_\+py}} (double particle\+\_\+py)
+\item 
+void \mbox{\hyperlink{class_particle_a3bb48fc138a58b9fffad3d60501caa31}{set\+\_\+pz}} (double particle\+\_\+pz)
+\item 
+double \mbox{\hyperlink{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}{get\+\_\+spin}} () const
+\item 
+double \mbox{\hyperlink{class_particle_aa0b2cd179036d78598e82306c9e12cd5}{get\+\_\+rest\+\_\+mass}} () const
+\item 
+double \mbox{\hyperlink{class_particle_ace872a5c45504859bf205e5637d1b2a4}{get\+\_\+charge}} () const
+\item 
+bool \mbox{\hyperlink{class_particle_af8a27bbe7e54818aed1ae1675ec11629}{get\+\_\+is\+\_\+antiparticle}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_particle_ad96a53554a9e9cc190bec0900d23ce63}{get\+\_\+name}} () const
+\item 
+const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \& \mbox{\hyperlink{class_particle_a8530b94f3fcdcac718b1d9126b312642}{get\+\_\+four\+\_\+momentum\+\_\+ptr}} () const
+\item 
+\mbox{\hyperlink{class_particle_a2b3c4f466ec6eda0b93246abfd547ed7}{Particle}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle_aaf787bae47280ce10f5191637dd72d74}{Particle}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_ae912562b02101a830b94e7ce550d98a1}{operator=}} (const \mbox{\hyperlink{class_particle}{Particle}} \&particle\+\_\+called)
+\item 
+\mbox{\hyperlink{class_particle}{Particle}} \& \mbox{\hyperlink{class_particle_a1ed0d9cc396b6348c86f6672b7bde30d}{operator=}} (\mbox{\hyperlink{class_particle}{Particle}} \&\&particle\+\_\+called\+\_\+to\+\_\+move)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_lepton}{Lepton}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_lepton_aee832649ba67bbf4d91f40350b29976e}{lepton\+\_\+number}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_particle}{Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_particle_ada9510db375dd03fbe4c86108efd71f1}{spin}}
+\item 
+double \mbox{\hyperlink{class_particle_ae18ac1fdd88aac01bfaeb6998e943134}{rest\+\_\+mass}}
+\item 
+std\+::string \mbox{\hyperlink{class_particle_a20039760b0501863ec264537e9838199}{name}}
+\item 
+bool \mbox{\hyperlink{class_particle_a57fca11687c7e66d1245192d2073fcb8}{m\+\_\+is\+\_\+antiparticle}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_four_momentum}{Four\+Momentum}} $>$ \mbox{\hyperlink{class_particle_ad94713647c1798127f07cfc7c1b5bc38}{four\+\_\+momentum\+\_\+ptr}}
+\item 
+double \mbox{\hyperlink{class_particle_a6380328077c029a760f09c8ec0a9883e}{charge}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_muon_ace633a81a37a06dc0e517c7afa8abfdf}\label{class_muon_ace633a81a37a06dc0e517c7afa8abfdf} 
+\index{Muon@{Muon}!Muon@{Muon}}
+\index{Muon@{Muon}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{Muon()}{Muon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Muon\+::\+Muon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_muon_aedb58616b7522194d739f5deb78ed1f6}\label{class_muon_aedb58616b7522194d739f5deb78ed1f6} 
+\index{Muon@{Muon}!Muon@{Muon}}
+\index{Muon@{Muon}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{Muon()}{Muon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Muon\+::\+Muon (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle,  }\item[{double}]{particle\+\_\+energy,  }\item[{double}]{particle\+\_\+px,  }\item[{double}]{particle\+\_\+py,  }\item[{double}]{particle\+\_\+pz,  }\item[{bool}]{is\+\_\+isolated\+\_\+particle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_muon_a63a6efce50e985cf6b1ae7b2e2223aa1}\label{class_muon_a63a6efce50e985cf6b1ae7b2e2223aa1} 
+\index{Muon@{Muon}!````~Muon@{\texorpdfstring{$\sim$}{\string~}Muon}}
+\index{````~Muon@{\texorpdfstring{$\sim$}{\string~}Muon}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Muon()}{\string~Muon()}}
+{\footnotesize\ttfamily Muon\+::\texorpdfstring{$\sim$}{\string~}\+Muon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_muon_a7d1534b8875364d8d31ab3594b0a8cc2}\label{class_muon_a7d1534b8875364d8d31ab3594b0a8cc2} 
+\index{Muon@{Muon}!Muon@{Muon}}
+\index{Muon@{Muon}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{Muon()}{Muon()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Muon\+::\+Muon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_muon}{Muon}} \&}]{muon\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_muon_ac259e0a605be0afd74dbbc3881f7f367}\label{class_muon_ac259e0a605be0afd74dbbc3881f7f367} 
+\index{Muon@{Muon}!Muon@{Muon}}
+\index{Muon@{Muon}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{Muon()}{Muon()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Muon\+::\+Muon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_muon}{Muon}} \&\&}]{muon\+\_\+called }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_muon_a5a17ad9f0bf3d1dc6761a3fd22e360dc}\label{class_muon_a5a17ad9f0bf3d1dc6761a3fd22e360dc} 
+\index{Muon@{Muon}!get\_is\_isolated@{get\_is\_isolated}}
+\index{get\_is\_isolated@{get\_is\_isolated}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{get\_is\_isolated()}{get\_is\_isolated()}}
+{\footnotesize\ttfamily const bool Muon\+::get\+\_\+is\+\_\+isolated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_muon_a68d80c03fbf992a4549a3e4428bcd10e}\label{class_muon_a68d80c03fbf992a4549a3e4428bcd10e} 
+\index{Muon@{Muon}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Muon\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_ae34bf0af5dc46cc8c3978c8498043c1c}{Lepton}}.
+
+\Hypertarget{class_muon_a79e0be77632b6063c7a7a89bde378438}\label{class_muon_a79e0be77632b6063c7a7a89bde378438} 
+\index{Muon@{Muon}!operator=@{operator=}}
+\index{operator=@{operator=}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_muon}{Muon}} \& Muon\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_muon}{Muon}} \&}]{muon\+\_\+called }\end{DoxyParamCaption})}
+
+\Hypertarget{class_muon_a7baa2c554994fdd80123eeb26112a8b0}\label{class_muon_a7baa2c554994fdd80123eeb26112a8b0} 
+\index{Muon@{Muon}!operator=@{operator=}}
+\index{operator=@{operator=}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_muon}{Muon}} \& Muon\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_muon}{Muon}} \&\&}]{muon\+\_\+called\+\_\+to\+\_\+move }\end{DoxyParamCaption})}
+
+\Hypertarget{class_muon_a56b829dc934f0d24b06ede37535392fb}\label{class_muon_a56b829dc934f0d24b06ede37535392fb} 
+\index{Muon@{Muon}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
+{\footnotesize\ttfamily void Muon\+::print\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_lepton_a04e5d9df8e35f481bf7f828ded949e36}{Lepton}}.
+
+\Hypertarget{class_muon_a8f0e105444942097c5c590a2166df215}\label{class_muon_a8f0e105444942097c5c590a2166df215} 
+\index{Muon@{Muon}!set\_is\_antiparticle@{set\_is\_antiparticle}}
+\index{set\_is\_antiparticle@{set\_is\_antiparticle}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{set\_is\_antiparticle()}{set\_is\_antiparticle()}}
+{\footnotesize\ttfamily void Muon\+::set\+\_\+is\+\_\+antiparticle (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+antiparticle }\end{DoxyParamCaption})}
+
+\Hypertarget{class_muon_a5e1fa4395f303dd8ef8c29a120ca0748}\label{class_muon_a5e1fa4395f303dd8ef8c29a120ca0748} 
+\index{Muon@{Muon}!set\_is\_isolated@{set\_is\_isolated}}
+\index{set\_is\_isolated@{set\_is\_isolated}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{set\_is\_isolated()}{set\_is\_isolated()}}
+{\footnotesize\ttfamily void Muon\+::set\+\_\+is\+\_\+isolated (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+isolated\+\_\+particle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_muon_adda09dcd4ee26b5c0c427c1ce30df9e1}\label{class_muon_adda09dcd4ee26b5c0c427c1ce30df9e1} 
+\index{Muon@{Muon}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Muon\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string}]{particle\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_a20c58fcf6ab3928518b912b0e94a8c7d}{Particle}}.
+
+\Hypertarget{class_muon_a344f784d4a8d54dfec7b43ccd087d7a6}\label{class_muon_a344f784d4a8d54dfec7b43ccd087d7a6} 
+\index{Muon@{Muon}!set\_rest\_mass@{set\_rest\_mass}}
+\index{set\_rest\_mass@{set\_rest\_mass}!Muon@{Muon}}
+\doxysubsubsection{\texorpdfstring{set\_rest\_mass()}{set\_rest\_mass()}}
+{\footnotesize\ttfamily void Muon\+::set\+\_\+rest\+\_\+mass (\begin{DoxyParamCaption}\item[{double}]{particle\+\_\+mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_particle_add4444505ff3ac348bf7511560b8b529}{Particle}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_muon_8h}{Muon.\+h}}\item 
+\mbox{\hyperlink{_muon_8cpp}{Muon.\+cpp}}\end{DoxyCompactItemize}

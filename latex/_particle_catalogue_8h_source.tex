@@ -1,0 +1,282 @@
+\doxysection{Particle\+Catalogue.\+h}
+\hypertarget{_particle_catalogue_8h_source}{}\label{_particle_catalogue_8h_source}\mbox{\hyperlink{_particle_catalogue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARTICLECATALOGUE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARTICLECATALOGUE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_safe_shared_ptr_8h}{SafeSharedPtr.h}}"{}}\ \textcolor{comment}{//\ Include\ your\ SafeSharedPtr\ implementation}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lepton_8h}{Lepton.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ParticleType>}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\ }
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ Using\ std::multimap\ to\ store\ particles\ categorized\ by\ number,\ with\ an\ additional\ label\ for\ the\ type\ of\ particle}}
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ particle\_entry.first:\ Key\ ,\ particle\_entry.second.first:\ ptr\ to\ particle,\ \ particle\_entry.second.secpnd:\ label}}
+\DoxyCodeLine{00020\ \ \ std::map<std::string,\ std::pair<SafeSharedPtr<ParticleType>,\ std::string>>\ particle\_container;}
+\DoxyCodeLine{00021\ \ \ std::map<std::string,\ int>\ particle\_count;\ \textcolor{comment}{//\ Map\ to\ store\ the\ count\ of\ particles\ with\ the\ same\ name,\ Required\ to\ assign\ a\ unique\ key}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{ParticleCatalogue}}()\ :\ particle\_count\{\}\{\}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Add\ a\ particle\ to\ the\ catalogue}}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1}{add\_particle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}}\&\ particle);\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ Overload\ the\ []\ operator\ to\ retrieve\ a\ particle\ by\ key}}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}}\ \mbox{\hyperlink{class_particle_catalogue_a5c9a093a1d55004e3bd28a61b51ba40f}{operator[]}}(\textcolor{keyword}{const}\ std::string\&\ key);\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Function\ to\ get\ the\ label\ from\ a\ ContainerType\ element}}
+\DoxyCodeLine{00033\ \ \ std::string\ \mbox{\hyperlink{class_particle_catalogue_af1dd5b8851f95c97b7424aa17a1777aa}{get\_label}}(\textcolor{keyword}{const}\ std::pair<\mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}},\ std::string>\&\ particle\_entry)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Print\ all\ the\ Keys\ in\ the\ container}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_aca4af320855510dcc9336ac41fc892af}{print\_particles\_with\_key}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Get\ the\ total\ number\ of\ particles}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_particle_catalogue_ae36cf78b4082d2cf29c77723871feb23}{get\_total\_particles}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ particle\_container.size();\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_a3d7ff064aed0369404f9ed7c8c0d2359}{print\_particles\_count\_by\_type}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_catalogue_ae9f2394af39a774c44e09880b1ac4624}{get\_total\_count\_of\_a\_type}}(\textcolor{keyword}{const}\ std::string\&\ particle\_type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_ac3ea47e0c8a906efb90dec87a7dee13a}{print\_all\_particles}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ std::vector<double>\ \mbox{\hyperlink{class_particle_catalogue_a5bcb45af6cfe7cb28b756140a0073040}{sum\_four\_momentum}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\ \mbox{\hyperlink{class_particle_catalogue_a168b11642d1403bcf75b148dd500a9aa}{get\_container\_of\_a\_type}}(\textcolor{keyword}{const}\ std::string\&\ particle\_type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ Rule\ of\ Five}}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{ParticleCatalogue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\ \&particle\_catalogue\_called);\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{ParticleCatalogue}}(\mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\ \&\&particle\_catalogue\_called);\ \textcolor{comment}{//\ Move\ Constructor}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//\ Assignment\ operator\ made\ to\ do\ deep\ copy\ assigning.}}
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\&\ \mbox{\hyperlink{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\ \&particle\_catalogue\_called);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Move\ assignment\ operator\ using\ function\ overloading}}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\&\ \mbox{\hyperlink{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}{operator=}}(\mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue}}\&\&\ particle\_catalogue\_called\_to\_move);}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1}{ParticleCatalogue<ParticleType>::add\_particle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}}\&\ particle)\ }
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ std::string\ particle\_type;}
+\DoxyCodeLine{00069\ \ \ std::string\ key;}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{if}(particle-\/>get\_name()\ ==\ \textcolor{stringliteral}{"{}null"{}})}
+\DoxyCodeLine{00071\ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ particle\_type\ =\ \textcolor{stringliteral}{"{}null"{}};}
+\DoxyCodeLine{00073\ \ \ \ \ key\ =\ \textcolor{stringliteral}{"{}null"{}};}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00076\ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ unique\ key\ for\ the\ particle}}
+\DoxyCodeLine{00078\ \ \ \ \ std::ostringstream\ key\_stream;}
+\DoxyCodeLine{00079\ \ \ \ \ key\_stream\ <<\ particle-\/>get\_name()\ <<\ \textcolor{stringliteral}{"{}\_"{}}\ <<\ particle\_count[particle-\/>get\_name()]\ +\ 1;}
+\DoxyCodeLine{00080\ \ \ \ \ key\ =\ key\_stream.str();}
+\DoxyCodeLine{00081\ \ \ \ \ particle\_type\ =\ particle-\/>get\_type();}
+\DoxyCodeLine{00082\ \ \ \}}
+\DoxyCodeLine{00083\ \ \ }
+\DoxyCodeLine{00084\ \ \ \textcolor{comment}{//\ Insert\ the\ particle\ into\ the\ multimap\ with\ the\ generated\ key}}
+\DoxyCodeLine{00085\ \ \ particle\_container.insert(\{key,\ \{particle,\ particle\_type\}\});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{comment}{//\ Increment\ the\ count\ for\ this\ particle\ type}}
+\DoxyCodeLine{00088\ \ \ particle\_count[particle-\/>get\_name()]++;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00092\ \mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}}\ \mbox{\hyperlink{class_particle_catalogue_a5c9a093a1d55004e3bd28a61b51ba40f}{ParticleCatalogue<ParticleType>::operator[]}}(\textcolor{keyword}{const}\ std::string\&\ key)\ }
+\DoxyCodeLine{00093\ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ particle\_container.find(key);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ particle\_container.end())\ }
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \textcolor{comment}{//\ Key\ not\ found,\ return\ a\ default\ value\ (nullptr)}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Key\ not\ found:\ "{}}\ <<\ key\ <<\ std::endl;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \textcolor{comment}{//\ Key\ found,\ return\ the\ associated\ particle}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second.first;}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00109\ std::string\ \mbox{\hyperlink{class_particle_catalogue_af1dd5b8851f95c97b7424aa17a1777aa}{ParticleCatalogue<ParticleType>::get\_label}}(\textcolor{keyword}{const}\ std::pair<\mbox{\hyperlink{class_safe_shared_ptr}{SafeSharedPtr<ParticleType>}},\ std::string>\&\ particle\_entry)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00110\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordflow}{return}\ particle\_entry.second;}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_aca4af320855510dcc9336ac41fc892af}{ParticleCatalogue<ParticleType>::print\_particles\_with\_key}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00116\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00117\ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ }
+\DoxyCodeLine{00119\ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Key:\ "{}}<<std::left<<std::setw(30)<<particle\_entry.first<<\textcolor{stringliteral}{"{}Particle\ Type:\ "{}}<<particle\_entry.second.second<<std::endl;\textcolor{comment}{//\ Makes\ output\ cleaner}}
+\DoxyCodeLine{00121\ \ \ \}}
+\DoxyCodeLine{00122\ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_a3d7ff064aed0369404f9ed7c8c0d2359}{ParticleCatalogue<ParticleType>::print\_particles\_count\_by\_type}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00128\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00129\ \ \ std::map<std::string,\ int>\ particle\_type\_counts;}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ }
+\DoxyCodeLine{00131\ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ particle\_type\ =\ particle\_entry.second.second;}
+\DoxyCodeLine{00133\ \ \ \ \ particle\_type\_counts[particle\_type]++;\ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ std::cout<<\textcolor{stringliteral}{"{}Particle\ count\ by\ type:"{}}<<std::endl;}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ type\_count\_pair\ :\ particle\_type\_counts)\ }
+\DoxyCodeLine{00137\ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ particle\_type\ =\ type\_count\_pair.first;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ type\_count\_pair.second;}
+\DoxyCodeLine{00140\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tType:\ "{}}<<particle\_type\ <<\textcolor{stringliteral}{"{}\ has\ "{}}<<count<<\textcolor{stringliteral}{"{}\ counts."{}}<<std::endl;}
+\DoxyCodeLine{00141\ \ \ \}}
+\DoxyCodeLine{00142\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_catalogue_ae9f2394af39a774c44e09880b1ac4624}{ParticleCatalogue<ParticleType>::get\_total\_count\_of\_a\_type}}(\textcolor{keyword}{const}\ std::string\&\ particle\_type)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{if}(particle\_entry.second.second\ ==\ particle\_type)\ }
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ count\ =\ count\ +\ 1;}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_catalogue_ac3ea47e0c8a906efb90dec87a7dee13a}{ParticleCatalogue<ParticleType>::print\_all\_particles}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00158\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00159\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ }
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Key:\ "{}}<<particle\_entry.first<<std::endl;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ particle\_entry.second.first-\/>print\_data();}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00170\ std::vector<double>\ \mbox{\hyperlink{class_particle_catalogue_a5bcb45af6cfe7cb28b756140a0073040}{ParticleCatalogue<ParticleType>::sum\_four\_momentum}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00171\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00172\ \ \ std::vector<double>\ total\_momentum(4,0.0);}
+\DoxyCodeLine{00173\ \ \ \textcolor{comment}{//\ Iterate\ over\ all\ particles\ in\ the\ container}}
+\DoxyCodeLine{00174\ \ \ \textcolor{keywordflow}{if}(particle\_container.size()\ >=\ 2)}
+\DoxyCodeLine{00175\ \ \ \{\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ }
+\DoxyCodeLine{00177\ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ particle}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\ =\ particle\_entry.second.first;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ the\ four-\/momentum\ of\ the\ particle\ to\ the\ total}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ total\_momentum\ =\ total\_momentum\ +\ *particle;}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00185\ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Insufficient\ particles\ to\ calculate\ momentum."{}}<<std::endl;}
+\DoxyCodeLine{00187\ \ \ \}}
+\DoxyCodeLine{00188\ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00189\ \ \ std::cout<<\textcolor{stringliteral}{"{}Sum\ of\ all\ Four\ Momentums\ in\ Container."{}}<<std::endl;}
+\DoxyCodeLine{00190\ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tE:\ "{}}<<total\_momentum[0]<<\textcolor{stringliteral}{"{}\ MeV/c"{}}<<std::endl;}
+\DoxyCodeLine{00191\ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tpx:\ "{}}<<total\_momentum[1]<<\textcolor{stringliteral}{"{}\ MeV/c"{}}<<std::endl;}
+\DoxyCodeLine{00192\ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tpy:\ "{}}<<total\_momentum[2]<<\textcolor{stringliteral}{"{}\ MeV/c"{}}<<std::endl;}
+\DoxyCodeLine{00193\ \ \ std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)tpz:\ "{}}<<total\_momentum[3]<<\textcolor{stringliteral}{"{}\ MeV/c"{}}<<std::endl;}
+\DoxyCodeLine{00194\ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00195\ \ \ std::cout<<\textcolor{stringliteral}{"{}"{}}<<std::endl;}
+\DoxyCodeLine{00196\ \ \ \textcolor{keywordflow}{return}\ total\_momentum;}
+\DoxyCodeLine{00197\ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00200\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ \mbox{\hyperlink{class_particle_catalogue_a168b11642d1403bcf75b148dd500a9aa}{ParticleCatalogue<ParticleType>::get\_container\_of\_a\_type}}(\textcolor{keyword}{const}\ std::string\&\ particle\_type)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00201\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ new\_catalogue;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\_entry\ :\ particle\_container)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ particle\ =\ particle\_entry.second.first;}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ label\ =\ particle\_entry.second.second;}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (label\ ==\ particle\_type)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ new\_catalogue.\mbox{\hyperlink{class_particle_catalogue_a927ef5246a1360ef884f9a30840f64f1}{add\_particle}}(particle);}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \textcolor{keywordflow}{return}\ new\_catalogue;}
+\DoxyCodeLine{00213\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ Assignment\ Constructor\ to\ do\ Deep\ Copying}}
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ Assignment\ Constructor\ to\ do\ Deep\ Copying}}
+\DoxyCodeLine{00217\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00218\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\&\ \mbox{\hyperlink{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}{ParticleCatalogue<ParticleType>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ \&particle\_catalogue\_called)}
+\DoxyCodeLine{00219\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calling\ Assignment\ Constructor"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ Assignment\ Constructor\ replaces\ existing\ object\ with\ another\ existing\ object.}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{comment}{//\ Deep\ Copying\ Assignment\ implemented}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ RHS\ assigned\ to\ LHS}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ Need\ to\ delete\ dynamically\ allocated\ memory\ otherwise\ will\ cause\ memory\ leak}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//\ no\ self-\/assignment}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{if}\ (\&particle\_catalogue\_called\ ==\ \textcolor{keyword}{this})}
+\DoxyCodeLine{00228\ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ Assigns\ all\ data\ members\ from\ lepton\_called\ to\ current\ particle}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ Deep\ Copying\ implemented}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ this-\/>particle\_container\ =\ particle\_catalogue\_called.particle\_container;}
+\DoxyCodeLine{00235\ \ \ \ \ this-\/>particle\_count\ =\ particle\_catalogue\_called.particle\_count;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00237\ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00240\ \mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{ParticleCatalogue<ParticleType>::ParticleCatalogue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ \&particle\_catalogue\_called)}
+\DoxyCodeLine{00241\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calling\ Copy\ Constructor"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//\ Copies\ all\ data\ members\ from\ particle\_called\ to\ current\ catalogue}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ this-\/>particle\_container\ =\ particle\_catalogue\_called.particle\_container;}
+\DoxyCodeLine{00246\ \ \ \ \ this-\/>particle\_count\ =\ particle\_catalogue\_called.particle\_count;}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00250\ \mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\&\ \mbox{\hyperlink{class_particle_catalogue_a20d63d473a7087fe887b51002f0d3fef}{ParticleCatalogue<ParticleType>::operator=}}(\mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ \&\&particle\_catalogue\_called\_to\_move)}
+\DoxyCodeLine{00251\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calling\ Move\ Assignment\ operator"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ Check\ for\ self-\/moving}}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&particle\_catalogue\_called\_to\_move)}
+\DoxyCodeLine{00256\ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Self-\/moving\ detected\ in\ move\ assignment\ operator.\ Skipping\ move."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00261\ \ \ \ \ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Move\ the\ data\ members}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ this-\/>particle\_container\ =\ std::move(particle\_catalogue\_called\_to\_move.particle\_container);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ this-\/>particle\_count\ =\ std::move(particle\_catalogue\_called\_to\_move.particle\_count);}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00268\ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ParticleType>}
+\DoxyCodeLine{00271\ \mbox{\hyperlink{class_particle_catalogue_a217d1a5cc5e1f000ffc5586522d88fcc}{ParticleCatalogue<ParticleType>::ParticleCatalogue}}(\mbox{\hyperlink{class_particle_catalogue}{ParticleCatalogue<ParticleType>}}\ \&\&particle\_catalogue\_called\_to\_move)}
+\DoxyCodeLine{00272\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Calling\ Move\ Constructor"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{//\ Move\ the\ data\ members}}
+\DoxyCodeLine{00275\ \ \ \ \ this-\/>particle\_container\ =\ std::move(particle\_catalogue\_called\_to\_move.particle\_container);}
+\DoxyCodeLine{00276\ \ \ \ \ this-\/>particle\_count\ =\ std::move(particle\_catalogue\_called\_to\_move.particle\_count);}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}

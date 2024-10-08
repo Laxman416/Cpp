@@ -96,7 +96,7 @@ int main()
   catalogue["W^-_1"]->print_decay_products();
   catalogue["Higgs_1"]->print_decay_products();
 
-  new_catalogue.print_all_particles();
+  // new_catalogue.print_all_particles();
   // catalogue["Electron_21"]->print_data();
 
   return 0;
